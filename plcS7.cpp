@@ -1,3 +1,9 @@
+/*
+ * PlcS7 - wrapper class for snap7 lib
+ *
+ * Copyright (C) 2021 Kamil Wieczorek <kamiwie749@student.polsl.pl>
+*/
+
 #include "plcS7.h"
 
 #include <cmath>
@@ -1118,7 +1124,6 @@ void PlcS7::setInt(int16_t value, byte *buffer)
 
 void PlcS7::setUInt(uint16_t value, byte *buffer)
 {
-    // nw, czy nie na odwrót -- SPRAWDZIĆ
     buffer[0] = value >> 8;
     buffer[1] = value & 0xFF;
 }
