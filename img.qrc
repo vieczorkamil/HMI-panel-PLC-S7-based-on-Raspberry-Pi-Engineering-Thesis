@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Button/switchOff512x272.png</file>
+        <file>Button/switchOn512x272.png</file>
+    </qresource>
+</RCC>

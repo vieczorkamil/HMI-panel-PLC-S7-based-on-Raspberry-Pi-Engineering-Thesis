@@ -1020,7 +1020,7 @@ uint32_t PlcS7::getDWord(byte *buffer)
 
 int8_t PlcS7::getSInt(byte *buffer)
 {
-    int8_t sign = ((buffer[0] & 0b10000000) >> 7) * pow(-2, 7);
+    int8_t sign = ((buffer[0] & 0b10000000) >> 7) * static_cast<int8_t>(pow(-2, 7));
     int8_t value;
     value = buffer[0] & 0b01111111;
 
@@ -1034,7 +1034,7 @@ uint8_t PlcS7::getUSInt(byte *buffer)
 
 int16_t PlcS7::getInt(byte *buffer)
 {
-    int16_t sign = ((buffer[0] & 0b10000000) >> 7) * pow(-2, 15);
+    int16_t sign = ((buffer[0] & 0b10000000) >> 7) * static_cast<int16_t>(pow(-2, 15));
     int16_t value;
     value = getUint16(buffer) & 0x7FFF;
 
@@ -1048,7 +1048,7 @@ uint16_t PlcS7::getUInt(byte *buffer)
 
 int32_t PlcS7::getDInt(byte *buffer)
 {
-    int32_t sign = ((buffer[0] & 0b10000000) >> 7) * pow(-2, 31);
+    int32_t sign = ((buffer[0] & 0b10000000) >> 7) * static_cast<int32_t>(pow(-2, 31));
     int32_t value;
     value = getUint32(buffer) & 0x7FFFFFFF;
 
@@ -1069,20 +1069,20 @@ float PlcS7::getReal(byte *buffer)
     float fractionSum = 0.0;
     uint32_t result = getUint32(buffer);
 
-    exponent = result >> 23;
+    exponent = static_cast<uint8_t>(result >> 23);
     exponent &= 0xFF;
 
     fraction = result & 0x7FFFFF;
 
     for (i = -23; i < 0; i++)
     {
-        fractionSum += ((fraction << (31 - j)) >> 31) * pow(2, i);
+        fractionSum += ((fraction << (31 - j)) >> 31) * static_cast<float>(pow(2, i));
         j++;
     }
     if (result & (1 << 31))
-        return -1.0 * (1.0 + fractionSum) * pow(2, exponent - 127);
+        return -1.0f * (1.0f + fractionSum) * static_cast<float>(pow(2, exponent - 127));
     else
-        return (1.0 + fractionSum) * pow(2, exponent - 127);
+        return (1.0f + fractionSum) * static_cast<float>(pow(2, exponent - 127));
 }
 
 void PlcS7::setByte(byte value, byte *buffer)
@@ -1095,7 +1095,7 @@ void PlcS7::setSInt(int8_t value, byte *buffer)
     if (value < 0)
     {
         buffer[0] = 1 << 7;
-        value = value - pow(-2,7);
+        value = value - static_cast<int8_t>(pow(-2,7));
     }
     else
         buffer[0] = 0x00;
@@ -1113,7 +1113,7 @@ void PlcS7::setInt(int16_t value, byte *buffer)
     if (value < 0)
     {
         buffer[0] = 1 << 7;
-        value = value - pow(-2,15);
+        value = value - static_cast<int16_t>(pow(-2,15));
     }
     else
         buffer[0] = 0x00;
@@ -1133,7 +1133,7 @@ void PlcS7::setDInt(int32_t value, byte *buffer)
     if (value < 0)
     {
         buffer[0] = 1 << 7;
-        value = value - pow(-2,31);
+        value = value - static_cast<int32_t>(pow(-2,31));
     }
     else
         buffer[0] = 0x00;
@@ -1159,14 +1159,14 @@ void PlcS7::setReal(float value, byte *buffer)
     int i = 0;
 
     if (sign)
-        value = fabs(value);
-    while (value > 2.0)
+        value = static_cast<float>(fabs(static_cast<double>(value)));
+    while (value > 2.0f)
     {
-        value /= 2.0;
+        value /= 2.0f;
         i++;
     }
     int exponent = i + 127;
-    float mantissa = value - (int)(value);
+    float mantissa = value - static_cast<int>((value));
 
     /* set sign */
     binaryIEEE754[0] = sign;
@@ -1191,7 +1191,7 @@ void PlcS7::setReal(float value, byte *buffer)
     while (exponent > 0)
     {
         int mod = exponent % 2;
-        binaryIEEE754[8 - i] = (bool)mod;
+        binaryIEEE754[8 - i] = static_cast<bool>(mod);
         i++;
         exponent /= 2;
     }
