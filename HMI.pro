@@ -26,16 +26,20 @@ CONFIG += c++14
 
 SOURCES += \
         main.cpp \
-        mainwindow.cpp \
-    snap7.cpp \
-    plcS7.cpp \
-    worker.cpp
+        Source/mainwindow.cpp \
+        Source/snap7.cpp \
+        Source/plcS7.cpp \
+        Source/worker.cpp
 
 HEADERS += \
-        mainwindow.h \
-    plcS7.h \
-    snap7.h \
-    worker.h
+        Include/mainwindow.h \
+        Include/plcS7.h \
+        Include/snap7.h \
+        Include/worker.h
+
+INCLUDEPATH += \
+        Include \
+        Source \
 
 FORMS += \
         mainwindow.ui
