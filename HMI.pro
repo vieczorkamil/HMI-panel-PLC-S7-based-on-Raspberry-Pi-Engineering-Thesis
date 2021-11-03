@@ -28,12 +28,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     snap7.cpp \
-    plcS7.cpp
+    plcS7.cpp \
+    worker.cpp
 
 HEADERS += \
         mainwindow.h \
     plcS7.h \
-    snap7.h
+    snap7.h \
+    worker.h
 
 FORMS += \
         mainwindow.ui
