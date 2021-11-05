@@ -28,6 +28,7 @@ private:
 
 private slots:
     void closeButton_clicked();
+    void backToHomeScreen();
     void inputTestButton_clicked();
     void outputTestButton_clicked();
 };
