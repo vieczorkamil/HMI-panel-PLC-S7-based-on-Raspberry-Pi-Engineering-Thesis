@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 
+#include "inputwindow.h"
+#include "outputwindow.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -17,6 +20,16 @@ public:
 
 private:
     Ui::MainWindow *ui;
+    Inputwindow inputTestScreen;
+    Outputwindow outputTestScreen;
+
+    int inputTestScreen_INDEX = 1;
+    int outputTestScreen_INDEX = 2;
+
+private slots:
+    void closeButton_clicked();
+    void inputTestButton_clicked();
+    void outputTestButton_clicked();
 };
 
 #endif // MAINWINDOW_H
