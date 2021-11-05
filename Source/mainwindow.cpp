@@ -44,5 +44,5 @@ void MainWindow::inputTestButton_clicked()
 
 void MainWindow::outputTestButton_clicked()
 {
-    ui->mainScreen->setCurrentIndex(inputTestScreen_INDEX);
+    ui->mainScreen->setCurrentIndex(outputTestScreen_INDEX);
 }

@@ -6,9 +6,17 @@ Inputwindow::Inputwindow(QWidget *parent) :
     ui(new Ui::Inputwindow)
 {
     ui->setupUi(this);
+
+    /* Button's SIGNAL - SLOT connection */
+    connect(ui->backButton, SIGNAL(clicked()), this, SLOT(backButton_clicked()));
 }
 
 Inputwindow::~Inputwindow()
 {
     delete ui;
+}
+
+void Inputwindow::backButton_clicked()
+{
+    emit backToHomeScreen();
 }

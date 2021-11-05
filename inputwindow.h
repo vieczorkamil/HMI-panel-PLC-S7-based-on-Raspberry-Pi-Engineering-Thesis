@@ -17,6 +17,12 @@ public:
 
 private:
     Ui::Inputwindow *ui;
+
+signals:
+    void backToHomeScreen();
+
+private slots:
+    void backButton_clicked();
 };
 
 #endif // INPUTWINDOW_H

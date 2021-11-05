@@ -15,7 +15,7 @@
   </property>
   <property name="styleSheet">
    <string notr="true">#Outputwindow{
-	background: rgb(188, 188, 188);
+	background-color:rgb(188,188,188);
 }
 #infoLabel{
 	color: rgb(68, 68, 68);
