@@ -29,20 +29,26 @@ SOURCES += \
         Source/mainwindow.cpp \
         Source/snap7.cpp \
         Source/plcS7.cpp \
-        Source/worker.cpp
+        Source/worker.cpp \
+    inputwindow.cpp \
+    outputwindow.cpp
 
 HEADERS += \
         Include/mainwindow.h \
         Include/plcS7.h \
         Include/snap7.h \
-        Include/worker.h
+        Include/worker.h \
+    inputwindow.h \
+    outputwindow.h
 
 INCLUDEPATH += \
         Include \
         Source \
 
 FORMS += \
-        mainwindow.ui
+        mainwindow.ui \
+    inputwindow.ui \
+    outputwindow.ui
 
 LIBS += -lsnap7
 

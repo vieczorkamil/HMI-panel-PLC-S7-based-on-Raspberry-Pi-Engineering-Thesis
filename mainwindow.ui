@@ -1,24 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow" >
-  <property name="geometry" >
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>1024</width>
+    <height>600</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QMenuBar" name="menuBar" />
-  <widget class="QToolBar" name="mainToolBar" />
-  <widget class="QWidget" name="centralWidget" />
-  <widget class="QStatusBar" name="statusBar" />
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QStackedWidget" name="mainScreen">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1024</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#homeScreen{
+	background: rgb(188, 188, 188);
+}
+#infoLabel{
+	color: rgb(68, 68, 68);
+}
+QPushButton{
+	outline : 0px;
+	font: bold 14px;
+	color: white;
+	background: rgb(68, 68, 68);
+	border-radius: 7px;
+}
+
+QPushButton:pressed{ 
+	background:rgb(134, 134, 134) ;
+}</string>
+    </property>
+    <widget class="QWidget" name="homeScreen">
+     <widget class="QPushButton" name="inputTestButton">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>510</y>
+        <width>100</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Input test</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="outputTestButton">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>510</y>
+        <width>100</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Output test</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="closeButton">
+      <property name="geometry">
+       <rect>
+        <x>894</x>
+        <y>510</y>
+        <width>100</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Close</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="infoLabel">
+      <property name="geometry">
+       <rect>
+        <x>397</x>
+        <y>30</y>
+        <width>230</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>22</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>HMI home screen</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2"/>
+   </widget>
+  </widget>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
  <resources/>
  <connections/>
 </ui>
