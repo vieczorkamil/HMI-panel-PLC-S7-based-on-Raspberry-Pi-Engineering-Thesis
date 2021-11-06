@@ -39,7 +39,8 @@ HEADERS += \
         Include/snap7.h \
         Include/worker.h \
     inputwindow.h \
-    outputwindow.h
+    outputwindow.h \
+    configPLC.h
 
 INCLUDEPATH += \
         Include \

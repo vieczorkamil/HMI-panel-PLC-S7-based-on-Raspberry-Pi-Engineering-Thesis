@@ -6,6 +6,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    myWorker.moveToThread(&myThread);
+    myThread.start();
+
     ui->mainScreen->setCurrentIndex(ui->mainScreen->indexOf(ui->homeScreen)); // set homeScreen as default
 
     /* Add new screen */
@@ -20,10 +24,32 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(closeButton_clicked()));
     connect(ui->inputTestButton, SIGNAL(clicked()), this, SLOT(inputTestButton_clicked()));
     connect(ui->outputTestButton, SIGNAL(clicked()), this, SLOT(outputTestButton_clicked()));
+
+    /* Thread SIGNAL - SLOT connection */
+    connect(&myThread, SIGNAL(finished()), myWorker.myTimer, SLOT(stop())); //zatrzymanie timera po zakończeniu wątku
+    //void connectToPlc(); // wątpliwości co do zasady działania - do przemyślenia
+    //void disconnectFromPlc();
+    connect(&inputTestScreen, SIGNAL(changeInput0_0()), &myWorker, SLOT(setInput0_0()));
+    connect(&inputTestScreen, SIGNAL(changeInput0_1()), &myWorker, SLOT(setInput0_1()));
+    connect(&inputTestScreen, SIGNAL(changeInput0_2()), &myWorker, SLOT(setInput0_2()));
+    connect(&inputTestScreen, SIGNAL(changeInput0_3()), &myWorker, SLOT(setInput0_3()));
+    connect(&inputTestScreen, SIGNAL(changeInput0_4()), &myWorker, SLOT(setInput0_4()));
+    connect(&inputTestScreen, SIGNAL(changeInput0_5()), &myWorker, SLOT(setInput0_5()));
+    connect(&inputTestScreen, SIGNAL(changeInput0_6()), &myWorker, SLOT(setInput0_6()));
+    connect(&inputTestScreen, SIGNAL(changeInput0_7()), &myWorker, SLOT(setInput0_7()));
+
+    connect(&inputTestScreen, SIGNAL(changeInputB1()), &myWorker, SLOT(setInputB1()));
+    connect(&inputTestScreen, SIGNAL(changeInputB2()), &myWorker, SLOT(setInputB2()));
+    connect(&inputTestScreen, SIGNAL(changeInputW3()), &myWorker, SLOT(setInputW3()));
+    connect(&inputTestScreen, SIGNAL(changeInputW5()), &myWorker, SLOT(setInputW5()));
+    connect(&inputTestScreen, SIGNAL(changeInputD7()), &myWorker, SLOT(setInputD7()));
+    connect(&inputTestScreen, SIGNAL(changeInputD11()), &myWorker, SLOT(setInputD11()));
 }
 
 MainWindow::~MainWindow()
 {
+    myThread.quit();
+    myThread.wait();
     delete ui;
 }
 

@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QString>
 
+#include "configPLC.h"
+
 namespace Ui {
 class Inputwindow;
 }
@@ -17,6 +19,7 @@ public:
     ~Inputwindow();
 
     /* tymczasowo */
+/*
     bool I0_0 = false;
     bool I0_1 = false;
     bool I0_2 = false;
@@ -36,7 +39,7 @@ public:
     QString PLC_IP = "192.168.170.10";
     int PLC_RACK = 0;
     int PLC_SLOT = 1;
-
+*/
 
 private:
     Ui::Inputwindow *ui;

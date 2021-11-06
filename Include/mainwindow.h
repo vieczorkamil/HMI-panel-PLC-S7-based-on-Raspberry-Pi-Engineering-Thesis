@@ -2,7 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QThread>
 
+#include "worker.h"
 #include "inputwindow.h"
 #include "outputwindow.h"
 
@@ -22,6 +24,8 @@ private:
     Ui::MainWindow *ui;
     Inputwindow inputTestScreen;
     Outputwindow outputTestScreen;
+    QThread myThread;
+    Worker myWorker;
 
     int inputTestScreen_INDEX = 1;
     int outputTestScreen_INDEX = 2;
