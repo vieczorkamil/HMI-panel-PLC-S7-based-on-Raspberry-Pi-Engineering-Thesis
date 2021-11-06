@@ -27,8 +27,10 @@ MainWindow::MainWindow(QWidget *parent) :
 
     /* Thread SIGNAL - SLOT connection */
     connect(&myThread, SIGNAL(finished()), myWorker.myTimer, SLOT(stop())); //zatrzymanie timera po zakończeniu wątku
-    //void connectToPlc(); // wątpliwości co do zasady działania - do przemyślenia
-    //void disconnectFromPlc();
+    /* Connect and disconnect PLC */
+    connect(&inputTestScreen, SIGNAL(connectToPlc()), &myWorker, SLOT(connectToPlc()));
+    connect(&inputTestScreen, SIGNAL(disconnectFromPlc()), &myWorker, SLOT(disconnectFromPlc()));
+    /* Input bite 0 */
     connect(&inputTestScreen, SIGNAL(changeInput0_0()), &myWorker, SLOT(setInput0_0()));
     connect(&inputTestScreen, SIGNAL(changeInput0_1()), &myWorker, SLOT(setInput0_1()));
     connect(&inputTestScreen, SIGNAL(changeInput0_2()), &myWorker, SLOT(setInput0_2()));
@@ -37,7 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(&inputTestScreen, SIGNAL(changeInput0_5()), &myWorker, SLOT(setInput0_5()));
     connect(&inputTestScreen, SIGNAL(changeInput0_6()), &myWorker, SLOT(setInput0_6()));
     connect(&inputTestScreen, SIGNAL(changeInput0_7()), &myWorker, SLOT(setInput0_7()));
-
+    /* Other inputs */
     connect(&inputTestScreen, SIGNAL(changeInputB1()), &myWorker, SLOT(setInputB1()));
     connect(&inputTestScreen, SIGNAL(changeInputB2()), &myWorker, SLOT(setInputB2()));
     connect(&inputTestScreen, SIGNAL(changeInputW3()), &myWorker, SLOT(setInputW3()));
