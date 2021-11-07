@@ -42,7 +42,7 @@ int PlcS7::disconnect()
 int PlcS7::connect()
 {
     DEBUG("Cli_Connect()");
-    
+
     if (Cli_Connect(Client))
     {
         return Cli_ConnectTo(Client, ip, rack, slot);
@@ -52,12 +52,15 @@ int PlcS7::connect()
         DEBUG("ALREADY CONNECTED");
         return Cli_Connect(Client);
     }
-    
 }
 
-int PlcS7::isConnect()
+bool PlcS7::isConnect()
 {
-    return Cli_Connect(Client);
+    /* Return true if PLC is connected correctly and false if not */
+    if (Cli_Connect(Client) == 0)
+        return true;
+    else
+        return false;
 }
 
 int PlcS7::getPlcInfo()
@@ -69,13 +72,13 @@ int PlcS7::getPlcMode()
 {
     int status;
     int err = Cli_GetPlcStatus(Client, &status);
-    if(!err)
+    if (!err)
     {
-        if(status == 0x08)
+        if (status == 0x08)
             return 1; // The CPU is running
-        else if(status == 0x04)
+        else if (status == 0x04)
             return 0; // The CPU is stopped
-        else 
+        else
             return -1; // The CPU status is unknown
     }
     else
@@ -909,12 +912,12 @@ int PlcS7::writeDataBlock_Bit(bool value, int DBNumber, int offsetByte, int offs
 {
     bool out = value;
     int offset = offsetByte * 8 + offsetBit;
-    int err = Cli_WriteArea(Client, S7AreaDB, DBNumber, offset, 1, S7WLBit, &out);  
+    int err = Cli_WriteArea(Client, S7AreaDB, DBNumber, offset, 1, S7WLBit, &out);
     if (err)
     {
         DEBUG("error : " << err);
     }
-    return err;  
+    return err;
 }
 
 int PlcS7::writeDataBlock_SInt(int8_t value, int DBNumber, int offset)
@@ -1095,7 +1098,7 @@ void PlcS7::setSInt(int8_t value, byte *buffer)
     if (value < 0)
     {
         buffer[0] = 1 << 7;
-        value = value - static_cast<int8_t>(pow(-2,7));
+        value = value - static_cast<int8_t>(pow(-2, 7));
     }
     else
         buffer[0] = 0x00;
@@ -1113,11 +1116,11 @@ void PlcS7::setInt(int16_t value, byte *buffer)
     if (value < 0)
     {
         buffer[0] = 1 << 7;
-        value = value - static_cast<int16_t>(pow(-2,15));
+        value = value - static_cast<int16_t>(pow(-2, 15));
     }
     else
         buffer[0] = 0x00;
-    
+
     buffer[0] |= (value >> 8) & 0x7F;
     buffer[1] = value & 0xFF;
 }
@@ -1133,7 +1136,7 @@ void PlcS7::setDInt(int32_t value, byte *buffer)
     if (value < 0)
     {
         buffer[0] = 1 << 7;
-        value = value - static_cast<int32_t>(pow(-2,31));
+        value = value - static_cast<int32_t>(pow(-2, 31));
     }
     else
         buffer[0] = 0x00;

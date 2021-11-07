@@ -21,12 +21,12 @@ public:
     S7Object Client;
     TS7CpuInfo plcInfo;
     /*-------------------------------------------*/
-    
+
     PlcS7(const char *ip, int rack, int slot);
     ~PlcS7();
     int disconnect();
     int connect();
-    int isConnect();
+    bool isConnect();
     int getPlcInfo();
     int getPlcMode();
     int stopPlc();
@@ -140,7 +140,6 @@ private:
     uint8_t getUint8(byte *buffer);
     uint16_t getUint16(byte *buffer);
     uint32_t getUint32(byte *buffer);
-
 };
 
 #endif
