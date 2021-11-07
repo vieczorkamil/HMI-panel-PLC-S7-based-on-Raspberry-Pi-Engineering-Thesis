@@ -1,9 +1,12 @@
 #include "worker.h"
 
+infoPLC_t infoPLC;
+
 Worker::Worker(QObject *parent) : QObject(parent)
 {
     myTimer = new QTimer(this);
-    myPlc = new PlcS7(PLC_IP.toStdString().c_str(), PLC_RACK, PLC_SLOT);
+    //myPlc = new PlcS7(PLC_IP.toStdString().c_str(), PLC_RACK, PLC_SLOT);
+    myPlc = new PlcS7("192.168.137.10", 0 , 1);
 
     connect(myTimer, SIGNAL(timeout()), this, SLOT(update()));
 
@@ -19,13 +22,40 @@ Worker::~Worker()
 void Worker::connectToPlc()
 {
     if (myPlc->isConnect() == false)
-        myPlc->connect();
+    {
+        if(myPlc->connect() == 0)
+        {
+            qDebug("Chyba się połączył");
+            myPlc->getPlcInfo();
+            strcpy(infoPLC.MODULE_TYPE_NAME, myPlc->plcInfo.ModuleTypeName);
+            strcpy(infoPLC.SERIAL_NUMBER, myPlc->plcInfo.SerialNumber);
+            strcpy(infoPLC.AS_NAME, myPlc->plcInfo.ASName);
+            strcpy(infoPLC.COPYRIGHT, myPlc->plcInfo.Copyright);
+            strcpy(infoPLC.MODULE_NAME, myPlc->plcInfo.ModuleName);
+        }
+    }
 }
 
 void Worker::disconnectFromPlc()
 {
-    if (myPlc->connect())
-        myPlc->disconnect();
+    if (myPlc->isConnect())
+    {
+        qDebug("DISCONNECT - jestem połaczony");
+        if(myPlc->disconnect() == 0)
+        {
+            qDebug("DISCONNECT - disconnect() == 0");
+            strcpy(infoPLC.MODULE_TYPE_NAME, "");
+            strcpy(infoPLC.SERIAL_NUMBER, "");
+            strcpy(infoPLC.AS_NAME, "");
+            strcpy(infoPLC.COPYRIGHT, "");
+            strcpy(infoPLC.MODULE_NAME, "");
+        }
+        else {
+            qDebug("DISCONNECT - disconnect() != 0");
+        }
+    }
+    if (myPlc->isConnect())
+        qDebug("DISCONNECT - nadal jestem połaczony");
 }
 
 void Worker::update()
@@ -38,10 +68,14 @@ void Worker::setInput0_0()
 {
     if (myPlc->isConnect())
     {
+        qDebug("Polonczone");
         // mutex?
         myPlc->writeI(inputPLC.I0_0, 0, 0);
     }
-    qDebug() << inputPLC.I0_0;
+    else {
+        qDebug("NIE polonczone");
+    }
+    //qDebug() << inputPLC.I0_0;
 }
 void Worker::setInput0_1()
 {

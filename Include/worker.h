@@ -5,8 +5,10 @@
 #include <QThread>
 #include <QDebug>
 #include <QTimer>
+#include <cstring>
 
 #include "configPLC.h"
+#include "plcS7.h"
 
 class Worker : public QObject
 {
@@ -14,6 +16,7 @@ class Worker : public QObject
 
 public:
     QTimer *myTimer;
+    PlcS7 *myPlc;
 
     explicit Worker(QObject *parent = nullptr);
     ~Worker();
@@ -22,6 +25,9 @@ signals:
     void updateResult();
 
 public slots:
+    void connectToPlc();
+    void disconnectFromPlc();
+
     void update();
 
     void setInput0_0();

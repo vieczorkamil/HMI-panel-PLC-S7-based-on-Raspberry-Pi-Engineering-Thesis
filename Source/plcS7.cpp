@@ -11,6 +11,11 @@
 
 #define DEBUG(msg) std::cout << msg << std::endl
 
+PlcS7::PlcS7()
+{
+    Client = Cli_Create();
+}
+
 PlcS7::PlcS7(const char *ip, int rack, int slot)
 {
     Client = Cli_Create();
@@ -25,11 +30,19 @@ PlcS7::~PlcS7()
     Cli_Destroy(&Client);
 }
 
+void PlcS7::setParms(const char *ip, int rack, int slot)
+{
+    this->ip = ip;
+    this->rack = rack;
+    this->slot = slot;
+}
+
 int PlcS7::disconnect()
 {
     DEBUG("Cli_Disconnect()");
     if (!Cli_Connect(Client))
     {
+        DEBUG("ACTIVE CONNECTION - TRY TO DISCONNECT");
         return Cli_Disconnect(Client);
     }
     else

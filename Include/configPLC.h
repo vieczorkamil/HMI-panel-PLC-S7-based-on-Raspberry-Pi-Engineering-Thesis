@@ -15,6 +15,14 @@ extern int PLC_SLOT;
 extern double value;
 
 typedef struct{
+    char MODULE_TYPE_NAME[33];
+    char SERIAL_NUMBER[25];
+    char AS_NAME[25];
+    char COPYRIGHT[27];
+    char MODULE_NAME[25];
+} infoPLC_t;
+
+typedef struct{
     bool I0_0;
     bool I0_1;
     bool I0_2;
@@ -33,5 +41,6 @@ typedef struct{
 } inputPLC_t;
 
 extern inputPLC_t inputPLC;
+extern infoPLC_t infoPLC;
 
 #endif // CONFIGPLC_H

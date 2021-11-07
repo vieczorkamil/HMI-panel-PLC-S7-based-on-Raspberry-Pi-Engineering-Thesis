@@ -22,8 +22,10 @@ public:
     TS7CpuInfo plcInfo;
     /*-------------------------------------------*/
 
+    PlcS7();
     PlcS7(const char *ip, int rack, int slot);
     ~PlcS7();
+    void setParms(const char *ip, int rack, int slot);
     int disconnect();
     int connect();
     bool isConnect();
