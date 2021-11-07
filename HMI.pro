@@ -27,29 +27,31 @@ CONFIG += c++14
 SOURCES += \
         main.cpp \
         Source/mainwindow.cpp \
-        Source/snap7.cpp \
+        ExternalLibs/snap7.cpp \
         Source/plcS7.cpp \
         Source/worker.cpp \
-    inputwindow.cpp \
-    outputwindow.cpp
+        Source/inputwindow.cpp \
+        Source/outputwindow.cpp
 
 HEADERS += \
         Include/mainwindow.h \
         Include/plcS7.h \
-        Include/snap7.h \
+        ExternalLibs/snap7.h \
         Include/worker.h \
-    inputwindow.h \
-    outputwindow.h \
-    configPLC.h
+        Include/inputwindow.h \
+        Include/outputwindow.h \
+        Include/configPLC.h
 
 INCLUDEPATH += \
         Include \
         Source \
+        Forms \
+        ExternalLibs \
 
 FORMS += \
-        mainwindow.ui \
-    inputwindow.ui \
-    outputwindow.ui
+        Forms/mainwindow.ui \
+        Forms/inputwindow.ui \
+        Forms/outputwindow.ui
 
 LIBS += -lsnap7
 
