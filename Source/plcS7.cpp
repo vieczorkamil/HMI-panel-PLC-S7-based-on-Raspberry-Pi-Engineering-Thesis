@@ -72,7 +72,7 @@ int PlcS7::connect()
 bool PlcS7::isConnect()
 {
     /* Return true if PLC is connected correctly and false if not */
-    if (Cli_Connect(Client) == 0)
+    if (Cli_Connect(Client) == 0) // Propabliy some bug in snap7 don't use xd
         return true;
     else
         return false;

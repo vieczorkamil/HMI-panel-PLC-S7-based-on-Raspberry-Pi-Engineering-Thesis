@@ -179,50 +179,25 @@ void Inputwindow::inputD11Button_clicked()
 {
     //mutex !?
     inputPLC.ID11 = static_cast<float>(ui->inputD11->value());
+    qDebug() << ui->inputD11->value();
+    qDebug() << static_cast<float>(ui->inputD11->value());
     emit changeInputD11();
 }
-/*
-void Inputwindow::connectButton_clicked()
-{
-    PLC_IP = ui->inputIP->toPlainText();
-    PLC_RACK = ui->inputRACK->value();
-    PLC_SLOT = ui->inputSLOT->value();
 
-    if(ui->connectButton->text() == "CONNECT")
-    {
-        ui->connectButton->setText("DISCONNECT");
-        emit connectToPlc();
-    }
-    else
-    {
-        ui->connectButton->setText("CONNECT");
-        emit disconnectFromPlc();
-    }
-}
-*/
 void Inputwindow::connectButton_clicked()
 {
     PLC_IP = ui->inputIP->toPlainText();
     PLC_RACK = ui->inputRACK->value();
     PLC_SLOT = ui->inputSLOT->value();
     emit connectToPlc();
-    // nie działa bo trzeba poczekać xd
-    //if(infoPLC.IS_CONNECTED == true)
-    {
-        ui->disconnectButton->setEnabled(true);
-        ui->connectButton->setEnabled(false);
-
-    }
+    ui->disconnectButton->setEnabled(true);
+    ui->connectButton->setEnabled(false);
 }
 
 void Inputwindow::disconnectButton_clicked()
 {
     emit disconnectFromPlc();
-
-    if(infoPLC.IS_CONNECTED == false)
-    {
-        ui->connectButton->setEnabled(true);
-        ui->disconnectButton->setEnabled(false);
-    }
+    ui->connectButton->setEnabled(true);
+    ui->disconnectButton->setEnabled(false);
 }
 

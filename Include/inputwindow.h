@@ -18,36 +18,13 @@ public:
     explicit Inputwindow(QWidget *parent = nullptr);
     ~Inputwindow();
 
-    /* tymczasowo */
-/*
-    bool I0_0 = false;
-    bool I0_1 = false;
-    bool I0_2 = false;
-    bool I0_3 = false;
-    bool I0_4 = false;
-    bool I0_5 = false;
-    bool I0_6 = false;
-    bool I0_7 = false;
-
-    int8_t IB1 = 0;
-    uint8_t IB2 = 0;
-    int16_t IW3 = 0;
-    uint16_t IW5 = 0;
-    float ID7 = 0.0f;
-    float ID11 = 0.0f;
-
-    QString PLC_IP = "192.168.170.10";
-    int PLC_RACK = 0;
-    int PLC_SLOT = 1;
-*/
-
 private:
     Ui::Inputwindow *ui;
 
 signals:
     void backToHomeScreen();
 
-    void connectToPlc(); // wątpliwości co do zasady działania - do przemyślenia
+    void connectToPlc();
     void disconnectFromPlc();
 
     void changeInput0_0();
