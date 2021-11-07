@@ -2,6 +2,7 @@
 #define OUTPUTWINDOW_H
 
 #include <QWidget>
+#include <QTimer>
 
 #include "configPLC.h"
 
@@ -20,13 +21,15 @@ public:
 private:
     Ui::Outputwindow *ui;
 
+    QTimer *myTimer;
+
 signals:
     void backToHomeScreen();
 
 private slots:
     void backButton_clicked();
-    void showButton_clicked();
     void updatePLCInfo();
+    void update();
 };
 
 #endif // OUTPUTWINDOW_H

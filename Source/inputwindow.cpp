@@ -4,14 +4,15 @@
 #include <QDebug>
 
 inputPLC_t inputPLC; // extern typedef struct of PLC input
-/*
+
 QString PLC_IP = "192.168.137.10";
 int PLC_RACK = 0;
 int PLC_SLOT = 1;
-*/
+/*
 QString PLC_IP = "";
 int PLC_RACK = 0;
 int PLC_SLOT = 0;
+*/
 
 Inputwindow::Inputwindow(QWidget *parent) :
     QWidget(parent),
