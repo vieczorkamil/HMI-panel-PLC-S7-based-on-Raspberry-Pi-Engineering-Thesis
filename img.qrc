@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>Button/switchOff512x272.png</file>
         <file>Button/switchOn512x272.png</file>
+        <file>Led/ledOFF.png</file>
+        <file>Led/ledON.png</file>
     </qresource>
 </RCC>

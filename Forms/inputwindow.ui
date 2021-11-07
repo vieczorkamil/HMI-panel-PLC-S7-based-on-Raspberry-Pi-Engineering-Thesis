@@ -330,7 +330,7 @@ QTextEdit{
     <rect>
      <x>300</x>
      <y>106</y>
-     <width>75</width>
+     <width>100</width>
      <height>34</height>
     </rect>
    </property>
@@ -355,7 +355,7 @@ QTextEdit{
     <rect>
      <x>300</x>
      <y>156</y>
-     <width>75</width>
+     <width>100</width>
      <height>34</height>
     </rect>
    </property>
@@ -380,7 +380,7 @@ QTextEdit{
     <rect>
      <x>300</x>
      <y>256</y>
-     <width>91</width>
+     <width>100</width>
      <height>34</height>
     </rect>
    </property>
@@ -405,7 +405,7 @@ QTextEdit{
     <rect>
      <x>300</x>
      <y>306</y>
-     <width>91</width>
+     <width>100</width>
      <height>34</height>
     </rect>
    </property>
@@ -472,9 +472,9 @@ QTextEdit{
   <widget class="QLabel" name="InputB1Label">
    <property name="geometry">
     <rect>
-     <x>404</x>
+     <x>420</x>
      <y>106</y>
-     <width>127</width>
+     <width>145</width>
      <height>34</height>
     </rect>
    </property>
@@ -485,9 +485,9 @@ QTextEdit{
   <widget class="QLabel" name="InputB2Label">
    <property name="geometry">
     <rect>
-     <x>400</x>
+     <x>420</x>
      <y>156</y>
-     <width>140</width>
+     <width>145</width>
      <height>34</height>
     </rect>
    </property>
@@ -498,9 +498,9 @@ QTextEdit{
   <widget class="QLabel" name="InputW3Label">
    <property name="geometry">
     <rect>
-     <x>418</x>
+     <x>420</x>
      <y>256</y>
-     <width>117</width>
+     <width>145</width>
      <height>34</height>
     </rect>
    </property>
@@ -511,9 +511,9 @@ QTextEdit{
   <widget class="QLabel" name="InputW5Label">
    <property name="geometry">
     <rect>
-     <x>412</x>
+     <x>420</x>
      <y>306</y>
-     <width>131</width>
+     <width>145</width>
      <height>34</height>
     </rect>
    </property>
@@ -524,9 +524,9 @@ QTextEdit{
   <widget class="QLabel" name="InputD7Label">
    <property name="geometry">
     <rect>
-     <x>425</x>
+     <x>420</x>
      <y>406</y>
-     <width>135</width>
+     <width>145</width>
      <height>34</height>
     </rect>
    </property>
