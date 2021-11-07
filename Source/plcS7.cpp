@@ -13,11 +13,13 @@
 
 PlcS7::PlcS7()
 {
+    DEBUG("Cli_Create()");
     Client = Cli_Create();
 }
 
 PlcS7::PlcS7(const char *ip, int rack, int slot)
 {
+    DEBUG("Cli_Create()");
     Client = Cli_Create();
     this->ip = ip;
     this->rack = rack;

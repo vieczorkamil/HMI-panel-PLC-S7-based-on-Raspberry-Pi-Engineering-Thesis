@@ -46,6 +46,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(&inputTestScreen, SIGNAL(changeInputW5()), &myWorker, SLOT(setInputW5()));
     connect(&inputTestScreen, SIGNAL(changeInputD7()), &myWorker, SLOT(setInputD7()));
     connect(&inputTestScreen, SIGNAL(changeInputD11()), &myWorker, SLOT(setInputD11()));
+    /* Update PLC info */
+    connect(&myWorker, SIGNAL(updatePLCInfo()), &outputTestScreen, SLOT(updatePLCInfo()));
 }
 
 MainWindow::~MainWindow()

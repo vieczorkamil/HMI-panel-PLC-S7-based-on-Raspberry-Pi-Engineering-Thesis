@@ -20,6 +20,7 @@ typedef struct{
     char AS_NAME[25];
     char COPYRIGHT[27];
     char MODULE_NAME[25];
+    bool IS_CONNECTED;
 } infoPLC_t;
 
 typedef struct{
@@ -40,7 +41,27 @@ typedef struct{
     float ID11;
 } inputPLC_t;
 
-extern inputPLC_t inputPLC;
+typedef struct{
+    bool Q0_0;
+    bool Q0_1;
+    bool Q0_2;
+    bool Q0_3;
+    bool Q0_4;
+    bool Q0_5;
+    bool Q0_6;
+    bool Q0_7;
+
+    int8_t QB1;
+    uint8_t QB2;
+    int16_t QW3;
+    uint16_t QW5;
+    float QD7;
+    float QD11;
+} outputPLC_t;
+
+
 extern infoPLC_t infoPLC;
+extern inputPLC_t inputPLC;
+extern outputPLC_t outputPLC;
 
 #endif // CONFIGPLC_H

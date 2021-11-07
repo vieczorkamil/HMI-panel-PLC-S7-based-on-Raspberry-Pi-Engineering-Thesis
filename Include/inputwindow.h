@@ -87,6 +87,7 @@ private slots:
     void inputD11Button_clicked();
 
     void connectButton_clicked();
+    void disconnectButton_clicked();
 };
 
 #endif // INPUTWINDOW_H

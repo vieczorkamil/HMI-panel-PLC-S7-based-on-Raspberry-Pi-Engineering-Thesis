@@ -3,6 +3,8 @@
 
 #include <QWidget>
 
+#include "configPLC.h"
+
 namespace Ui {
 class Outputwindow;
 }
@@ -23,6 +25,8 @@ signals:
 
 private slots:
     void backButton_clicked();
+    void showButton_clicked();
+    void updatePLCInfo();
 };
 
 #endif // OUTPUTWINDOW_H

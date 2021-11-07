@@ -23,6 +23,7 @@ public:
 
 signals:
     void updateResult();
+    void updatePLCInfo();
 
 public slots:
     void connectToPlc();

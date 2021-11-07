@@ -40,6 +40,10 @@ QPushButton{
 QPushButton:pressed{ 
 	background:rgb(134, 134, 134) ;
 }
+QPushButton:disabled {
+	background:rgb(134, 134, 134) ;	
+	color: rgb(68, 68, 68);
+}
 QCheckBox{
 	outline: 0px;
 }
@@ -740,6 +744,105 @@ p, li { white-space: pre-wrap; }
     <string>CONNECT</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="disconnectButton">
+   <property name="geometry">
+    <rect>
+     <x>730</x>
+     <y>320</y>
+     <width>165</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>DISCONNECT</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Border1">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>80</y>
+     <width>201</width>
+     <height>441</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Border2">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>80</y>
+     <width>411</width>
+     <height>441</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Border3">
+   <property name="geometry">
+    <rect>
+     <x>700</x>
+     <y>80</y>
+     <width>271</width>
+     <height>311</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>Border3</zorder>
+  <zorder>Border2</zorder>
+  <zorder>Border1</zorder>
+  <zorder>backButton</zorder>
+  <zorder>infoLabel</zorder>
+  <zorder>switchInput0_0</zorder>
+  <zorder>switchInput0_1</zorder>
+  <zorder>switchInput0_2</zorder>
+  <zorder>switchInput0_3</zorder>
+  <zorder>switchInput0_4</zorder>
+  <zorder>switchInput0_5</zorder>
+  <zorder>switchInput0_6</zorder>
+  <zorder>switchInput0_7</zorder>
+  <zorder>Input0_0Label</zorder>
+  <zorder>Input0_1Label</zorder>
+  <zorder>Input0_2Label</zorder>
+  <zorder>Input0_3Label</zorder>
+  <zorder>Input0_4Label</zorder>
+  <zorder>Input0_5Label</zorder>
+  <zorder>Input0_6Label</zorder>
+  <zorder>Input0_7Label</zorder>
+  <zorder>inputB1</zorder>
+  <zorder>inputB2</zorder>
+  <zorder>inputW3</zorder>
+  <zorder>inputW5</zorder>
+  <zorder>inputD7</zorder>
+  <zorder>inputD11</zorder>
+  <zorder>InputB1Label</zorder>
+  <zorder>InputB2Label</zorder>
+  <zorder>InputW3Label</zorder>
+  <zorder>InputW5Label</zorder>
+  <zorder>InputD7Label</zorder>
+  <zorder>InputD11Label</zorder>
+  <zorder>inputB1Button</zorder>
+  <zorder>inputB2Button</zorder>
+  <zorder>inputW3Button</zorder>
+  <zorder>inputW5Button</zorder>
+  <zorder>inputD7Button</zorder>
+  <zorder>inputD11Button</zorder>
+  <zorder>inputIP</zorder>
+  <zorder>inputRACK</zorder>
+  <zorder>inputSLOT</zorder>
+  <zorder>inputIPLabel</zorder>
+  <zorder>inputRACKLabel</zorder>
+  <zorder>inputSLOTLabel</zorder>
+  <zorder>connectButton</zorder>
+  <zorder>disconnectButton</zorder>
  </widget>
  <resources/>
  <connections/>

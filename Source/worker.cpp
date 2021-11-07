@@ -6,7 +6,9 @@ Worker::Worker(QObject *parent) : QObject(parent)
 {
     myTimer = new QTimer(this);
     //myPlc = new PlcS7(PLC_IP.toStdString().c_str(), PLC_RACK, PLC_SLOT);
-    myPlc = new PlcS7("192.168.137.10", 0 , 1);
+    //myPlc = new PlcS7("192.168.137.10", 0 , 1);
+    myPlc = new PlcS7();
+    infoPLC.IS_CONNECTED = false;
 
     connect(myTimer, SIGNAL(timeout()), this, SLOT(update()));
 
@@ -23,6 +25,7 @@ void Worker::connectToPlc()
 {
     if (myPlc->isConnect() == false)
     {
+        myPlc->setParms(PLC_IP.toStdString().c_str(), PLC_RACK, PLC_SLOT);
         if(myPlc->connect() == 0)
         {
             qDebug("Chyba się połączył");
@@ -32,6 +35,8 @@ void Worker::connectToPlc()
             strcpy(infoPLC.AS_NAME, myPlc->plcInfo.ASName);
             strcpy(infoPLC.COPYRIGHT, myPlc->plcInfo.Copyright);
             strcpy(infoPLC.MODULE_NAME, myPlc->plcInfo.ModuleName);
+            infoPLC.IS_CONNECTED = true;
+            emit updatePLCInfo();
         }
     }
 }
@@ -49,13 +54,19 @@ void Worker::disconnectFromPlc()
             strcpy(infoPLC.AS_NAME, "");
             strcpy(infoPLC.COPYRIGHT, "");
             strcpy(infoPLC.MODULE_NAME, "");
+            emit updatePLCInfo();
         }
         else {
             qDebug("DISCONNECT - disconnect() != 0");
         }
     }
-    if (myPlc->isConnect())
+    if (myPlc->isConnect() == false)
+        infoPLC.IS_CONNECTED = false;
+    else
+    {
+        infoPLC.IS_CONNECTED = true;
         qDebug("DISCONNECT - nadal jestem połaczony");
+    }
 }
 
 void Worker::update()
@@ -68,12 +79,12 @@ void Worker::setInput0_0()
 {
     if (myPlc->isConnect())
     {
-        qDebug("Polonczone");
+        qDebug("Połączone");
         // mutex?
         myPlc->writeI(inputPLC.I0_0, 0, 0);
     }
     else {
-        qDebug("NIE polonczone");
+        qDebug("NIE połączone");
     }
     //qDebug() << inputPLC.I0_0;
 }

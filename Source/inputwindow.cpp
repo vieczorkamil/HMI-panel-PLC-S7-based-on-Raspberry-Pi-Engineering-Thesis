@@ -4,9 +4,14 @@
 #include <QDebug>
 
 inputPLC_t inputPLC; // extern typedef struct of PLC input
+/*
 QString PLC_IP = "192.168.137.10";
 int PLC_RACK = 0;
 int PLC_SLOT = 1;
+*/
+QString PLC_IP = "";
+int PLC_RACK = 0;
+int PLC_SLOT = 0;
 
 Inputwindow::Inputwindow(QWidget *parent) :
     QWidget(parent),
@@ -18,6 +23,8 @@ Inputwindow::Inputwindow(QWidget *parent) :
     ui->inputIP->setText(PLC_IP);
     ui->inputRACK->setValue(PLC_RACK);
     ui->inputSLOT->setValue(PLC_SLOT);
+
+    ui->disconnectButton->setEnabled(false);
 
     /* Button's SIGNAL - SLOT connection */
     connect(ui->backButton, SIGNAL(clicked()), this, SLOT(backButton_clicked()));
@@ -39,6 +46,7 @@ Inputwindow::Inputwindow(QWidget *parent) :
     connect(ui->inputD11Button, SIGNAL(clicked()), this, SLOT(inputD11Button_clicked()));
 
     connect(ui->connectButton, SIGNAL(clicked()), this, SLOT(connectButton_clicked()));
+    connect(ui->disconnectButton, SIGNAL(clicked()), this, SLOT(disconnectButton_clicked()));
 }
 
 Inputwindow::~Inputwindow()
@@ -172,7 +180,7 @@ void Inputwindow::inputD11Button_clicked()
     inputPLC.ID11 = static_cast<float>(ui->inputD11->value());
     emit changeInputD11();
 }
-
+/*
 void Inputwindow::connectButton_clicked()
 {
     PLC_IP = ui->inputIP->toPlainText();
@@ -190,5 +198,30 @@ void Inputwindow::connectButton_clicked()
         emit disconnectFromPlc();
     }
 }
+*/
+void Inputwindow::connectButton_clicked()
+{
+    PLC_IP = ui->inputIP->toPlainText();
+    PLC_RACK = ui->inputRACK->value();
+    PLC_SLOT = ui->inputSLOT->value();
+    emit connectToPlc();
+    // nie działa bo trzeba poczekać xd
+    //if(infoPLC.IS_CONNECTED == true)
+    {
+        ui->disconnectButton->setEnabled(true);
+        ui->connectButton->setEnabled(false);
 
+    }
+}
+
+void Inputwindow::disconnectButton_clicked()
+{
+    emit disconnectFromPlc();
+
+    if(infoPLC.IS_CONNECTED == false)
+    {
+        ui->connectButton->setEnabled(true);
+        ui->disconnectButton->setEnabled(false);
+    }
+}
 
