@@ -179,8 +179,6 @@ void Inputwindow::inputD11Button_clicked()
 {
     //mutex !?
     inputPLC.ID11 = static_cast<float>(ui->inputD11->value());
-    qDebug() << ui->inputD11->value();
-    qDebug() << static_cast<float>(ui->inputD11->value());
     emit changeInputD11();
 }
 

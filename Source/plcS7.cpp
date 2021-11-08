@@ -1277,7 +1277,7 @@ void PlcS7::setReal(float value, byte *buffer)
         binaryIEEE754[8 - i] = static_cast<bool>(mod);
         i++;
         exponent /= 2.0;
-        if (i > 8)
+        if (i >= 8)
             break;
     }
 

@@ -94,5 +94,4 @@ void Outputwindow::update()
     ui->outputW5->setText(QString::number(outputPLC.QW5));
     ui->outputD7->setText(QString::number(static_cast<double>(outputPLC.QD7),'f', 2));
     ui->outputD11->setText(QString::number(static_cast<double>(outputPLC.QD11),'f', 2));
-
 }
