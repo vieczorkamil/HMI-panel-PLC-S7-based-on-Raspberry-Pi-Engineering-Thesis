@@ -1189,45 +1189,96 @@ void PlcS7::setUDInt(uint32_t value, byte *buffer)
 void PlcS7::setReal(float value, byte *buffer)
 {
     bool binaryIEEE754[32] = {0};
+    bool mantissaPrecision[46] = {0};
     bool sign = value > 0 ? 0 : 1;
+    float mantissa;
     int i = 0;
+    int j = 0;
+    int k = 0;
+    int exponent;
+
+    if (value == 0.0f)
+    {
+        buffer[0] = 0x00;
+        buffer[1] = 0x00;
+        buffer[2] = 0x00;
+        buffer[3] = 0x00;
+        return;
+    }
 
     if (sign)
         value = static_cast<float>(fabs(static_cast<double>(value)));
-    while (value > 2.0f)
+
+    if (value < 1.0f)
     {
-        value /= 2.0f;
-        i++;
+        mantissa = value - static_cast<int>((value));
+
+        /* set mantissa */
+        while (mantissa > 0)
+        {
+            mantissa *= 2;
+            if (mantissa >= 1)
+            {
+                mantissaPrecision[i] = 1;
+                mantissa--;
+            }
+            else
+            {
+                mantissaPrecision[i] = 0;
+            }
+            i++;
+        }
+        i = 0;
+        i--;
+        while (mantissaPrecision[j] == 0)
+        {
+            i--;
+            j++;
+        }
+
+        for (k = 9; k < 32; k++)
+        {
+            binaryIEEE754[k] = mantissaPrecision[k - 9 + (j + 1)];
+        }
+        exponent = i + 127;
     }
-    int exponent = i + 127;
-    float mantissa = value - static_cast<int>((value));
+    else
+    {
+        while (value > 2.0f)
+        {
+            value /= 2.0f;
+            i++;
+        }
+        exponent = i + 127;
+        mantissa = value - static_cast<int>(value);
+        i = 0;
+        while (mantissa > 0)
+        {
+            mantissa *= 2;
+            if (mantissa >= 1)
+            {
+                binaryIEEE754[9 + i] = 1;
+                mantissa--;
+            }
+            else
+                binaryIEEE754[9 + i] = 0;
+            i++;
+        }
+    }
 
     /* set sign */
     binaryIEEE754[0] = sign;
 
-    /* set mantissa */
-    i = 0;
-    while (mantissa > 0)
-    {
-        mantissa *= 2;
-        if (mantissa >= 1)
-        {
-            binaryIEEE754[9 + i] = 1;
-            mantissa--;
-        }
-        else
-            binaryIEEE754[9 + i] = 0;
-        i++;
-    }
-
     /* set exponent */
     i = 0;
-    while (exponent > 0)
+    while (exponent >= 0)
     {
         int mod = exponent % 2;
         binaryIEEE754[8 - i] = static_cast<bool>(mod);
         i++;
-        exponent /= 2;
+        exponent /= 2.0;
+        if (i > 8)
+            break;
     }
 
     /* prepare output */
