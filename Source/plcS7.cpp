@@ -15,12 +15,14 @@ PlcS7::PlcS7()
 {
     DEBUG("Cli_Create()");
     Client = Cli_Create();
+    isPlcConnect = false;
 }
 
 PlcS7::PlcS7(const char *ip, int rack, int slot)
 {
     DEBUG("Cli_Create()");
     Client = Cli_Create();
+    isPlcConnect = false;
     this->ip = ip;
     this->rack = rack;
     this->slot = slot;
@@ -45,10 +47,19 @@ int PlcS7::disconnect()
     if (!Cli_Connect(Client))
     {
         DEBUG("ACTIVE CONNECTION - TRY TO DISCONNECT");
-        return Cli_Disconnect(Client);
+        int err = Cli_Disconnect(Client);
+        if(err == 0)
+        {
+            isPlcConnect = false;
+        }
+        else {
+            isPlcConnect = true;
+        }
+        return err;
     }
     else
     {
+        isPlcConnect = false;
         DEBUG("NOT ACTIVE CONNECTION");
         return Cli_Connect(Client);
     }
@@ -60,11 +71,20 @@ int PlcS7::connect()
 
     if (Cli_Connect(Client))
     {
-        return Cli_ConnectTo(Client, ip, rack, slot);
+        int err = Cli_ConnectTo(Client, ip, rack, slot);
+        if(err == 0)
+        {
+            isPlcConnect = true;
+        }
+        else {
+            isPlcConnect = false;
+        }
+        return err;
     }
     else
     {
         DEBUG("ALREADY CONNECTED");
+        isPlcConnect = true;
         return Cli_Connect(Client);
     }
 }
@@ -72,10 +92,7 @@ int PlcS7::connect()
 bool PlcS7::isConnect()
 {
     /* Return true if PLC is connected correctly and false if not */
-    if (Cli_Connect(Client) == 0) // Propabliy some bug in snap7 don't use xd
-        return true;
-    else
-        return false;
+    return isPlcConnect;
 }
 
 int PlcS7::getPlcInfo()
@@ -111,7 +128,6 @@ int PlcS7::stopPlc()
 bool PlcS7::readI(int startAdrressByte, int startAdrressBit)
 {
     bit out;
-    //jak zwrócić error ?????
     int Start = startAdrressByte * 8 + startAdrressBit;
     int err = Cli_ReadArea(Client, S7AreaPE, 0, Start, 1, S7WLBit, &out);
     if (err)

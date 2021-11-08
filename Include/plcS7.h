@@ -119,6 +119,8 @@ private:
     int rack;
     int slot;
     /*-------------------------------------------*/
+    bool isPlcConnect;
+    /*-------------------------------------------*/
     uint8_t getByte(byte *buffer);
     uint16_t getWord(byte *buffer);
     uint32_t getDWord(byte *buffer);

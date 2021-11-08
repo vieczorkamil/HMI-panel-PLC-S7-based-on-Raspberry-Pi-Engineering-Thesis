@@ -21,7 +21,8 @@ Worker::Worker(QObject *parent) : QObject(parent)
     connect(myTimer, SIGNAL(timeout()), this, SLOT(update()));
 
     myTimer->start(200);
-    qDebug() << infoPLC.IS_CONNECTED;
+
+    qDebug() << static_cast<int>(myPlc->isConnect());
 }
 
 Worker::~Worker()
@@ -32,7 +33,7 @@ Worker::~Worker()
 
 void Worker::connectToPlc()
 {
-    if (infoPLC.IS_CONNECTED == false)
+    if (myPlc->isConnect() == false)
     {
         myPlc->setParms(PLC_IP.toStdString().c_str(), PLC_RACK, PLC_SLOT);
         if(myPlc->connect() == 0)
@@ -48,17 +49,15 @@ void Worker::connectToPlc()
             emit updatePLCInfo();
         }
     }
-    qDebug() << infoPLC.IS_CONNECTED;
+    qDebug() << static_cast<int>(myPlc->isConnect());
 }
 
 void Worker::disconnectFromPlc()
 {
-    if (infoPLC.IS_CONNECTED)
+    if (myPlc->isConnect())
     {
-        qDebug("DISCONNECT - jestem połaczony");
         if(myPlc->disconnect() == 0)
         {
-            qDebug("DISCONNECT - disconnect() == 0");
             strcpy(infoPLC.MODULE_TYPE_NAME, "");
             strcpy(infoPLC.SERIAL_NUMBER, "");
             strcpy(infoPLC.AS_NAME, "");
@@ -67,18 +66,15 @@ void Worker::disconnectFromPlc()
             emit updatePLCInfo();
             infoPLC.IS_CONNECTED = false;
         }
-        else {
-            qDebug("DISCONNECT - disconnect() != 0");
-        }
     }
-    qDebug() << infoPLC.IS_CONNECTED;
+    qDebug() << static_cast<int>(myPlc->isConnect());
 }
 
 void Worker::update()
 {
     /* Reading PLC output */
     // mutex ?!!!!!!!!!!!!
-    if (infoPLC.IS_CONNECTED)
+    if (myPlc->isConnect())
     {
         outputPLC.Q0_0 = myPlc->readQ(0, 0);
         outputPLC.Q0_1 = myPlc->readQ(0, 1);
@@ -101,7 +97,7 @@ void Worker::update()
 
 void Worker::setInput0_0()
 {
-    if (infoPLC.IS_CONNECTED)
+    if (myPlc->isConnect())
     {
         // mutex?
         myPlc->writeI(inputPLC.I0_0, 0, 0);
@@ -109,7 +105,7 @@ void Worker::setInput0_0()
 }
 void Worker::setInput0_1()
 {
-    if (infoPLC.IS_CONNECTED)
+    if (myPlc->isConnect())
     {
         // mutex?
         myPlc->writeI(inputPLC.I0_1, 0, 1);
@@ -117,7 +113,7 @@ void Worker::setInput0_1()
 }
 void Worker::setInput0_2()
 {
-    if (infoPLC.IS_CONNECTED)
+    if (myPlc->isConnect())
     {
         // mutex?
         myPlc->writeI(inputPLC.I0_2, 0, 2);
@@ -125,7 +121,7 @@ void Worker::setInput0_2()
 }
 void Worker::setInput0_3()
 {
-    if (infoPLC.IS_CONNECTED)
+    if (myPlc->isConnect())
     {
         // mutex?
         myPlc->writeI(inputPLC.I0_3, 0, 3);
@@ -133,7 +129,7 @@ void Worker::setInput0_3()
 }
 void Worker::setInput0_4()
 {
-    if (infoPLC.IS_CONNECTED)
+    if (myPlc->isConnect())
     {
         // mutex?
         myPlc->writeI(inputPLC.I0_4, 0, 4);
@@ -141,7 +137,7 @@ void Worker::setInput0_4()
 }
 void Worker::setInput0_5()
 {
-    if (infoPLC.IS_CONNECTED)
+    if (myPlc->isConnect())
     {
         // mutex?
         myPlc->writeI(inputPLC.I0_5, 0, 5);
@@ -149,7 +145,7 @@ void Worker::setInput0_5()
 }
 void Worker::setInput0_6()
 {
-    if (infoPLC.IS_CONNECTED)
+    if (myPlc->isConnect())
     {
         // mutex?
         myPlc->writeI(inputPLC.I0_6, 0, 6);
@@ -157,7 +153,7 @@ void Worker::setInput0_6()
 }
 void Worker::setInput0_7()
 {
-    if (infoPLC.IS_CONNECTED)
+    if (myPlc->isConnect())
     {
         // mutex?
         myPlc->writeI(inputPLC.I0_7, 0, 7);
@@ -165,21 +161,23 @@ void Worker::setInput0_7()
 }
 void Worker::setInputB1()
 {
-    if (infoPLC.IS_CONNECTED)
+    if (myPlc->isConnect())
     {
         // mutex?
         myPlc->writeIB_SInt(inputPLC.IB1, 1);
     }
 }
 void Worker::setInputB2()
-{    {
+{
+    if (myPlc->isConnect())
+    {
         // mutex?
         myPlc->writeIB_USInt(inputPLC.IB2, 2);
     }
 }
 void Worker::setInputW3()
 {
-    if (infoPLC.IS_CONNECTED)
+    if (myPlc->isConnect())
     {
         // mutex?
         myPlc->writeIW_Int(inputPLC.IW3, 3);
@@ -187,7 +185,7 @@ void Worker::setInputW3()
 }
 void Worker::setInputW5()
 {
-    if (infoPLC.IS_CONNECTED)
+    if (myPlc->isConnect())
     {
         // mutex?
         myPlc->writeIW_UInt(inputPLC.IW5, 5);
@@ -195,7 +193,7 @@ void Worker::setInputW5()
 }
 void Worker::setInputD7()
 {
-    if (infoPLC.IS_CONNECTED)
+    if (myPlc->isConnect())
     {
         // mutex?
         myPlc->writeID_Real(inputPLC.ID7, 7);
@@ -203,7 +201,7 @@ void Worker::setInputD7()
 }
 void Worker::setInputD11()
 {
-    if (infoPLC.IS_CONNECTED)
+    if (myPlc->isConnect())
     {
         // mutex?
         myPlc->writeID_Real(inputPLC.ID11, 11);
