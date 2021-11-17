@@ -47,6 +47,22 @@ void Worker::connectToPlc()
             strcpy(infoPLC.MODULE_NAME, myPlc->plcInfo.ModuleName);
             infoPLC.IS_CONNECTED = true;
             emit updatePLCInfo();
+
+            setOutput0_0();
+            setOutput0_1();
+            setOutput0_2();
+            setOutput0_3();
+            setOutput0_4();
+            setOutput0_5();
+            setOutput0_6();
+            setOutput0_7();
+
+            setOutputB1();
+            setOutputB2();
+            setOutputW3();
+            setOutputW5();
+            setOutputD7();
+            setOutputD11();
         }
     }
     qDebug() << static_cast<int>(myPlc->isConnect());
