@@ -48,11 +48,12 @@ int PlcS7::disconnect()
     {
         DEBUG("ACTIVE CONNECTION - TRY TO DISCONNECT");
         int err = Cli_Disconnect(Client);
-        if(err == 0)
+        if (err == 0)
         {
             isPlcConnect = false;
         }
-        else {
+        else
+        {
             isPlcConnect = true;
         }
         return err;
@@ -72,11 +73,12 @@ int PlcS7::connect()
     if (Cli_Connect(Client))
     {
         int err = Cli_ConnectTo(Client, ip, rack, slot);
-        if(err == 0)
+        if (err == 0)
         {
             isPlcConnect = true;
         }
-        else {
+        else
+        {
             isPlcConnect = false;
         }
         return err;
@@ -1035,6 +1037,71 @@ int PlcS7::writeDataBlock_Real(float value, int DBNumber, int offset)
     return err;
 }
 
+int PlcS7::toggleBitI(int startAdrressByte, int startAdrressBit)
+{
+    bit out;
+    int Start = startAdrressByte * 8 + startAdrressBit;
+    int err = Cli_ReadArea(Client, S7AreaPE, 0, Start, 1, S7WLBit, &out);
+    if (err)
+    {
+        DEBUG("error : " << err);
+        return false;
+    }
+    else
+    {
+        out = ~out;
+        int err = Cli_WriteArea(Client, S7AreaPE, 0, Start, 1, S7WLBit, &out);
+        if (err)
+        {
+            DEBUG("error : " << err);
+        }
+        return err;
+    }
+}
+
+int PlcS7::toggleBitQ(int startAdrressByte, int startAdrressBit)
+{
+    bit out;
+    int Start = startAdrressByte * 8 + startAdrressBit;
+    int err = Cli_ReadArea(Client, S7AreaPA, 0, Start, 1, S7WLBit, &out);
+    if (err)
+    {
+        DEBUG("error : " << err);
+        return false;
+    }
+    else
+    {
+        out = ~out;
+        int err = Cli_WriteArea(Client, S7AreaPA, 0, Start, 1, S7WLBit, &out);
+        if (err)
+        {
+            DEBUG("error : " << err);
+        }
+        return err;
+    }
+}
+
+int PlcS7::toggleBitM(int startAdrressByte, int startAdrressBit)
+{
+    bit out;
+    int Start = startAdrressByte * 8 + startAdrressBit;
+    int err = Cli_ReadArea(Client, S7AreaMK, 0, Start, 1, S7WLBit, &out);
+    if (err)
+    {
+        DEBUG("error : " << err);
+        return false;
+    }
+    else
+    {
+        out = ~out;
+        int err = Cli_WriteArea(Client, S7AreaMK, 0, Start, 1, S7WLBit, &out);
+        if (err)
+        {
+            DEBUG("error : " << err);
+        }
+        return err;
+    }
+}
 /*-----------------------PRIVATE--------------------------*/
 
 uint8_t PlcS7::getByte(byte *buffer)

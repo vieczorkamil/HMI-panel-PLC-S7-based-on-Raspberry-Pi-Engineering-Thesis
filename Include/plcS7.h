@@ -113,6 +113,11 @@ public:
     int writeDataBlock_UDInt(uint32_t value, int DBNumber, int offset);
     int writeDataBlock_Real(float value, int DBNumber, int offset);
 
+    /* TOGGLE BIT */
+    int toggleBitI(int startAdrressByte, int startAdrressBit);
+    int toggleBitQ(int startAdrressByte, int startAdrressBit);
+    int toggleBitM(int startAdrressByte, int startAdrressBit);
+
 protected:
 private:
     const char *ip;
