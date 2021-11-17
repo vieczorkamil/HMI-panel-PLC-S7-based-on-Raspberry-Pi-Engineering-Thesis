@@ -2,7 +2,6 @@
 #define OUTPUTWINDOW_H
 
 #include <QWidget>
-#include <QTimer>
 
 #include "configPLC.h"
 
@@ -21,15 +20,44 @@ public:
 private:
     Ui::Outputwindow *ui;
 
-    QTimer *myTimer;
-
 signals:
     void backToHomeScreen();
+
+    void changeOutput0_0();
+    void changeOutput0_1();
+    void changeOutput0_2();
+    void changeOutput0_3();
+    void changeOutput0_4();
+    void changeOutput0_5();
+    void changeOutput0_6();
+    void changeOutput0_7();
+
+    void changeOutputB1();
+    void changeOutputB2();
+    void changeOutputW3();
+    void changeOutputW5();
+    void changeOutputD7();
+    void changeOutputD11();
 
 private slots:
     void backButton_clicked();
     void updatePLCInfo();
-    void update();
+
+    void switchOutput0_0_changed(int);
+    void switchOutput0_1_changed(int);
+    void switchOutput0_2_changed(int);
+    void switchOutput0_3_changed(int);
+    void switchOutput0_4_changed(int);
+    void switchOutput0_5_changed(int);
+    void switchOutput0_6_changed(int);
+    void switchOutput0_7_changed(int);
+
+    void outputB1Button_clicked();
+    void outputB2Button_clicked();
+    void outputW3Button_clicked();
+    void outputW5Button_clicked();
+    void outputD7Button_clicked();
+    void outputD11Button_clicked();
 };
 
 #endif // OUTPUTWINDOW_H

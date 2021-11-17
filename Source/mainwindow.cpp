@@ -31,21 +31,21 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(&inputTestScreen, SIGNAL(connectToPlc()), &myWorker, SLOT(connectToPlc()));
     connect(&inputTestScreen, SIGNAL(disconnectFromPlc()), &myWorker, SLOT(disconnectFromPlc()));
     /* Input bite 0 */
-    connect(&inputTestScreen, SIGNAL(changeInput0_0()), &myWorker, SLOT(setInput0_0()));
-    connect(&inputTestScreen, SIGNAL(changeInput0_1()), &myWorker, SLOT(setInput0_1()));
-    connect(&inputTestScreen, SIGNAL(changeInput0_2()), &myWorker, SLOT(setInput0_2()));
-    connect(&inputTestScreen, SIGNAL(changeInput0_3()), &myWorker, SLOT(setInput0_3()));
-    connect(&inputTestScreen, SIGNAL(changeInput0_4()), &myWorker, SLOT(setInput0_4()));
-    connect(&inputTestScreen, SIGNAL(changeInput0_5()), &myWorker, SLOT(setInput0_5()));
-    connect(&inputTestScreen, SIGNAL(changeInput0_6()), &myWorker, SLOT(setInput0_6()));
-    connect(&inputTestScreen, SIGNAL(changeInput0_7()), &myWorker, SLOT(setInput0_7()));
+    connect(&outputTestScreen, SIGNAL(changeOutput0_0()), &myWorker, SLOT(setOutput0_0()));
+    connect(&outputTestScreen, SIGNAL(changeOutput0_1()), &myWorker, SLOT(setOutput0_1()));
+    connect(&outputTestScreen, SIGNAL(changeOutput0_2()), &myWorker, SLOT(setOutput0_2()));
+    connect(&outputTestScreen, SIGNAL(changeOutput0_3()), &myWorker, SLOT(setOutput0_3()));
+    connect(&outputTestScreen, SIGNAL(changeOutput0_4()), &myWorker, SLOT(setOutput0_4()));
+    connect(&outputTestScreen, SIGNAL(changeOutput0_5()), &myWorker, SLOT(setOutput0_5()));
+    connect(&outputTestScreen, SIGNAL(changeOutput0_6()), &myWorker, SLOT(setOutput0_6()));
+    connect(&outputTestScreen, SIGNAL(changeOutput0_7()), &myWorker, SLOT(setOutput0_7()));
     /* Other inputs */
-    connect(&inputTestScreen, SIGNAL(changeInputB1()), &myWorker, SLOT(setInputB1()));
-    connect(&inputTestScreen, SIGNAL(changeInputB2()), &myWorker, SLOT(setInputB2()));
-    connect(&inputTestScreen, SIGNAL(changeInputW3()), &myWorker, SLOT(setInputW3()));
-    connect(&inputTestScreen, SIGNAL(changeInputW5()), &myWorker, SLOT(setInputW5()));
-    connect(&inputTestScreen, SIGNAL(changeInputD7()), &myWorker, SLOT(setInputD7()));
-    connect(&inputTestScreen, SIGNAL(changeInputD11()), &myWorker, SLOT(setInputD11()));
+    connect(&outputTestScreen, SIGNAL(changeOutputB1()), &myWorker, SLOT(setOutputB1()));
+    connect(&outputTestScreen, SIGNAL(changeOutputB2()), &myWorker, SLOT(setOutputB2()));
+    connect(&outputTestScreen, SIGNAL(changeOutputW3()), &myWorker, SLOT(setOutputW3()));
+    connect(&outputTestScreen, SIGNAL(changeOutputW5()), &myWorker, SLOT(setOutputW5()));
+    connect(&outputTestScreen, SIGNAL(changeOutputD7()), &myWorker, SLOT(setOutputD7()));
+    connect(&outputTestScreen, SIGNAL(changeOutputD11()), &myWorker, SLOT(setOutputD11()));
     /* Update PLC info */
     connect(&myWorker, SIGNAL(updatePLCInfo()), &outputTestScreen, SLOT(updatePLCInfo()));
 }

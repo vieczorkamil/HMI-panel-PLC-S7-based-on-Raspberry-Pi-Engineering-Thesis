@@ -10,8 +10,6 @@ Outputwindow::Outputwindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    myTimer = new QTimer(this);
-
     /* Set default value */
     ui->ModuleTypeName->setText(QString::fromUtf8(infoPLC.MODULE_TYPE_NAME));
     ui->SerialNumber->setText(QString::fromUtf8(infoPLC.SERIAL_NUMBER));
@@ -22,9 +20,21 @@ Outputwindow::Outputwindow(QWidget *parent) :
     /* Button's SIGNAL - SLOT connection */
     connect(ui->backButton, SIGNAL(clicked()), this, SLOT(backButton_clicked()));
 
-    /* update */
-    connect(myTimer, SIGNAL(timeout()), this, SLOT(update()));
-    myTimer->start(300);
+    connect(ui->switchOutput0_0, SIGNAL(stateChanged(int)), this, SLOT(switchOutput0_0_changed(int)));
+    connect(ui->switchOutput0_1, SIGNAL(stateChanged(int)), this, SLOT(switchOutput0_1_changed(int)));
+    connect(ui->switchOutput0_2, SIGNAL(stateChanged(int)), this, SLOT(switchOutput0_2_changed(int)));
+    connect(ui->switchOutput0_3, SIGNAL(stateChanged(int)), this, SLOT(switchOutput0_3_changed(int)));
+    connect(ui->switchOutput0_4, SIGNAL(stateChanged(int)), this, SLOT(switchOutput0_4_changed(int)));
+    connect(ui->switchOutput0_5, SIGNAL(stateChanged(int)), this, SLOT(switchOutput0_5_changed(int)));
+    connect(ui->switchOutput0_6, SIGNAL(stateChanged(int)), this, SLOT(switchOutput0_6_changed(int)));
+    connect(ui->switchOutput0_7, SIGNAL(stateChanged(int)), this, SLOT(switchOutput0_7_changed(int)));
+
+    connect(ui->outputB1Button, SIGNAL(clicked()), this, SLOT(outputB1Button_clicked()));
+    connect(ui->outputB2Button, SIGNAL(clicked()), this, SLOT(outputB2Button_clicked()));
+    connect(ui->outputW3Button, SIGNAL(clicked()), this, SLOT(outputW3Button_clicked()));
+    connect(ui->outputW5Button, SIGNAL(clicked()), this, SLOT(outputW5Button_clicked()));
+    connect(ui->outputD7Button, SIGNAL(clicked()), this, SLOT(outputD7Button_clicked()));
+    connect(ui->outputD11Button, SIGNAL(clicked()), this, SLOT(outputD11Button_clicked()));
 }
 
 Outputwindow::~Outputwindow()
@@ -46,52 +56,101 @@ void Outputwindow::updatePLCInfo()
     ui->ModuleName->setText(QString::fromUtf8(infoPLC.MODULE_NAME));
 }
 
-void Outputwindow::update()
+void Outputwindow::switchOutput0_0_changed(int arg)
 {
-    if(outputPLC.Q0_0)
-        LED_ON(switchOutput0_0);
-    else
-        LED_OFF(switchOutput0_0);
-
-    if(outputPLC.Q0_1)
-        LED_ON(switchOutput0_1);
-    else
-        LED_OFF(switchOutput0_1);
-
-    if(outputPLC.Q0_2)
-        LED_ON(switchOutput0_2);
-    else
-        LED_OFF(switchOutput0_2);
-
-    if(outputPLC.Q0_3)
-        LED_ON(switchOutput0_3);
-    else
-        LED_OFF(switchOutput0_3);
-
-    if(outputPLC.Q0_4)
-        LED_ON(switchOutput0_4);
-    else
-        LED_OFF(switchOutput0_4);
-
-    if(outputPLC.Q0_5)
-        LED_ON(switchOutput0_5);
-    else
-        LED_OFF(switchOutput0_5);
-
-    if(outputPLC.Q0_6)
-        LED_ON(switchOutput0_6);
-    else
-        LED_OFF(switchOutput0_6);
-
-    if(outputPLC.Q0_7)
-        LED_ON(switchOutput0_7);
-    else
-        LED_OFF(switchOutput0_7);
-
-    ui->outputB1->setText(QString::number(outputPLC.QB1));
-    ui->outputB2->setText(QString::number(outputPLC.QB2));
-    ui->outputW3->setText(QString::number(outputPLC.QW3));
-    ui->outputW5->setText(QString::number(outputPLC.QW5));
-    ui->outputD7->setText(QString::number(static_cast<double>(outputPLC.QD7),'f', 2));
-    ui->outputD11->setText(QString::number(static_cast<double>(outputPLC.QD11),'f', 2));
+    // mutex !?
+    outputPLC.Q0_0 = arg;
+    emit changeOutput0_0();
 }
+
+void Outputwindow::switchOutput0_1_changed(int arg)
+{
+    // mutex !?
+    outputPLC.Q0_1 = arg;
+    emit changeOutput0_1();
+}
+
+void Outputwindow::switchOutput0_2_changed(int arg)
+{
+    // mutex !?
+    outputPLC.Q0_2 = arg;
+    emit changeOutput0_2();
+}
+
+void Outputwindow::switchOutput0_3_changed(int arg)
+{
+    // mutex !?
+    outputPLC.Q0_3 = arg;
+    emit changeOutput0_3();
+}
+
+void Outputwindow::switchOutput0_4_changed(int arg)
+{
+    // mutex !?
+    outputPLC.Q0_4 = arg;
+    emit changeOutput0_4();
+}
+
+void Outputwindow::switchOutput0_5_changed(int arg)
+{
+    // mutex !?
+    outputPLC.Q0_5 = arg;
+    emit changeOutput0_5();
+}
+
+void Outputwindow::switchOutput0_6_changed(int arg)
+{
+    // mutex !?
+    outputPLC.Q0_6 = arg;
+    emit changeOutput0_6();
+}
+
+void Outputwindow::switchOutput0_7_changed(int arg)
+{
+    // mutex !?
+    outputPLC.Q0_7 = arg;
+    emit changeOutput0_7();
+}
+
+void Outputwindow::outputB1Button_clicked()
+{
+    //mutex !?
+    outputPLC.QB1 = static_cast<int8_t>(ui->outputB1->value());
+    emit changeOutputB1();
+}
+
+void Outputwindow::outputB2Button_clicked()
+{
+    //mutex !?
+    outputPLC.QB2 = static_cast<uint8_t>(ui->outputB2->value());
+    emit changeOutputB2();
+}
+
+void Outputwindow::outputW3Button_clicked()
+{
+    //mutex !?
+    outputPLC.QW3 = static_cast<int16_t>(ui->outputW3->value());
+    emit changeOutputW3();
+}
+
+void Outputwindow::outputW5Button_clicked()
+{
+    //mutex !?
+    outputPLC.QW5 = static_cast<uint16_t>(ui->outputW5->value());
+    emit changeOutputW5();
+}
+
+void Outputwindow::outputD7Button_clicked()
+{
+    //mutex !?
+    outputPLC.QD7 = static_cast<float>(ui->outputD7->value());
+    emit changeOutputD7();
+}
+
+void Outputwindow::outputD11Button_clicked()
+{
+    //mutex !?
+    outputPLC.QD11 = static_cast<float>(ui->outputD11->value());
+    emit changeOutputD11();
+}
+

@@ -47,16 +47,6 @@ QPushButton:disabled {
 QCheckBox{
 	outline: 0px;
 }
-QCheckBox::indicator{
-	width: 50px;
-	height: 50px;
-}
-QCheckBox::indicator:checked{
-	image:url(&quot;:/Button/switchOn512x272.png&quot;);
-}
-QCheckBox::indicator:unchecked{
-	image:url(&quot;:/Button/switchOff512x272.png&quot;);
-}
 
 QSpinBox{
 	background: rgb(188,188,188);
@@ -81,6 +71,20 @@ QTextEdit{
 	color: rgb(68, 68, 68);
 	border: 2px solid rgb(68, 68, 68);
 	
+}
+
+QCheckBox{
+	outline: 0px;
+}
+QCheckBox::indicator{
+	width: 30px;
+	height: 30px;
+}
+QCheckBox::indicator:checked{
+	image:url(&quot;:/Led/ledON.png&quot;);
+}
+QCheckBox::indicator:unchecked{
+	image:url(&quot;:/Led/ledOFF.png&quot;);
 }</string>
   </property>
   <widget class="QPushButton" name="backButton">
@@ -118,11 +122,14 @@ QTextEdit{
    </property>
   </widget>
   <widget class="QCheckBox" name="switchInput0_0">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>110</x>
      <y>100</y>
-     <width>56</width>
+     <width>31</width>
      <height>46</height>
     </rect>
    </property>
@@ -131,11 +138,14 @@ QTextEdit{
    </property>
   </widget>
   <widget class="QCheckBox" name="switchInput0_1">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>110</x>
      <y>150</y>
-     <width>56</width>
+     <width>31</width>
      <height>46</height>
     </rect>
    </property>
@@ -144,11 +154,14 @@ QTextEdit{
    </property>
   </widget>
   <widget class="QCheckBox" name="switchInput0_2">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>110</x>
      <y>200</y>
-     <width>56</width>
+     <width>31</width>
      <height>46</height>
     </rect>
    </property>
@@ -157,11 +170,14 @@ QTextEdit{
    </property>
   </widget>
   <widget class="QCheckBox" name="switchInput0_3">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>110</x>
      <y>250</y>
-     <width>56</width>
+     <width>31</width>
      <height>46</height>
     </rect>
    </property>
@@ -170,11 +186,14 @@ QTextEdit{
    </property>
   </widget>
   <widget class="QCheckBox" name="switchInput0_4">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>110</x>
      <y>300</y>
-     <width>56</width>
+     <width>31</width>
      <height>46</height>
     </rect>
    </property>
@@ -183,11 +202,14 @@ QTextEdit{
    </property>
   </widget>
   <widget class="QCheckBox" name="switchInput0_5">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>110</x>
      <y>350</y>
-     <width>56</width>
+     <width>31</width>
      <height>46</height>
     </rect>
    </property>
@@ -196,11 +218,14 @@ QTextEdit{
    </property>
   </widget>
   <widget class="QCheckBox" name="switchInput0_6">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>110</x>
      <y>400</y>
-     <width>56</width>
+     <width>31</width>
      <height>46</height>
     </rect>
    </property>
@@ -209,11 +234,14 @@ QTextEdit{
    </property>
   </widget>
   <widget class="QCheckBox" name="switchInput0_7">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
-     <x>70</x>
+     <x>110</x>
      <y>450</y>
-     <width>56</width>
+     <width>31</width>
      <height>46</height>
     </rect>
    </property>
@@ -224,7 +252,7 @@ QTextEdit{
   <widget class="QLabel" name="Input0_0Label">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>170</x>
      <y>106</y>
      <width>63</width>
      <height>34</height>
@@ -237,7 +265,7 @@ QTextEdit{
   <widget class="QLabel" name="Input0_1Label">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>170</x>
      <y>156</y>
      <width>63</width>
      <height>34</height>
@@ -250,7 +278,7 @@ QTextEdit{
   <widget class="QLabel" name="Input0_2Label">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>170</x>
      <y>206</y>
      <width>63</width>
      <height>34</height>
@@ -263,7 +291,7 @@ QTextEdit{
   <widget class="QLabel" name="Input0_3Label">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>170</x>
      <y>256</y>
      <width>63</width>
      <height>34</height>
@@ -276,7 +304,7 @@ QTextEdit{
   <widget class="QLabel" name="Input0_4Label">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>170</x>
      <y>306</y>
      <width>63</width>
      <height>34</height>
@@ -289,7 +317,7 @@ QTextEdit{
   <widget class="QLabel" name="Input0_5Label">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>170</x>
      <y>356</y>
      <width>63</width>
      <height>34</height>
@@ -302,7 +330,7 @@ QTextEdit{
   <widget class="QLabel" name="Input0_6Label">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>170</x>
      <y>406</y>
      <width>63</width>
      <height>34</height>
@@ -315,7 +343,7 @@ QTextEdit{
   <widget class="QLabel" name="Input0_7Label">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>170</x>
      <y>456</y>
      <width>63</width>
      <height>34</height>
@@ -325,154 +353,10 @@ QTextEdit{
     <string>I 0.7</string>
    </property>
   </widget>
-  <widget class="QSpinBox" name="inputB1">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>106</y>
-     <width>100</width>
-     <height>34</height>
-    </rect>
-   </property>
-   <property name="wrapping">
-    <bool>false</bool>
-   </property>
-   <property name="frame">
-    <bool>true</bool>
-   </property>
-   <property name="buttonSymbols">
-    <enum>QAbstractSpinBox::PlusMinus</enum>
-   </property>
-   <property name="minimum">
-    <number>-128</number>
-   </property>
-   <property name="maximum">
-    <number>127</number>
-   </property>
-  </widget>
-  <widget class="QSpinBox" name="inputB2">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>156</y>
-     <width>100</width>
-     <height>34</height>
-    </rect>
-   </property>
-   <property name="wrapping">
-    <bool>false</bool>
-   </property>
-   <property name="frame">
-    <bool>true</bool>
-   </property>
-   <property name="buttonSymbols">
-    <enum>QAbstractSpinBox::PlusMinus</enum>
-   </property>
-   <property name="minimum">
-    <number>0</number>
-   </property>
-   <property name="maximum">
-    <number>255</number>
-   </property>
-  </widget>
-  <widget class="QSpinBox" name="inputW3">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>256</y>
-     <width>100</width>
-     <height>34</height>
-    </rect>
-   </property>
-   <property name="wrapping">
-    <bool>false</bool>
-   </property>
-   <property name="frame">
-    <bool>true</bool>
-   </property>
-   <property name="buttonSymbols">
-    <enum>QAbstractSpinBox::PlusMinus</enum>
-   </property>
-   <property name="minimum">
-    <number>-32768</number>
-   </property>
-   <property name="maximum">
-    <number>32768</number>
-   </property>
-  </widget>
-  <widget class="QSpinBox" name="inputW5">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>306</y>
-     <width>100</width>
-     <height>34</height>
-    </rect>
-   </property>
-   <property name="wrapping">
-    <bool>false</bool>
-   </property>
-   <property name="frame">
-    <bool>true</bool>
-   </property>
-   <property name="buttonSymbols">
-    <enum>QAbstractSpinBox::PlusMinus</enum>
-   </property>
-   <property name="minimum">
-    <number>0</number>
-   </property>
-   <property name="maximum">
-    <number>65535</number>
-   </property>
-  </widget>
-  <widget class="QDoubleSpinBox" name="inputD7">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>406</y>
-     <width>100</width>
-     <height>34</height>
-    </rect>
-   </property>
-   <property name="buttonSymbols">
-    <enum>QAbstractSpinBox::PlusMinus</enum>
-   </property>
-   <property name="minimum">
-    <double>-100000.000000000000000</double>
-   </property>
-   <property name="maximum">
-    <double>100000.000000000000000</double>
-   </property>
-   <property name="singleStep">
-    <double>0.100000000000000</double>
-   </property>
-  </widget>
-  <widget class="QDoubleSpinBox" name="inputD11">
-   <property name="geometry">
-    <rect>
-     <x>300</x>
-     <y>456</y>
-     <width>100</width>
-     <height>34</height>
-    </rect>
-   </property>
-   <property name="buttonSymbols">
-    <enum>QAbstractSpinBox::PlusMinus</enum>
-   </property>
-   <property name="minimum">
-    <double>-100000.000000000000000</double>
-   </property>
-   <property name="maximum">
-    <double>100000.000000000000000</double>
-   </property>
-   <property name="singleStep">
-    <double>0.100000000000000</double>
-   </property>
-  </widget>
   <widget class="QLabel" name="InputB1Label">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>470</x>
      <y>106</y>
      <width>145</width>
      <height>34</height>
@@ -485,7 +369,7 @@ QTextEdit{
   <widget class="QLabel" name="InputB2Label">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>470</x>
      <y>156</y>
      <width>145</width>
      <height>34</height>
@@ -498,7 +382,7 @@ QTextEdit{
   <widget class="QLabel" name="InputW3Label">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>470</x>
      <y>256</y>
      <width>145</width>
      <height>34</height>
@@ -511,7 +395,7 @@ QTextEdit{
   <widget class="QLabel" name="InputW5Label">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>470</x>
      <y>306</y>
      <width>145</width>
      <height>34</height>
@@ -524,7 +408,7 @@ QTextEdit{
   <widget class="QLabel" name="InputD7Label">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>470</x>
      <y>406</y>
      <width>145</width>
      <height>34</height>
@@ -537,7 +421,7 @@ QTextEdit{
   <widget class="QLabel" name="InputD11Label">
    <property name="geometry">
     <rect>
-     <x>420</x>
+     <x>470</x>
      <y>456</y>
      <width>145</width>
      <height>34</height>
@@ -547,88 +431,10 @@ QTextEdit{
     <string>ID 11 (REAL)</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="inputB1Button">
-   <property name="geometry">
-    <rect>
-     <x>590</x>
-     <y>106</y>
-     <width>65</width>
-     <height>34</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>SET</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="inputB2Button">
-   <property name="geometry">
-    <rect>
-     <x>590</x>
-     <y>156</y>
-     <width>65</width>
-     <height>34</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>SET</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="inputW3Button">
-   <property name="geometry">
-    <rect>
-     <x>590</x>
-     <y>256</y>
-     <width>65</width>
-     <height>34</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>SET</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="inputW5Button">
-   <property name="geometry">
-    <rect>
-     <x>590</x>
-     <y>306</y>
-     <width>65</width>
-     <height>34</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>SET</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="inputD7Button">
-   <property name="geometry">
-    <rect>
-     <x>590</x>
-     <y>406</y>
-     <width>65</width>
-     <height>34</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>SET</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="inputD11Button">
-   <property name="geometry">
-    <rect>
-     <x>590</x>
-     <y>456</y>
-     <width>65</width>
-     <height>34</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>SET</string>
-   </property>
-  </widget>
   <widget class="QTextEdit" name="inputIP">
    <property name="geometry">
     <rect>
-     <x>730</x>
+     <x>700</x>
      <y>106</y>
      <width>170</width>
      <height>41</height>
@@ -645,7 +451,7 @@ p, li { white-space: pre-wrap; }
   <widget class="QSpinBox" name="inputRACK">
    <property name="geometry">
     <rect>
-     <x>730</x>
+     <x>700</x>
      <y>163</y>
      <width>75</width>
      <height>34</height>
@@ -670,7 +476,7 @@ p, li { white-space: pre-wrap; }
   <widget class="QSpinBox" name="inputSLOT">
    <property name="geometry">
     <rect>
-     <x>730</x>
+     <x>700</x>
      <y>213</y>
      <width>75</width>
      <height>34</height>
@@ -695,7 +501,7 @@ p, li { white-space: pre-wrap; }
   <widget class="QLabel" name="inputIPLabel">
    <property name="geometry">
     <rect>
-     <x>910</x>
+     <x>880</x>
      <y>106</y>
      <width>38</width>
      <height>41</height>
@@ -708,7 +514,7 @@ p, li { white-space: pre-wrap; }
   <widget class="QLabel" name="inputRACKLabel">
    <property name="geometry">
     <rect>
-     <x>820</x>
+     <x>790</x>
      <y>163</y>
      <width>75</width>
      <height>34</height>
@@ -721,7 +527,7 @@ p, li { white-space: pre-wrap; }
   <widget class="QLabel" name="inputSLOTLabel">
    <property name="geometry">
     <rect>
-     <x>820</x>
+     <x>790</x>
      <y>213</y>
      <width>75</width>
      <height>34</height>
@@ -734,7 +540,7 @@ p, li { white-space: pre-wrap; }
   <widget class="QPushButton" name="connectButton">
    <property name="geometry">
     <rect>
-     <x>730</x>
+     <x>700</x>
      <y>263</y>
      <width>165</width>
      <height>41</height>
@@ -747,7 +553,7 @@ p, li { white-space: pre-wrap; }
   <widget class="QPushButton" name="disconnectButton">
    <property name="geometry">
     <rect>
-     <x>730</x>
+     <x>700</x>
      <y>320</y>
      <width>165</width>
      <height>41</height>
@@ -760,9 +566,9 @@ p, li { white-space: pre-wrap; }
   <widget class="QLabel" name="Border1">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>90</x>
      <y>80</y>
-     <width>201</width>
+     <width>171</width>
      <height>441</height>
     </rect>
    </property>
@@ -773,9 +579,9 @@ p, li { white-space: pre-wrap; }
   <widget class="QLabel" name="Border2">
    <property name="geometry">
     <rect>
-     <x>270</x>
+     <x>290</x>
      <y>80</y>
-     <width>411</width>
+     <width>351</width>
      <height>441</height>
     </rect>
    </property>
@@ -786,10 +592,88 @@ p, li { white-space: pre-wrap; }
   <widget class="QLabel" name="Border3">
    <property name="geometry">
     <rect>
-     <x>700</x>
+     <x>670</x>
      <y>80</y>
      <width>271</width>
      <height>311</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="inputB2">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>156</y>
+     <width>115</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="inputB1">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>106</y>
+     <width>115</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="inputW5">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>306</y>
+     <width>115</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="inputD7">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>406</y>
+     <width>115</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="inputD11">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>456</y>
+     <width>115</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="inputW3">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>256</y>
+     <width>115</width>
+     <height>34</height>
     </rect>
    </property>
    <property name="text">
@@ -817,24 +701,12 @@ p, li { white-space: pre-wrap; }
   <zorder>Input0_5Label</zorder>
   <zorder>Input0_6Label</zorder>
   <zorder>Input0_7Label</zorder>
-  <zorder>inputB1</zorder>
-  <zorder>inputB2</zorder>
-  <zorder>inputW3</zorder>
-  <zorder>inputW5</zorder>
-  <zorder>inputD7</zorder>
-  <zorder>inputD11</zorder>
   <zorder>InputB1Label</zorder>
   <zorder>InputB2Label</zorder>
   <zorder>InputW3Label</zorder>
   <zorder>InputW5Label</zorder>
   <zorder>InputD7Label</zorder>
   <zorder>InputD11Label</zorder>
-  <zorder>inputB1Button</zorder>
-  <zorder>inputB2Button</zorder>
-  <zorder>inputW3Button</zorder>
-  <zorder>inputW5Button</zorder>
-  <zorder>inputD7Button</zorder>
-  <zorder>inputD11Button</zorder>
   <zorder>inputIP</zorder>
   <zorder>inputRACK</zorder>
   <zorder>inputSLOT</zorder>
@@ -843,6 +715,12 @@ p, li { white-space: pre-wrap; }
   <zorder>inputSLOTLabel</zorder>
   <zorder>connectButton</zorder>
   <zorder>disconnectButton</zorder>
+  <zorder>inputB2</zorder>
+  <zorder>inputB1</zorder>
+  <zorder>inputW5</zorder>
+  <zorder>inputD7</zorder>
+  <zorder>inputD11</zorder>
+  <zorder>inputW3</zorder>
  </widget>
  <resources/>
  <connections/>

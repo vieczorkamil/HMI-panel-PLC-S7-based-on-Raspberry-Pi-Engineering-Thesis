@@ -31,21 +31,21 @@ public slots:
 
     void update();
 
-    void setInput0_0();
-    void setInput0_1();
-    void setInput0_2();
-    void setInput0_3();
-    void setInput0_4();
-    void setInput0_5();
-    void setInput0_6();
-    void setInput0_7();
+    void setOutput0_0();
+    void setOutput0_1();
+    void setOutput0_2();
+    void setOutput0_3();
+    void setOutput0_4();
+    void setOutput0_5();
+    void setOutput0_6();
+    void setOutput0_7();
 
-    void setInputB1();
-    void setInputB2();
-    void setInputW3();
-    void setInputW5();
-    void setInputD7();
-    void setInputD11();
+    void setOutputB1();
+    void setOutputB2();
+    void setOutputW3();
+    void setOutputW5();
+    void setOutputD7();
+    void setOutputD11();
 };
 
 #endif // WORKER_H

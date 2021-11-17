@@ -76,14 +76,14 @@ void Worker::update()
     // mutex ?!!!!!!!!!!!!
     if (myPlc->isConnect())
     {
-        outputPLC.Q0_0 = myPlc->readQ(0, 0);
-        outputPLC.Q0_1 = myPlc->readQ(0, 1);
-        outputPLC.Q0_2 = myPlc->readQ(0, 2);
-        outputPLC.Q0_3 = myPlc->readQ(0, 3);
-        outputPLC.Q0_4 = myPlc->readQ(0, 4);
-        outputPLC.Q0_5 = myPlc->readQ(0, 5);
-        outputPLC.Q0_6 = myPlc->readQ(0, 6);
-        outputPLC.Q0_7 = myPlc->readQ(0, 7);
+        inputPLC.I0_0 = myPlc->readI(0, 0);
+        inputPLC.I0_1 = myPlc->readI(0, 1);
+        inputPLC.I0_2 = myPlc->readI(0, 2);
+        inputPLC.I0_3 = myPlc->readI(0, 3);
+        inputPLC.I0_4 = myPlc->readI(0, 4);
+        inputPLC.I0_5 = myPlc->readI(0, 5);
+        inputPLC.I0_6 = myPlc->readI(0, 6);
+        inputPLC.I0_7 = myPlc->readI(0, 7);
 
         outputPLC.QB1 = myPlc->readQB_SInt(1);
         outputPLC.QB2 = myPlc->readQB_USInt(2);
@@ -95,115 +95,115 @@ void Worker::update()
 
 }
 
-void Worker::setInput0_0()
+void Worker::setOutput0_0()
 {
     if (myPlc->isConnect())
     {
         // mutex?
-        myPlc->writeI(inputPLC.I0_0, 0, 0);
+        myPlc->writeQ(outputPLC.Q0_0, 0, 0);
     }
 }
-void Worker::setInput0_1()
+void Worker::setOutput0_1()
 {
     if (myPlc->isConnect())
     {
         // mutex?
-        myPlc->writeI(inputPLC.I0_1, 0, 1);
+        myPlc->writeQ(outputPLC.Q0_1, 0, 1);
     }
 }
-void Worker::setInput0_2()
+void Worker::setOutput0_2()
 {
     if (myPlc->isConnect())
     {
         // mutex?
-        myPlc->writeI(inputPLC.I0_2, 0, 2);
+        myPlc->writeQ(outputPLC.Q0_2, 0, 2);
     }
 }
-void Worker::setInput0_3()
+void Worker::setOutput0_3()
 {
     if (myPlc->isConnect())
     {
         // mutex?
-        myPlc->writeI(inputPLC.I0_3, 0, 3);
+        myPlc->writeQ(outputPLC.Q0_3, 0, 3);
     }
 }
-void Worker::setInput0_4()
+void Worker::setOutput0_4()
 {
     if (myPlc->isConnect())
     {
         // mutex?
-        myPlc->writeI(inputPLC.I0_4, 0, 4);
+        myPlc->writeQ(outputPLC.Q0_4, 0, 4);
     }
 }
-void Worker::setInput0_5()
+void Worker::setOutput0_5()
 {
     if (myPlc->isConnect())
     {
         // mutex?
-        myPlc->writeI(inputPLC.I0_5, 0, 5);
+        myPlc->writeQ(outputPLC.Q0_5, 0, 5);
     }
 }
-void Worker::setInput0_6()
+void Worker::setOutput0_6()
 {
     if (myPlc->isConnect())
     {
         // mutex?
-        myPlc->writeI(inputPLC.I0_6, 0, 6);
+        myPlc->writeQ(outputPLC.Q0_6, 0, 6);
     }
 }
-void Worker::setInput0_7()
+void Worker::setOutput0_7()
 {
     if (myPlc->isConnect())
     {
         // mutex?
-        myPlc->writeI(inputPLC.I0_7, 0, 7);
+        myPlc->writeQ(outputPLC.Q0_7, 0, 7);
     }
 }
-void Worker::setInputB1()
+void Worker::setOutputB1()
 {
     if (myPlc->isConnect())
     {
         // mutex?
-        myPlc->writeIB_SInt(inputPLC.IB1, 1);
+        myPlc->writeIB_SInt(outputPLC.QB1, 1);
     }
 }
-void Worker::setInputB2()
+void Worker::setOutputB2()
 {
     if (myPlc->isConnect())
     {
         // mutex?
-        myPlc->writeIB_USInt(inputPLC.IB2, 2);
+        myPlc->writeIB_USInt(outputPLC.QB2, 2);
     }
 }
-void Worker::setInputW3()
+void Worker::setOutputW3()
 {
     if (myPlc->isConnect())
     {
         // mutex?
-        myPlc->writeIW_Int(inputPLC.IW3, 3);
+        myPlc->writeIW_Int(outputPLC.QW3, 3);
     }
 }
-void Worker::setInputW5()
+void Worker::setOutputW5()
 {
     if (myPlc->isConnect())
     {
         // mutex?
-        myPlc->writeIW_UInt(inputPLC.IW5, 5);
+        myPlc->writeIW_UInt(outputPLC.QW5, 5);
     }
 }
-void Worker::setInputD7()
+void Worker::setOutputD7()
 {
     if (myPlc->isConnect())
     {
         // mutex?
-        myPlc->writeID_Real(inputPLC.ID7, 7);
+        myPlc->writeID_Real(outputPLC.QD7, 7);
     }
 }
-void Worker::setInputD11()
+void Worker::setOutputD11()
 {
     if (myPlc->isConnect())
     {
         // mutex?
-        myPlc->writeID_Real(inputPLC.ID11, 11);
+        myPlc->writeID_Real(outputPLC.QD11, 11);
     }
 }
