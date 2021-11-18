@@ -1049,7 +1049,7 @@ int PlcS7::toggleBitI(int startAdrressByte, int startAdrressBit)
     }
     else
     {
-        out = ~out;
+        out = !out;
         int err = Cli_WriteArea(Client, S7AreaPE, 0, Start, 1, S7WLBit, &out);
         if (err)
         {
@@ -1071,7 +1071,7 @@ int PlcS7::toggleBitQ(int startAdrressByte, int startAdrressBit)
     }
     else
     {
-        out = ~out;
+        out = !out;
         int err = Cli_WriteArea(Client, S7AreaPA, 0, Start, 1, S7WLBit, &out);
         if (err)
         {
@@ -1093,7 +1093,7 @@ int PlcS7::toggleBitM(int startAdrressByte, int startAdrressBit)
     }
     else
     {
-        out = ~out;
+        out = !out;
         int err = Cli_WriteArea(Client, S7AreaMK, 0, Start, 1, S7WLBit, &out);
         if (err)
         {
