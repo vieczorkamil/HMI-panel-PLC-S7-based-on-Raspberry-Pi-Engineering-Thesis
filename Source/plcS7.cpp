@@ -1036,6 +1036,7 @@ int PlcS7::writeDataBlock_Real(float value, int DBNumber, int offset)
     }
     return err;
 }
+/* TOGGLE BIT */
 
 int PlcS7::toggleBitI(int startAdrressByte, int startAdrressBit)
 {
@@ -1102,6 +1103,81 @@ int PlcS7::toggleBitM(int startAdrressByte, int startAdrressBit)
         return err;
     }
 }
+
+/* SET BIT */
+int PlcS7::setBitI(int startAdrressByte, int startAdrressBit)
+{
+    bit out = true;
+    int Start = startAdrressByte * 8 + startAdrressBit;
+    int err = Cli_WriteArea(Client, S7AreaPE, 0, Start, 1, S7WLBit, &out);
+    if (err)
+    {
+        DEBUG("error : " << err);
+    }
+    return err;
+}
+
+int PlcS7::setBitQ(int startAdrressByte, int startAdrressBit)
+{
+    bit out = true;
+    int Start = startAdrressByte * 8 + startAdrressBit;
+    int err = Cli_WriteArea(Client, S7AreaPA, 0, Start, 1, S7WLBit, &out);
+    if (err)
+    {
+        DEBUG("error : " << err);
+    }
+    return err;
+}
+
+int PlcS7::setBitM(int startAdrressByte, int startAdrressBit)
+{
+    bit out = true;
+    int Start = startAdrressByte * 8 + startAdrressBit;
+    int err = Cli_WriteArea(Client, S7AreaMK, 0, Start, 1, S7WLBit, &out);
+    if (err)
+    {
+        DEBUG("error : " << err);
+    }
+    return err;
+}
+
+/* RESET BIT */
+int PlcS7::resetBitI(int startAdrressByte, int startAdrressBit)
+{
+    bit out = false;
+    int Start = startAdrressByte * 8 + startAdrressBit;
+    int err = Cli_WriteArea(Client, S7AreaPE, 0, Start, 1, S7WLBit, &out);
+    if (err)
+    {
+        DEBUG("error : " << err);
+    }
+    return err;
+}
+
+int PlcS7::resetBitQ(int startAdrressByte, int startAdrressBit)
+{
+    bit out = false;
+    int Start = startAdrressByte * 8 + startAdrressBit;
+    int err = Cli_WriteArea(Client, S7AreaPA, 0, Start, 1, S7WLBit, &out);
+    if (err)
+    {
+        DEBUG("error : " << err);
+    }
+    return err;
+}
+
+int PlcS7::resetBitM(int startAdrressByte, int startAdrressBit)
+{
+    bit out = false;
+    int Start = startAdrressByte * 8 + startAdrressBit;
+    int err = Cli_WriteArea(Client, S7AreaMK, 0, Start, 1, S7WLBit, &out);
+    if (err)
+    {
+        DEBUG("error : " << err);
+    }
+    return err;
+}
+
 /*-----------------------PRIVATE--------------------------*/
 
 uint8_t PlcS7::getByte(byte *buffer)

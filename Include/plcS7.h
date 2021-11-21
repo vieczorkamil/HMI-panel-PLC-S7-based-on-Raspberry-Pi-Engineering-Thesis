@@ -118,6 +118,16 @@ public:
     int toggleBitQ(int startAdrressByte, int startAdrressBit);
     int toggleBitM(int startAdrressByte, int startAdrressBit);
 
+    /* SET BIT */
+    int setBitI(int startAdrressByte, int startAdrressBit);
+    int setBitQ(int startAdrressByte, int startAdrressBit);
+    int setBitM(int startAdrressByte, int startAdrressBit);
+
+    /* RESET BIT */
+    int resetBitI(int startAdrressByte, int startAdrressBit);
+    int resetBitQ(int startAdrressByte, int startAdrressBit);
+    int resetBitM(int startAdrressByte, int startAdrressBit);
+
 protected:
 private:
     const char *ip;
