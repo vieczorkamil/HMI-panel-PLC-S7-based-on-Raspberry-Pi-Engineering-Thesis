@@ -3,6 +3,8 @@
 
 #include <QDebug>
 
+#include "hmi_tag.h"
+
 #define LED_OFF(led) ui->led->setCheckState(Qt::Unchecked)
 #define LED_ON(led) ui->led->setCheckState(Qt::Checked)
 
@@ -54,7 +56,8 @@ void Inputwindow::backButton_clicked()
 
 void Inputwindow::update()
 {
-    inputPLC.I0_0 ? LED_ON(switchInput0_0) : LED_OFF(switchInput0_0);
+    //inputPLC.I0_0 ? LED_ON(switchInput0_0) : LED_OFF(switchInput0_0);
+    I0_0.VALUE ? LED_ON(switchInput0_0) : LED_OFF(switchInput0_0);
     inputPLC.I0_1 ? LED_ON(switchInput0_1) : LED_OFF(switchInput0_1);
     inputPLC.I0_2 ? LED_ON(switchInput0_2) : LED_OFF(switchInput0_2);
     inputPLC.I0_3 ? LED_ON(switchInput0_3) : LED_OFF(switchInput0_3);

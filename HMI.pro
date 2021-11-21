@@ -31,7 +31,8 @@ SOURCES += \
         Source/plcS7.cpp \
         Source/worker.cpp \
         Source/inputwindow.cpp \
-        Source/outputwindow.cpp
+        Source/outputwindow.cpp \
+        Source/hmi_tag.cpp
 
 HEADERS += \
         Include/mainwindow.h \
@@ -40,7 +41,8 @@ HEADERS += \
         Include/worker.h \
         Include/inputwindow.h \
         Include/outputwindow.h \
-        Include/configPLC.h
+        Include/configPLC.h \
+        Include/hmi_tag.h
 
 INCLUDEPATH += \
         Include \

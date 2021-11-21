@@ -1,4 +1,5 @@
 #include "worker.h"
+#include "hmi_tag.h"
 
 infoPLC_t infoPLC;
 outputPLC_t outputPLC;
@@ -93,6 +94,7 @@ void Worker::update()
     if (myPlc->isConnect())
     {
         inputPLC.I0_0 = myPlc->readI(0, 0);
+        I0_0.VALUE = myPlc->readI(I0_0.BYTE_DBNUMBER, I0_0.BIT_OFFSET);
         inputPLC.I0_1 = myPlc->readI(0, 1);
         inputPLC.I0_2 = myPlc->readI(0, 2);
         inputPLC.I0_3 = myPlc->readI(0, 3);
