@@ -162,6 +162,11 @@ int8_t PlcS7::readIB_SInt(int startAdrressByte)
     }
 }
 
+int8_t PlcS7::readIB_SInt(HMI_tag<int8_t> *tag)
+{
+    return readIB_SInt(tag->BYTE_DBNUMBER);
+}
+
 uint8_t PlcS7::readIB_USInt(int startAdrressByte)
 {
     byte buffer;
@@ -176,6 +181,11 @@ uint8_t PlcS7::readIB_USInt(int startAdrressByte)
     {
         return getUSInt(&buffer);
     }
+}
+
+uint8_t PlcS7::readIB_USInt(HMI_tag<uint8_t> *tag)
+{
+    return readIB_USInt(tag->BYTE_DBNUMBER);
 }
 
 int16_t PlcS7::readIW_Int(int startAdrressByte)
@@ -194,6 +204,11 @@ int16_t PlcS7::readIW_Int(int startAdrressByte)
     }
 }
 
+int16_t PlcS7::readIW_Int(HMI_tag<int16_t> *tag)
+{
+    return readIW_Int(tag->BYTE_DBNUMBER);
+}
+
 uint16_t PlcS7::readIW_UInt(int startAdrressByte)
 {
     byte buffer[2];
@@ -208,6 +223,11 @@ uint16_t PlcS7::readIW_UInt(int startAdrressByte)
     {
         return getUInt(buffer);
     }
+}
+
+uint16_t PlcS7::readIW_UInt(HMI_tag<uint16_t> *tag)
+{
+    return readIW_UInt(tag->BYTE_DBNUMBER);
 }
 
 int32_t PlcS7::readID_DInt(int startAdrressByte)
@@ -226,6 +246,11 @@ int32_t PlcS7::readID_DInt(int startAdrressByte)
     }
 }
 
+int32_t PlcS7::readID_DInt(HMI_tag<int32_t> *tag)
+{
+    return readID_DInt(tag->BYTE_DBNUMBER);
+}
+
 uint32_t PlcS7::readID_UDInt(int startAdrressByte)
 {
     byte buffer[4];
@@ -242,6 +267,11 @@ uint32_t PlcS7::readID_UDInt(int startAdrressByte)
     }
 }
 
+uint32_t PlcS7::readID_UDInt(HMI_tag<uint32_t> *tag)
+{
+    return readID_UDInt(tag->BYTE_DBNUMBER);
+}
+
 float PlcS7::readID_Real(int startAdrressByte)
 {
     byte buffer[4];
@@ -256,6 +286,11 @@ float PlcS7::readID_Real(int startAdrressByte)
     {
         return getReal(buffer);
     }
+}
+
+float PlcS7::readID_Real(HMI_tag<float> *tag)
+{
+    return readID_Real(tag->BYTE_DBNUMBER);
 }
 
 /* READ OUTPUT SIGNALS/MEMORY */
@@ -275,6 +310,11 @@ bool PlcS7::readQ(int startAdrressByte, int startAdrressBit)
         return out;
 }
 
+bool PlcS7::readQ(HMI_tag<bool> *tag)
+{
+    return readQ(tag->BYTE_DBNUMBER, tag->BIT_OFFSET);
+}
+
 int8_t PlcS7::readQB_SInt(int startAdrressByte)
 {
     byte buffer;
@@ -289,6 +329,11 @@ int8_t PlcS7::readQB_SInt(int startAdrressByte)
     {
         return getSInt(&buffer);
     }
+}
+
+int8_t PlcS7::readQB_SInt(HMI_tag<int8_t> *tag)
+{
+    return readQB_SInt(tag->BYTE_DBNUMBER);
 }
 
 uint8_t PlcS7::readQB_USInt(int startAdrressByte)
@@ -307,6 +352,11 @@ uint8_t PlcS7::readQB_USInt(int startAdrressByte)
     }
 }
 
+uint8_t PlcS7::readQB_USInt(HMI_tag<uint8_t> *tag)
+{
+    return readQB_USInt(tag->BYTE_DBNUMBER);
+}
+
 int16_t PlcS7::readQW_Int(int startAdrressByte)
 {
     byte buffer[2];
@@ -321,6 +371,11 @@ int16_t PlcS7::readQW_Int(int startAdrressByte)
     {
         return getInt(buffer);
     }
+}
+
+int16_t PlcS7::readQW_Int(HMI_tag<int16_t> *tag)
+{
+    return readQW_Int(tag->BYTE_DBNUMBER);
 }
 
 uint16_t PlcS7::readQW_UInt(int startAdrressByte)
@@ -339,6 +394,11 @@ uint16_t PlcS7::readQW_UInt(int startAdrressByte)
     }
 }
 
+uint16_t PlcS7::readQW_UInt(HMI_tag<uint16_t> *tag)
+{
+    return readQW_UInt(tag->BYTE_DBNUMBER);
+}
+
 int32_t PlcS7::readQD_DInt(int startAdrressByte)
 {
     byte buffer[4];
@@ -353,6 +413,11 @@ int32_t PlcS7::readQD_DInt(int startAdrressByte)
     {
         return getDInt(buffer);
     }
+}
+
+int32_t PlcS7::readQD_DInt(HMI_tag<int32_t> *tag)
+{
+    return readQD_DInt(tag->BYTE_DBNUMBER);
 }
 
 uint32_t PlcS7::readQD_UDInt(int startAdrressByte)
@@ -371,6 +436,11 @@ uint32_t PlcS7::readQD_UDInt(int startAdrressByte)
     }
 }
 
+uint32_t PlcS7::readQD_UDInt(HMI_tag<uint32_t> *tag)
+{
+    return readQD_UDInt(tag->BYTE_DBNUMBER);
+}
+
 float PlcS7::readQD_Real(int startAdrressByte)
 {
     byte buffer[4];
@@ -385,6 +455,11 @@ float PlcS7::readQD_Real(int startAdrressByte)
     {
         return getReal(buffer);
     }
+}
+
+float PlcS7::readQD_Real(HMI_tag<float> *tag)
+{
+    return readQD_Real(tag->BYTE_DBNUMBER);
 }
 
 /* READ MARKER MEMORY */
@@ -404,6 +479,11 @@ bool PlcS7::readM(int startAdrressByte, int startAdrressBit)
         return out;
 }
 
+bool PlcS7::readM(HMI_tag<bool> *tag)
+{
+    return readM(tag->BYTE_DBNUMBER, tag->BIT_OFFSET);
+}
+
 int8_t PlcS7::readMB_SInt(int startAdrressByte)
 {
     byte buffer;
@@ -418,6 +498,11 @@ int8_t PlcS7::readMB_SInt(int startAdrressByte)
     {
         return getSInt(&buffer);
     }
+}
+
+int8_t PlcS7::readMB_SInt(HMI_tag<int8_t> *tag)
+{
+    return readMB_SInt(tag->BYTE_DBNUMBER);
 }
 
 uint8_t PlcS7::readMB_USInt(int startAdrressByte)
@@ -436,6 +521,11 @@ uint8_t PlcS7::readMB_USInt(int startAdrressByte)
     }
 }
 
+uint8_t PlcS7::readMB_USInt(HMI_tag<uint8_t> *tag)
+{
+    return readMB_USInt(tag->BYTE_DBNUMBER);
+}
+
 int16_t PlcS7::readMW_Int(int startAdrressByte)
 {
     byte buffer[2];
@@ -450,6 +540,11 @@ int16_t PlcS7::readMW_Int(int startAdrressByte)
     {
         return getInt(buffer);
     }
+}
+
+int16_t PlcS7::readMW_Int(HMI_tag<int16_t> *tag)
+{
+    return readMW_Int(tag->BYTE_DBNUMBER);
 }
 
 uint16_t PlcS7::readMW_UInt(int startAdrressByte)
@@ -468,6 +563,11 @@ uint16_t PlcS7::readMW_UInt(int startAdrressByte)
     }
 }
 
+uint16_t PlcS7::readMW_UInt(HMI_tag<uint16_t> *tag)
+{
+    return readMW_UInt(tag->BYTE_DBNUMBER);
+}
+
 int32_t PlcS7::readMD_DInt(int startAdrressByte)
 {
     byte buffer[4];
@@ -482,6 +582,11 @@ int32_t PlcS7::readMD_DInt(int startAdrressByte)
     {
         return getDInt(buffer);
     }
+}
+
+int32_t PlcS7::readMD_DInt(HMI_tag<int32_t> *tag)
+{
+    return readMD_DInt(tag->BYTE_DBNUMBER);
 }
 
 uint32_t PlcS7::readMD_UDInt(int startAdrressByte)
@@ -500,6 +605,11 @@ uint32_t PlcS7::readMD_UDInt(int startAdrressByte)
     }
 }
 
+uint32_t PlcS7::readMD_UDInt(HMI_tag<uint32_t> *tag)
+{
+    return readMD_UDInt(tag->BYTE_DBNUMBER);
+}
+
 float PlcS7::readMD_Real(int startAdrressByte)
 {
     byte buffer[4];
@@ -514,6 +624,11 @@ float PlcS7::readMD_Real(int startAdrressByte)
     {
         return getReal(buffer);
     }
+}
+
+float PlcS7::readMD_Real(HMI_tag<float> *tag)
+{
+    return readMD_Real(tag->BYTE_DBNUMBER);
 }
 
 /* READ DATABLOCK */
@@ -644,6 +759,11 @@ int PlcS7::writeI(bool value, int startAdrressByte, int startAdrressBit)
     return err;
 }
 
+int PlcS7::writeI(HMI_tag<bool> *tag)
+{
+    return writeI(tag->VALUE, tag->BYTE_DBNUMBER, tag->BIT_OFFSET);
+}
+
 int PlcS7::writeIB_SInt(int8_t value, int startAdrressByte)
 {
     byte buffer;
@@ -655,6 +775,11 @@ int PlcS7::writeIB_SInt(int8_t value, int startAdrressByte)
         DEBUG("error : " << err);
     }
     return err;
+}
+
+int PlcS7::writeIB_SInt(HMI_tag<int8_t> *tag)
+{
+    return writeIB_SInt(tag->VALUE, tag->BYTE_DBNUMBER);
 }
 
 int PlcS7::writeIB_USInt(uint8_t value, int startAdrressByte)
@@ -670,6 +795,11 @@ int PlcS7::writeIB_USInt(uint8_t value, int startAdrressByte)
     return err;
 }
 
+int PlcS7::writeIB_USInt(HMI_tag<uint8_t> *tag)
+{
+    return writeIB_USInt(tag->VALUE, tag->BYTE_DBNUMBER);
+}
+
 int PlcS7::writeIW_Int(int16_t value, int startAdrressByte)
 {
     byte buffer[2];
@@ -681,6 +811,11 @@ int PlcS7::writeIW_Int(int16_t value, int startAdrressByte)
         DEBUG("error : " << err);
     }
     return err;
+}
+
+int PlcS7::writeIW_Int(HMI_tag<int16_t> *tag)
+{
+    return writeIW_Int(tag->VALUE, tag->BYTE_DBNUMBER);
 }
 
 int PlcS7::writeIW_UInt(uint16_t value, int startAdrressByte)
@@ -696,6 +831,11 @@ int PlcS7::writeIW_UInt(uint16_t value, int startAdrressByte)
     return err;
 }
 
+int PlcS7::writeIW_UInt(HMI_tag<uint16_t> *tag)
+{
+    return writeIW_UInt(tag->VALUE, tag->BYTE_DBNUMBER);
+}
+
 int PlcS7::writeID_DInt(int32_t value, int startAdrressByte)
 {
     byte buffer[4];
@@ -707,6 +847,11 @@ int PlcS7::writeID_DInt(int32_t value, int startAdrressByte)
         DEBUG("error : " << err);
     }
     return err;
+}
+
+int PlcS7::writeID_DInt(HMI_tag<int32_t> *tag)
+{
+    return writeID_DInt(tag->VALUE, tag->BYTE_DBNUMBER);
 }
 
 int PlcS7::writeID_UDInt(uint32_t value, int startAdrressByte)
@@ -722,6 +867,11 @@ int PlcS7::writeID_UDInt(uint32_t value, int startAdrressByte)
     return err;
 }
 
+int PlcS7::writeID_UDInt(HMI_tag<uint32_t> *tag)
+{
+    return writeID_UDInt(tag->VALUE, tag->BYTE_DBNUMBER);
+}
+
 int PlcS7::writeID_Real(float value, int startAdrressByte)
 {
     byte buffer[4];
@@ -733,6 +883,11 @@ int PlcS7::writeID_Real(float value, int startAdrressByte)
         DEBUG("error : " << err);
     }
     return err;
+}
+
+int PlcS7::writeID_Real(HMI_tag<float> *tag)
+{
+    return writeID_Real(tag->VALUE, tag->BYTE_DBNUMBER);
 }
 
 /* WRITE OUTPUT SIGNALS/MEMORY */
@@ -749,6 +904,11 @@ int PlcS7::writeQ(bool value, int startAdrressByte, int startAdrressBit)
     return err;
 }
 
+int PlcS7::writeQ(HMI_tag<bool> *tag)
+{
+    return writeQ(tag->VALUE, tag->BYTE_DBNUMBER, tag->BIT_OFFSET);
+}
+
 int PlcS7::writeQB_SInt(int8_t value, int startAdrressByte)
 {
     byte buffer;
@@ -760,6 +920,11 @@ int PlcS7::writeQB_SInt(int8_t value, int startAdrressByte)
         DEBUG("error : " << err);
     }
     return err;
+}
+
+int PlcS7::writeQB_SInt(HMI_tag<int8_t> *tag)
+{
+    return writeQB_SInt(tag->VALUE, tag->BYTE_DBNUMBER);
 }
 
 int PlcS7::writeQB_USInt(uint8_t value, int startAdrressByte)
@@ -775,6 +940,11 @@ int PlcS7::writeQB_USInt(uint8_t value, int startAdrressByte)
     return err;
 }
 
+int PlcS7::writeQB_USInt(HMI_tag<uint8_t> *tag)
+{
+    return writeQB_USInt(tag->VALUE, tag->BYTE_DBNUMBER);
+}
+
 int PlcS7::writeQW_Int(int16_t value, int startAdrressByte)
 {
     byte buffer[2];
@@ -786,6 +956,11 @@ int PlcS7::writeQW_Int(int16_t value, int startAdrressByte)
         DEBUG("error : " << err);
     }
     return err;
+}
+
+int PlcS7::writeQW_Int(HMI_tag<int16_t> *tag)
+{
+    return writeQW_Int(tag->VALUE, tag->BYTE_DBNUMBER);
 }
 
 int PlcS7::writeQW_UInt(uint16_t value, int startAdrressByte)
@@ -801,6 +976,11 @@ int PlcS7::writeQW_UInt(uint16_t value, int startAdrressByte)
     return err;
 }
 
+int PlcS7::writeQW_UInt(HMI_tag<uint16_t> *tag)
+{
+    return writeQW_UInt(tag->VALUE, tag->BYTE_DBNUMBER);
+}
+
 int PlcS7::writeQD_DInt(int32_t value, int startAdrressByte)
 {
     byte buffer[4];
@@ -812,6 +992,11 @@ int PlcS7::writeQD_DInt(int32_t value, int startAdrressByte)
         DEBUG("error : " << err);
     }
     return err;
+}
+
+int PlcS7::writeQD_DInt(HMI_tag<int32_t> *tag)
+{
+    return writeQD_DInt(tag->VALUE, tag->BYTE_DBNUMBER);
 }
 
 int PlcS7::writeQD_UDInt(uint32_t value, int startAdrressByte)
@@ -827,6 +1012,11 @@ int PlcS7::writeQD_UDInt(uint32_t value, int startAdrressByte)
     return err;
 }
 
+int PlcS7::writeQD_UDInt(HMI_tag<uint32_t> *tag)
+{
+    return writeQD_UDInt(tag->VALUE, tag->BYTE_DBNUMBER);
+}
+
 int PlcS7::writeQD_Real(float value, int startAdrressByte)
 {
     byte buffer[4];
@@ -838,6 +1028,11 @@ int PlcS7::writeQD_Real(float value, int startAdrressByte)
         DEBUG("error : " << err);
     }
     return err;
+}
+
+int PlcS7::writeQD_Real(HMI_tag<float> *tag)
+{
+    return writeQD_Real(tag->VALUE, tag->BYTE_DBNUMBER);
 }
 
 /* WRITE MARKER MEMORY */
@@ -854,6 +1049,11 @@ int PlcS7::writeM(bool value, int startAdrressByte, int startAdrressBit)
     return err;
 }
 
+int PlcS7::writeM(HMI_tag<bool> *tag)
+{
+    return writeM(tag->VALUE, tag->BYTE_DBNUMBER, tag->BIT_OFFSET);
+}
+
 int PlcS7::writeMB_SInt(int8_t value, int startAdrressByte)
 {
     byte buffer;
@@ -865,6 +1065,11 @@ int PlcS7::writeMB_SInt(int8_t value, int startAdrressByte)
         DEBUG("error : " << err);
     }
     return err;
+}
+
+int PlcS7::writeMB_SInt(HMI_tag<int8_t> *tag)
+{
+    return writeMB_SInt(tag->VALUE, tag->BYTE_DBNUMBER);
 }
 
 int PlcS7::writeMB_USInt(uint8_t value, int startAdrressByte)
@@ -880,6 +1085,11 @@ int PlcS7::writeMB_USInt(uint8_t value, int startAdrressByte)
     return err;
 }
 
+int PlcS7::writeMB_USInt(HMI_tag<uint8_t> *tag)
+{
+    return writeMB_USInt(tag->VALUE, tag->BYTE_DBNUMBER);
+}
+
 int PlcS7::writeMW_Int(int16_t value, int startAdrressByte)
 {
     byte buffer[2];
@@ -891,6 +1101,11 @@ int PlcS7::writeMW_Int(int16_t value, int startAdrressByte)
         DEBUG("error : " << err);
     }
     return err;
+}
+
+int PlcS7::writeMW_Int(HMI_tag<int16_t> *tag)
+{
+    return writeMW_Int(tag->VALUE, tag->BYTE_DBNUMBER);
 }
 
 int PlcS7::writeMW_UInt(uint16_t value, int startAdrressByte)
@@ -906,6 +1121,11 @@ int PlcS7::writeMW_UInt(uint16_t value, int startAdrressByte)
     return err;
 }
 
+int PlcS7::writeMW_UInt(HMI_tag<uint16_t> *tag)
+{
+    return writeMW_UInt(tag->VALUE, tag->BYTE_DBNUMBER);
+}
+
 int PlcS7::writeMD_DInt(int32_t value, int startAdrressByte)
 {
     byte buffer[4];
@@ -917,6 +1137,11 @@ int PlcS7::writeMD_DInt(int32_t value, int startAdrressByte)
         DEBUG("error : " << err);
     }
     return err;
+}
+
+int PlcS7::writeMD_DInt(HMI_tag<int32_t> *tag)
+{
+    return writeMD_DInt(tag->VALUE, tag->BYTE_DBNUMBER);
 }
 
 int PlcS7::writeMD_UDInt(uint32_t value, int startAdrressByte)
@@ -932,6 +1157,11 @@ int PlcS7::writeMD_UDInt(uint32_t value, int startAdrressByte)
     return err;
 }
 
+int PlcS7::writeMD_UDInt(HMI_tag<uint32_t> *tag)
+{
+    return writeMD_UDInt(tag->VALUE, tag->BYTE_DBNUMBER);
+}
+
 int PlcS7::writeMD_Real(float value, int startAdrressByte)
 {
     byte buffer[4];
@@ -943,6 +1173,11 @@ int PlcS7::writeMD_Real(float value, int startAdrressByte)
         DEBUG("error : " << err);
     }
     return err;
+}
+
+int PlcS7::writeMD_Real(HMI_tag<float> *tag)
+{
+    return writeMD_Real(tag->VALUE, tag->BYTE_DBNUMBER);
 }
 
 /* WRITE DATABLOCK */
@@ -1473,4 +1708,3 @@ uint32_t PlcS7::getUint32(byte *buffer)
 
     return result;
 }
-
