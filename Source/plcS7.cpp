@@ -141,6 +141,11 @@ bool PlcS7::readI(int startAdrressByte, int startAdrressBit)
         return out;
 }
 
+bool PlcS7::readI(HMI_tag<bool> *tag)
+{
+    return readI(tag->BYTE_DBNUMBER, tag->BIT_OFFSET);
+}
+
 int8_t PlcS7::readIB_SInt(int startAdrressByte)
 {
     byte buffer;
@@ -1468,3 +1473,4 @@ uint32_t PlcS7::getUint32(byte *buffer)
 
     return result;
 }
+

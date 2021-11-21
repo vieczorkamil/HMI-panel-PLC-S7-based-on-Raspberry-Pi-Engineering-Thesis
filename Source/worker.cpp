@@ -93,22 +93,30 @@ void Worker::update()
     // mutex ?!!!!!!!!!!!!
     if (myPlc->isConnect())
     {
-        inputPLC.I0_0 = myPlc->readI(0, 0);
-        I0_0.VALUE = myPlc->readI(I0_0.BYTE_DBNUMBER, I0_0.BIT_OFFSET);
-        inputPLC.I0_1 = myPlc->readI(0, 1);
-        inputPLC.I0_2 = myPlc->readI(0, 2);
-        inputPLC.I0_3 = myPlc->readI(0, 3);
-        inputPLC.I0_4 = myPlc->readI(0, 4);
-        inputPLC.I0_5 = myPlc->readI(0, 5);
-        inputPLC.I0_6 = myPlc->readI(0, 6);
-        inputPLC.I0_7 = myPlc->readI(0, 7);
+        //inputPLC.I0_0 = myPlc->readI(0, 0);
+        //I0_0.VALUE = myPlc->readI(I0_0.BYTE_DBNUMBER, I0_0.BIT_OFFSET);
+        I0_0.VALUE = myPlc->readI(&I0_0);
+        I0_1.VALUE = myPlc->readI(I0_1.BYTE_DBNUMBER, I0_1.BIT_OFFSET);
+        I0_2.VALUE = myPlc->readI(I0_2.BYTE_DBNUMBER, I0_2.BIT_OFFSET);
+        I0_3.VALUE = myPlc->readI(I0_3.BYTE_DBNUMBER, I0_3.BIT_OFFSET);
+        I0_4.VALUE = myPlc->readI(I0_4.BYTE_DBNUMBER, I0_4.BIT_OFFSET);
+        I0_5.VALUE = myPlc->readI(I0_5.BYTE_DBNUMBER, I0_5.BIT_OFFSET);
+        I0_6.VALUE = myPlc->readI(I0_6.BYTE_DBNUMBER, I0_6.BIT_OFFSET);
+        I0_7.VALUE = myPlc->readI(I0_7.BYTE_DBNUMBER, I0_7.BIT_OFFSET);
+        //inputPLC.I0_1 = myPlc->readI(0, 1);
+        //inputPLC.I0_2 = myPlc->readI(0, 2);
+        //inputPLC.I0_3 = myPlc->readI(0, 3);
+        //inputPLC.I0_4 = myPlc->readI(0, 4);
+        //inputPLC.I0_5 = myPlc->readI(0, 5);
+        //inputPLC.I0_6 = myPlc->readI(0, 6);
+        //inputPLC.I0_7 = myPlc->readI(0, 7);
 
-        outputPLC.QB1 = myPlc->readQB_SInt(1);
-        outputPLC.QB2 = myPlc->readQB_USInt(2);
-        outputPLC.QW3 = myPlc->readQW_Int(3);
-        outputPLC.QW5 = myPlc->readQW_UInt(5);
-        outputPLC.QD7 = myPlc->readQD_Real(7);
-        outputPLC.QD11 = myPlc->readQD_Real(11);
+        IB1.VALUE = myPlc->readQB_SInt(IB1.BYTE_DBNUMBER);
+        IB2.VALUE = myPlc->readIB_USInt(IB2.BYTE_DBNUMBER);
+        IW3.VALUE = myPlc->readIW_Int(IW3.BYTE_DBNUMBER);
+        IW5.VALUE = myPlc->readIW_UInt(IW5.BYTE_DBNUMBER);
+        ID7.VALUE = myPlc->readID_Real(ID7.BYTE_DBNUMBER);
+        ID11.VALUE = myPlc->readID_Real(ID11.BYTE_DBNUMBER);
     }
 
 }
@@ -119,6 +127,7 @@ void Worker::setOutput0_0()
     {
         // mutex?
         myPlc->writeQ(outputPLC.Q0_0, 0, 0);
+        myPlc->writeQ(Q0_0.VALUE, Q0_0.BYTE_DBNUMBER, Q0_0.BIT_OFFSET);
     }
 }
 void Worker::setOutput0_1()

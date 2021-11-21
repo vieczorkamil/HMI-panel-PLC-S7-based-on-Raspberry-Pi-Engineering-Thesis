@@ -2,6 +2,7 @@
 #define _PLCS7_H
 
 #include "snap7.h"
+#include "hmi_tag.h"
 
 #define bit bool
 
@@ -35,13 +36,21 @@ public:
 
     /* READ INPUT SIGNALS/MEMORY */
     bool readI(int startAdrressByte, int startAdrressBit);
+    bool readI(HMI_tag<bool> *tag);
     int8_t readIB_SInt(int startAdrressByte);
+    int8_t readIB_SInt(HMI_tag<int8_t> *tag);
     uint8_t readIB_USInt(int startAdrressByte);
+    uint8_t readIB_USInt(HMI_tag<uint8_t> *tag);
     int16_t readIW_Int(int startAdrressByte);
+    int16_t readIW_Int(HMI_tag<int16_t> *tag);
     uint16_t readIW_UInt(int startAdrressByte);
+    uint16_t readIW_UInt(HMI_tag<uint16_t> *tag);
     int32_t readID_DInt(int startAdrressByte);
+    int32_t readID_DInt(HMI_tag<int32_t> *tag);
     uint32_t readID_UDInt(int startAdrressByte);
+    uint32_t readID_UDInt(HMI_tag<uint32_t> *tag);
     float readID_Real(int startAdrressByte);
+    float readID_Real(HMI_tag<float> *tag);
 
     /* READ OUTPUT SIGNALS/MEMORY */
     bool readQ(int startAdrressByte, int startAdrressBit);
