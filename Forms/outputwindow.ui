@@ -70,10 +70,10 @@ QCheckBox::indicator{
 	height: 50px;
 }
 QCheckBox::indicator:checked{
-	image:url(&quot;:/Button/switchOn512x272.png&quot;);
+	image:url(&quot;:/switch/switchON.png&quot;);
 }
 QCheckBox::indicator:unchecked{
-	image:url(&quot;:/Button/switchOff512x272.png&quot;);
+	image:url(&quot;:/switch/switchOFF.png&quot;);
 }
 
 

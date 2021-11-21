@@ -81,10 +81,10 @@ QCheckBox::indicator{
 	height: 30px;
 }
 QCheckBox::indicator:checked{
-	image:url(&quot;:/Led/ledON.png&quot;);
+	image:url(&quot;:/led/ledON.png&quot;);
 }
 QCheckBox::indicator:unchecked{
-	image:url(&quot;:/Led/ledOFF.png&quot;);
+	image:url(&quot;:/led/ledOFF.png&quot;);
 }</string>
   </property>
   <widget class="QPushButton" name="backButton">
