@@ -631,6 +631,135 @@ float PlcS7::readMD_Real(HMI_tag<float> *tag)
     return readMD_Real(tag->BYTE_DBNUMBER);
 }
 
+/* READ HMI_TAG */
+bool PlcS7::readValue(HMI_tag<bool> *tag);
+{
+    switch (tag->TYPE)
+    {
+    case INPUT:
+        return readI(tag);
+        break;
+    case OUTPUT:
+        return readQ(tag);
+        break;
+    case MARKER:
+        return readM(tag);
+        break;
+    }
+}
+
+int8_t PlcS7::readValue(HMI_tag<int8_t> *tag)
+{
+    switch (tag->TYPE)
+    {
+    case INPUT:
+        return readIB_SInt(tag);
+        break;
+    case OUTPUT:
+        return readQB_SInt(tag);
+        break;
+    case MARKER:
+        return readMB_SInt(tag);
+        break;
+    }
+}
+
+uint8_t PlcS7::readValue(HMI_tag<uint8_t> *tag)
+{
+    switch (tag->TYPE)
+    {
+    case INPUT:
+        return readIB_USInt(tag);
+        break;
+    case OUTPUT:
+        return readQB_USInt(tag);
+        break;
+    case MARKER:
+        return readMB_USInt(tag);
+        break;
+    }
+}
+
+int16_t PlcS7::readValue(HMI_tag<int16_t> *tag)
+{
+    switch (tag->TYPE)
+    {
+    case INPUT:
+        return readIW_Int(tag);
+        break;
+    case OUTPUT:
+        return readQW_Int(tag);
+        break;
+    case MARKER:
+        return readMW_Int(tag);
+        break;
+    }
+}
+
+uint16_t PlcS7::readValue(HMI_tag<uint16_t> *tag)
+{
+    switch (tag->TYPE)
+    {
+    case INPUT:
+        return readIW_UInt(tag);
+        break;
+    case OUTPUT:
+        return readQW_UInt(tag);
+        break;
+    case MARKER:
+        return readMW_UInt(tag);
+        break;
+    }
+}
+
+int32_t PlcS7::readValue(HMI_tag<int32_t> *tag)
+{
+    switch (tag->TYPE)
+    {
+    case INPUT:
+        return readID_DInt(tag);
+        break;
+    case OUTPUT:
+        return readQD_DInt(tag);
+        break;
+    case MARKER:
+        return readMD_DInt(tag);
+        break;
+    }
+}
+
+uint32_t PlcS7::readValue(HMI_tag<uint32_t> *tag)
+{
+    switch (tag->TYPE)
+    {
+    case INPUT:
+        return readID_UDInt(tag);
+        break;
+    case OUTPUT:
+        return readQD_UDInt(tag);
+        break;
+    case MARKER:
+        return readMD_UDInt(tag);
+        break;
+    }
+}
+
+float PlcS7::readValue(HMI_tag<float> *tag)
+{
+    switch (tag->TYPE)
+    {
+    case INPUT:
+        return readID_Real(tag);
+        break;
+    case OUTPUT:
+        return readQD_Real(tag);
+        break;
+    case MARKER:
+        return readMD_Real(tag);
+        break;
+    }
+}
+
 /* READ DATABLOCK */
 bool PlcS7::readDataBlock_Bit(int DBNumber, int offsetByte, int offsetBit)
 {
@@ -1178,6 +1307,135 @@ int PlcS7::writeMD_Real(float value, int startAdrressByte)
 int PlcS7::writeMD_Real(HMI_tag<float> *tag)
 {
     return writeMD_Real(tag->VALUE, tag->BYTE_DBNUMBER);
+}
+
+/* WRITE HMI_TAG */
+int PlcS7::writeValue(HMI_tag<bool> *tag)
+{
+    switch (tag->TYPE)
+    {
+    case INPUT:
+        return writeI(tag);
+        break;
+    case OUTPUT:
+        return writeQ(tag);
+        break;
+    case MARKER:
+        return writeM(tag);
+        break;
+    }
+}
+
+int PlcS7::writeValue(HMI_tag<int8_t> *tag)
+{
+    switch (tag->TYPE)
+    {
+    case INPUT:
+        return writeIB_SInt(tag);
+        break;
+    case OUTPUT:
+        return writeQB_SInt(tag);
+        break;
+    case MARKER:
+        return writeMB_SInt(tag);
+        break;
+    }
+}
+
+int PlcS7::writeValue(HMI_tag<uint8_t> *tag)
+{
+    switch (tag->TYPE)
+    {
+    case INPUT:
+        return writeIB_USInt(tag);
+        break;
+    case OUTPUT:
+        return writeQB_USInt(tag);
+        break;
+    case MARKER:
+        return writeMB_USInt(tag);
+        break;
+    }
+}
+
+int PlcS7::writeValue(HMI_tag<int16_t> *tag)
+{
+    switch (tag->TYPE)
+    {
+    case INPUT:
+        return writeIW_Int(tag);
+        break;
+    case OUTPUT:
+        return writeQW_Int(tag);
+        break;
+    case MARKER:
+        return writeMW_Int(tag);
+        break;
+    }
+}
+
+int PlcS7::writeValue(HMI_tag<uint16_t> *tag)
+{
+    switch (tag->TYPE)
+    {
+    case INPUT:
+        return writeIW_UInt(tag);
+        break;
+    case OUTPUT:
+        return writeQW_UInt(tag);
+        break;
+    case MARKER:
+        return writeMW_UInt(tag);
+        break;
+    }
+}
+
+int PlcS7::writeValue(HMI_tag<int32_t> *tag)
+{
+    switch (tag->TYPE)
+    {
+    case INPUT:
+        return writeID_DInt(tag);
+        break;
+    case OUTPUT:
+        return writeQD_DInt(tag);
+        break;
+    case MARKER:
+        return writeMD_DInt(tag);
+        break;
+    }
+}
+
+int PlcS7::writeValue(HMI_tag<uint32_t> *tag)
+{
+    switch (tag->TYPE)
+    {
+    case INPUT:
+        return writeID_UDInt(tag);
+        break;
+    case OUTPUT:
+        return writeQD_UDInt(tag);
+        break;
+    case MARKER:
+        return writeMD_UDInt(tag);
+        break;
+    }
+}
+
+int PlcS7::writeValue(HMI_tag<float> *tag)
+{
+    switch (tag->TYPE)
+    {
+    case INPUT:
+        return writeID_Real(tag);
+        break;
+    case OUTPUT:
+        return writeQD_Real(tag);
+        break;
+    case MARKER:
+        return writeMD_Real(tag);
+        break;
+    }
 }
 
 /* WRITE DATABLOCK */

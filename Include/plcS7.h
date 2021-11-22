@@ -88,6 +88,16 @@ public:
     float readMD_Real(int startAdrressByte);
     float readMD_Real(HMI_tag<float> *tag);
 
+    /* READ HMI_TAG */
+    bool readValue(HMI_tag<bool> *tag);
+    int8_t readValue(HMI_tag<int8_t> *tag);
+    uint8_t readValue(HMI_tag<uint8_t> *tag);
+    int16_t readValue(HMI_tag<int16_t> *tag);
+    uint16_t readValue(HMI_tag<uint16_t> *tag);
+    int32_t readValue(HMI_tag<int32_t> *tag);
+    uint32_t readValue(HMI_tag<uint32_t> *tag);
+    float readValue(HMI_tag<float> *tag);
+
     /* READ DATABLOCK */
     bool readDataBlock_Bit(int DBNumber, int offsetByte, int offsetBit);
     int8_t readDataBlock_SInt(int DBNumber, int offset);
@@ -151,6 +161,16 @@ public:
     int writeMD_UDInt(HMI_tag<uint32_t> *tag);
     int writeMD_Real(float value, int startAdrressByte);
     int writeMD_Real(HMI_tag<float> *tag);
+
+    /* WRITE HMI_TAG */
+    int writeValue(HMI_tag<bool> *tag);
+    int writeValue(HMI_tag<int8_t> *tag);
+    int writeValue(HMI_tag<uint8_t> *tag);
+    int writeValue(HMI_tag<int16_t> *tag);
+    int writeValue(HMI_tag<uint16_t> *tag);
+    int writeValue(HMI_tag<int32_t> *tag);
+    int writeValue(HMI_tag<uint32_t> *tag);
+    int writeValue(HMI_tag<float> *tag);
 
     /* WRITE DATABLOCK */
     int writeDataBlock_Bit(bool value, int DBNumber, int offsetByte, int offsetBit);
