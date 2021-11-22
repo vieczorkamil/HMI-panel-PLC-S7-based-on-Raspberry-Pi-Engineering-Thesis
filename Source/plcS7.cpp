@@ -632,19 +632,18 @@ float PlcS7::readMD_Real(HMI_tag<float> *tag)
 }
 
 /* READ HMI_TAG */
-bool PlcS7::readValue(HMI_tag<bool> *tag);
+bool PlcS7::readValue(HMI_tag<bool> *tag)
 {
     switch (tag->TYPE)
     {
     case INPUT:
         return readI(tag);
-        break;
     case OUTPUT:
         return readQ(tag);
-        break;
     case MARKER:
         return readM(tag);
-        break;
+    default:
+        return false;
     }
 }
 
@@ -654,13 +653,12 @@ int8_t PlcS7::readValue(HMI_tag<int8_t> *tag)
     {
     case INPUT:
         return readIB_SInt(tag);
-        break;
     case OUTPUT:
         return readQB_SInt(tag);
-        break;
     case MARKER:
         return readMB_SInt(tag);
-        break;
+    default:
+        return 0;
     }
 }
 
@@ -670,13 +668,12 @@ uint8_t PlcS7::readValue(HMI_tag<uint8_t> *tag)
     {
     case INPUT:
         return readIB_USInt(tag);
-        break;
     case OUTPUT:
         return readQB_USInt(tag);
-        break;
     case MARKER:
         return readMB_USInt(tag);
-        break;
+    default:
+        return 0;
     }
 }
 
@@ -686,13 +683,12 @@ int16_t PlcS7::readValue(HMI_tag<int16_t> *tag)
     {
     case INPUT:
         return readIW_Int(tag);
-        break;
     case OUTPUT:
         return readQW_Int(tag);
-        break;
     case MARKER:
         return readMW_Int(tag);
-        break;
+    default:
+        return 0;
     }
 }
 
@@ -702,13 +698,12 @@ uint16_t PlcS7::readValue(HMI_tag<uint16_t> *tag)
     {
     case INPUT:
         return readIW_UInt(tag);
-        break;
     case OUTPUT:
         return readQW_UInt(tag);
-        break;
     case MARKER:
         return readMW_UInt(tag);
-        break;
+    default:
+        return 0;
     }
 }
 
@@ -718,13 +713,12 @@ int32_t PlcS7::readValue(HMI_tag<int32_t> *tag)
     {
     case INPUT:
         return readID_DInt(tag);
-        break;
     case OUTPUT:
         return readQD_DInt(tag);
-        break;
     case MARKER:
         return readMD_DInt(tag);
-        break;
+    default:
+        return 0;
     }
 }
 
@@ -734,13 +728,12 @@ uint32_t PlcS7::readValue(HMI_tag<uint32_t> *tag)
     {
     case INPUT:
         return readID_UDInt(tag);
-        break;
     case OUTPUT:
         return readQD_UDInt(tag);
-        break;
     case MARKER:
         return readMD_UDInt(tag);
-        break;
+    default:
+        return 0;
     }
 }
 
@@ -750,13 +743,12 @@ float PlcS7::readValue(HMI_tag<float> *tag)
     {
     case INPUT:
         return readID_Real(tag);
-        break;
     case OUTPUT:
         return readQD_Real(tag);
-        break;
     case MARKER:
         return readMD_Real(tag);
-        break;
+    default:
+        return 0.0;
     }
 }
 
@@ -1316,13 +1308,12 @@ int PlcS7::writeValue(HMI_tag<bool> *tag)
     {
     case INPUT:
         return writeI(tag);
-        break;
     case OUTPUT:
         return writeQ(tag);
-        break;
     case MARKER:
         return writeM(tag);
-        break;
+    default:
+        return false;
     }
 }
 
@@ -1332,13 +1323,12 @@ int PlcS7::writeValue(HMI_tag<int8_t> *tag)
     {
     case INPUT:
         return writeIB_SInt(tag);
-        break;
     case OUTPUT:
         return writeQB_SInt(tag);
-        break;
     case MARKER:
         return writeMB_SInt(tag);
-        break;
+    default:
+        return 0;
     }
 }
 
@@ -1348,13 +1338,12 @@ int PlcS7::writeValue(HMI_tag<uint8_t> *tag)
     {
     case INPUT:
         return writeIB_USInt(tag);
-        break;
     case OUTPUT:
         return writeQB_USInt(tag);
-        break;
     case MARKER:
         return writeMB_USInt(tag);
-        break;
+    default:
+        return 0;
     }
 }
 
@@ -1364,13 +1353,12 @@ int PlcS7::writeValue(HMI_tag<int16_t> *tag)
     {
     case INPUT:
         return writeIW_Int(tag);
-        break;
     case OUTPUT:
         return writeQW_Int(tag);
-        break;
     case MARKER:
         return writeMW_Int(tag);
-        break;
+    default:
+        return 0;
     }
 }
 
@@ -1380,13 +1368,12 @@ int PlcS7::writeValue(HMI_tag<uint16_t> *tag)
     {
     case INPUT:
         return writeIW_UInt(tag);
-        break;
     case OUTPUT:
         return writeQW_UInt(tag);
-        break;
     case MARKER:
         return writeMW_UInt(tag);
-        break;
+    default:
+        return 0;
     }
 }
 
@@ -1396,13 +1383,12 @@ int PlcS7::writeValue(HMI_tag<int32_t> *tag)
     {
     case INPUT:
         return writeID_DInt(tag);
-        break;
     case OUTPUT:
         return writeQD_DInt(tag);
-        break;
     case MARKER:
         return writeMD_DInt(tag);
-        break;
+    default:
+        return 0;
     }
 }
 
@@ -1412,13 +1398,12 @@ int PlcS7::writeValue(HMI_tag<uint32_t> *tag)
     {
     case INPUT:
         return writeID_UDInt(tag);
-        break;
     case OUTPUT:
         return writeQD_UDInt(tag);
-        break;
     case MARKER:
         return writeMD_UDInt(tag);
-        break;
+    default:
+        return 0;
     }
 }
 
@@ -1428,13 +1413,12 @@ int PlcS7::writeValue(HMI_tag<float> *tag)
     {
     case INPUT:
         return writeID_Real(tag);
-        break;
     case OUTPUT:
         return writeQD_Real(tag);
-        break;
     case MARKER:
         return writeMD_Real(tag);
-        break;
+    default:
+        return 0.0;
     }
 }
 

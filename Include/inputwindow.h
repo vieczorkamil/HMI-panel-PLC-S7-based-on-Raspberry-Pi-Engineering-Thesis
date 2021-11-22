@@ -6,6 +6,7 @@
 #include <QTimer>
 
 #include "configPLC.h"
+#include "hmi_tag.h"
 
 namespace Ui {
 class Inputwindow;

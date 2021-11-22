@@ -1,6 +1,8 @@
 #include "outputwindow.h"
 #include "ui_outputwindow.h"
 
+infoPLC_t infoPLC;
+
 #define LED_OFF(led) ui->led->setCheckState(Qt::Unchecked)
 #define LED_ON(led) ui->led->setCheckState(Qt::Checked)
 
@@ -59,98 +61,98 @@ void Outputwindow::updatePLCInfo()
 void Outputwindow::switchOutput0_0_changed(int arg)
 {
     // mutex !?
-    outputPLC.Q0_0 = arg;
+    Q0_0.VALUE = arg;
     emit changeOutput0_0();
 }
 
 void Outputwindow::switchOutput0_1_changed(int arg)
 {
     // mutex !?
-    outputPLC.Q0_1 = arg;
+    Q0_1.VALUE = arg;
     emit changeOutput0_1();
 }
 
 void Outputwindow::switchOutput0_2_changed(int arg)
 {
     // mutex !?
-    outputPLC.Q0_2 = arg;
+    Q0_2.VALUE = arg;
     emit changeOutput0_2();
 }
 
 void Outputwindow::switchOutput0_3_changed(int arg)
 {
     // mutex !?
-    outputPLC.Q0_3 = arg;
+    Q0_3.VALUE = arg;
     emit changeOutput0_3();
 }
 
 void Outputwindow::switchOutput0_4_changed(int arg)
 {
     // mutex !?
-    outputPLC.Q0_4 = arg;
+    Q0_4.VALUE = arg;
     emit changeOutput0_4();
 }
 
 void Outputwindow::switchOutput0_5_changed(int arg)
 {
     // mutex !?
-    outputPLC.Q0_5 = arg;
+    Q0_5.VALUE = arg;
     emit changeOutput0_5();
 }
 
 void Outputwindow::switchOutput0_6_changed(int arg)
 {
     // mutex !?
-    outputPLC.Q0_6 = arg;
+    Q0_6.VALUE = arg;
     emit changeOutput0_6();
 }
 
 void Outputwindow::switchOutput0_7_changed(int arg)
 {
     // mutex !?
-    outputPLC.Q0_7 = arg;
+    Q0_7.VALUE = arg;
     emit changeOutput0_7();
 }
 
 void Outputwindow::outputB1Button_clicked()
 {
     //mutex !?
-    outputPLC.QB1 = static_cast<int8_t>(ui->outputB1->value());
+    QB1.VALUE = static_cast<int8_t>(ui->outputB1->value());
     emit changeOutputB1();
 }
 
 void Outputwindow::outputB2Button_clicked()
 {
     //mutex !?
-    outputPLC.QB2 = static_cast<uint8_t>(ui->outputB2->value());
+    QB2.VALUE = static_cast<uint8_t>(ui->outputB2->value());
     emit changeOutputB2();
 }
 
 void Outputwindow::outputW3Button_clicked()
 {
     //mutex !?
-    outputPLC.QW3 = static_cast<int16_t>(ui->outputW3->value());
+    QW3.VALUE = static_cast<int16_t>(ui->outputW3->value());
     emit changeOutputW3();
 }
 
 void Outputwindow::outputW5Button_clicked()
 {
     //mutex !?
-    outputPLC.QW5 = static_cast<uint16_t>(ui->outputW5->value());
+    QW5.VALUE = static_cast<uint16_t>(ui->outputW5->value());
     emit changeOutputW5();
 }
 
 void Outputwindow::outputD7Button_clicked()
 {
     //mutex !?
-    outputPLC.QD7 = static_cast<float>(ui->outputD7->value());
+    QD7.VALUE = static_cast<float>(ui->outputD7->value());
     emit changeOutputD7();
 }
 
 void Outputwindow::outputD11Button_clicked()
 {
     //mutex !?
-    outputPLC.QD11 = static_cast<float>(ui->outputD11->value());
+    QD11.VALUE = static_cast<float>(ui->outputD11->value());
     emit changeOutputD11();
 }
 
