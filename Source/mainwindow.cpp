@@ -16,6 +16,22 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->mainScreen->insertWidget(inputTestScreen_INDEX, &inputTestScreen);
     ui->mainScreen->insertWidget(outputTestScreen_INDEX, &outputTestScreen);
 
+    /* Init UI value */
+    ui->valveON1_img->setVisible(false);
+    ui->valveON2_img->setVisible(false);
+    ui->valveON3_img->setVisible(false);
+    ui->valveON4_img->setVisible(false);
+
+    {
+        mixer = false;
+        animationTimer = new QTimer(this);
+        connect(animationTimer, SIGNAL(timeout()), this, SLOT(updateAnimation()));
+        animationTimer->start(500);
+        ui->mixerON1_img->setVisible(false);
+        ui->mixerON2_img->setVisible(false);
+    }
+    ui->heaterON_img->setVisible(false);
+
     /* Back to homeScreen SIGNAL - SLOT connection */
     connect(&inputTestScreen, SIGNAL(backToHomeScreen()), this, SLOT(backToHomeScreen()));
     connect(&outputTestScreen, SIGNAL(backToHomeScreen()), this, SLOT(backToHomeScreen()));
@@ -75,4 +91,74 @@ void MainWindow::inputTestButton_clicked()
 void MainWindow::outputTestButton_clicked()
 {
     ui->mainScreen->setCurrentIndex(outputTestScreen_INDEX);
+}
+
+void MainWindow::on_V1Button_clicked()
+{
+    static bool V1 = false;
+    V1 = !V1;
+    V1 ? ui->valveON1_img->setVisible(true) : ui->valveON1_img->setVisible(false);
+}
+
+void MainWindow::on_V2Button_clicked()
+{
+    static bool V2 = false;
+    V2 = !V2;
+    V2 ? ui->valveON2_img->setVisible(true) : ui->valveON2_img->setVisible(false);
+}
+
+void MainWindow::on_V3Button_clicked()
+{
+    static bool V3 = false;
+    V3 = !V3;
+    V3 ? ui->valveON3_img->setVisible(true) : ui->valveON3_img->setVisible(false);
+}
+
+void MainWindow::on_V4Button_clicked()
+{
+    static bool V4 = false;
+    V4 = !V4;
+    V4 ? ui->valveON4_img->setVisible(true) : ui->valveON4_img->setVisible(false);
+}
+
+void MainWindow::on_mixerONButton_clicked()
+{
+    mixer = !mixer;
+    if(mixer)
+    {
+        ui->mixerOFF_img->setVisible(false);
+        ui->mixerON1_img->setVisible(true);
+    }
+    else
+    {
+        ui->mixerOFF_img->setVisible(true);
+        ui->mixerON1_img->setVisible(false);
+        ui->mixerON2_img->setVisible(false);
+    }
+}
+
+void MainWindow::on_heaterONButton_clicked()
+{
+    static bool heater = false;
+    heater = !heater;
+    heater ? ui->heaterON_img->setVisible(true) : ui->heaterON_img->setVisible(false);
+}
+
+void MainWindow::updateAnimation()
+{
+    static bool mixerAnimation = false;
+    mixerAnimation = !mixerAnimation;
+    if(mixer)
+    {
+        if(mixerAnimation)
+        {
+            ui->mixerON1_img->setVisible(true);
+            ui->mixerON2_img->setVisible(false);
+        }
+        else
+        {
+            ui->mixerON1_img->setVisible(false);
+            ui->mixerON2_img->setVisible(true);
+        }
+    }
 }

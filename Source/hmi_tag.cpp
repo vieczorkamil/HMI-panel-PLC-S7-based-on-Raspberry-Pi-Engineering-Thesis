@@ -1,6 +1,6 @@
 #include "hmi_tag.h"
 
-struct HMI_tag<int> lampka{OUTPUT,2,3,0};
+struct HMI_tag<int> lampka{OUTPUT,2};
 
 /* INPUT */
 struct HMI_tag<bool> I0_0{INPUT,0,0,0};
