@@ -88,6 +88,24 @@ public:
     float readMD_Real(int startAdrressByte);
     float readMD_Real(HMI_tag<float> *tag);
 
+    /* READ DATABLOCK */
+    bool readDataBlock_Bit(int DBNumber, int offsetByte, int offsetBit);
+    bool readDataBlock_Bit(HMI_tag<bool> *tag);
+    int8_t readDataBlock_SInt(int DBNumber, int offset);
+    int8_t readDataBlock_SInt(HMI_tag<int8_t> *tag);
+    uint8_t readDataBlock_USInt(int DBNumber, int offset);
+    uint8_t readDataBlock_USInt(HMI_tag<uint8_t> *tag);
+    int16_t readDataBlock_Int(int DBNumber, int offset);
+    int16_t readDataBlock_Int(HMI_tag<int16_t> *tag);
+    uint16_t readDataBlock_UInt(int DBNumber, int offset);
+    uint16_t readDataBlock_UInt(HMI_tag<uint16_t> *tag);
+    int32_t readDataBlock_DInt(int DBNumber, int offset);
+    int32_t readDataBlock_DInt(HMI_tag<int32_t> *tag);
+    uint32_t readDataBlock_UDInt(int DBNumber, int offset);
+    uint32_t readDataBlock_UDInt(HMI_tag<uint32_t> *tag);
+    float readDataBlock_Real(int DBNumber, int offset);
+    float readDataBlock_Real(HMI_tag<float> *tag);
+
     /* READ HMI_TAG */
     bool readValue(HMI_tag<bool> *tag);
     int8_t readValue(HMI_tag<int8_t> *tag);
@@ -97,16 +115,6 @@ public:
     int32_t readValue(HMI_tag<int32_t> *tag);
     uint32_t readValue(HMI_tag<uint32_t> *tag);
     float readValue(HMI_tag<float> *tag);
-
-    /* READ DATABLOCK */
-    bool readDataBlock_Bit(int DBNumber, int offsetByte, int offsetBit);
-    int8_t readDataBlock_SInt(int DBNumber, int offset);
-    uint8_t readDataBlock_USInt(int DBNumber, int offset);
-    int16_t readDataBlock_Int(int DBNumber, int offset);
-    uint16_t readDataBlock_UInt(int DBNumber, int offset);
-    int32_t readDataBlock_DInt(int DBNumber, int offset);
-    uint32_t readDataBlock_UDInt(int DBNumber, int offset);
-    float readDataBlock_Real(int DBNumber, int offset);
 
     /* WRITE INPUT SIGNALS/MEMORY */
     int writeI(bool value, int startAdrressByte, int startAdrressBit);
@@ -162,6 +170,24 @@ public:
     int writeMD_Real(float value, int startAdrressByte);
     int writeMD_Real(HMI_tag<float> *tag);
 
+    /* WRITE DATABLOCK */
+    int writeDataBlock_Bit(bool value, int DBNumber, int offsetByte, int offsetBit);
+    int writeDataBlock_Bit(HMI_tag<bool> *tag);
+    int writeDataBlock_SInt(int8_t value, int DBNumber, int offset);
+    int writeDataBlock_SInt(HMI_tag<int8_t> *tag);
+    int writeDataBlock_USInt(uint8_t value, int DBNumber, int offset);
+    int writeDataBlock_USInt(HMI_tag<uint8_t> *tag);
+    int writeDataBlock_Int(int16_t value, int DBNumber, int offset);
+    int writeDataBlock_Int(HMI_tag<int16_t> *tag);
+    int writeDataBlock_UInt(uint16_t value, int DBNumber, int offset);
+    int writeDataBlock_UInt(HMI_tag<uint16_t> *tag);
+    int writeDataBlock_DInt(int32_t value, int DBNumber, int offset);
+    int writeDataBlock_DInt(HMI_tag<int32_t> *tag);
+    int writeDataBlock_UDInt(uint32_t value, int DBNumber, int offset);
+    int writeDataBlock_UDInt(HMI_tag<uint32_t> *tag);
+    int writeDataBlock_Real(float value, int DBNumber, int offset);
+    int writeDataBlock_Real(HMI_tag<float> *tag);
+
     /* WRITE HMI_TAG */
     int writeValue(HMI_tag<bool> *tag);
     int writeValue(HMI_tag<int8_t> *tag);
@@ -172,30 +198,41 @@ public:
     int writeValue(HMI_tag<uint32_t> *tag);
     int writeValue(HMI_tag<float> *tag);
 
-    /* WRITE DATABLOCK */
-    int writeDataBlock_Bit(bool value, int DBNumber, int offsetByte, int offsetBit);
-    int writeDataBlock_SInt(int8_t value, int DBNumber, int offset);
-    int writeDataBlock_USInt(uint8_t value, int DBNumber, int offset);
-    int writeDataBlock_Int(int16_t value, int DBNumber, int offset);
-    int writeDataBlock_UInt(uint16_t value, int DBNumber, int offset);
-    int writeDataBlock_DInt(int32_t value, int DBNumber, int offset);
-    int writeDataBlock_UDInt(uint32_t value, int DBNumber, int offset);
-    int writeDataBlock_Real(float value, int DBNumber, int offset);
-
     /* TOGGLE BIT */
     int toggleBitI(int startAdrressByte, int startAdrressBit);
+    int toggleBitI(HMI_tag<bool> *tag);
     int toggleBitQ(int startAdrressByte, int startAdrressBit);
+    int toggleBitQ(HMI_tag<bool> *tag);
     int toggleBitM(int startAdrressByte, int startAdrressBit);
+    int toggleBitM(HMI_tag<bool> *tag);
+    int toggleBitDB(int DBNumber, int offsetByte, int offsetBit);
+    int toggleBitDB(HMI_tag<bool> *tag);
+
+    int toggleBit(HMI_tag<bool> *tag);
 
     /* SET BIT */
     int setBitI(int startAdrressByte, int startAdrressBit);
+    int setBitI(HMI_tag<bool> *tag);
     int setBitQ(int startAdrressByte, int startAdrressBit);
+    int setBitQ(HMI_tag<bool> *tag);
     int setBitM(int startAdrressByte, int startAdrressBit);
+    int setBitM(HMI_tag<bool> *tag);
+    int setBitDB(int DBNumber, int offsetByte, int offsetBit);
+    int setBitDB(HMI_tag<bool> *tag);
+
+    int setBit(HMI_tag<bool> *tag);
 
     /* RESET BIT */
     int resetBitI(int startAdrressByte, int startAdrressBit);
+    int resetBitI();
     int resetBitQ(int startAdrressByte, int startAdrressBit);
+    int resetBitQ();
     int resetBitM(int startAdrressByte, int startAdrressBit);
+    int resetBitM();
+    int resetBitDB(int DBNumber, int offsetByte, int offsetBit);
+    int resetBitDB(HMI_tag<bool> *tag);
+
+    int resetBit(HMI_tag<bool> *tag);
 
 protected:
 private:

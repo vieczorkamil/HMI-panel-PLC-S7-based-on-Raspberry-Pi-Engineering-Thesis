@@ -3,8 +3,14 @@
 
 #include <cstdint>
 
-enum tag_type {INPUT, OUTPUT, MARKER, DB};
-
+enum tag_type
+{
+    INPUT,
+    OUTPUT,
+    MARKER,
+    DB
+};
+/*
 template <typename T>
 struct HMI_tag{
     tag_type TYPE;
@@ -12,25 +18,15 @@ struct HMI_tag{
     int BIT_OFFSET = 0;
     T VALUE = static_cast<T>(0.0);
 };
-/*
+*/
 template <typename T>
-struct HMI_tag2{
+struct HMI_tag
+{
     tag_type TYPE;
-    double ADRESS = 0.0;
+    double ADDRESS = 0.0;
     int DB_NUMBER = 0;
     T VALUE = static_cast<T>(0.0);
 };
-extern struct HMI_tag2<float> Temperatura;
-struct HMI_tag2<float> Temperatura{INPUT,124};
-
-extern struct HMI_tag2<bool> Error;
-struct HMI_tag2<bool> Error{OUTPUT, 150.3};
-
-extern struct HMI_tag2<float> Temperatura2;
-struct HMI_tag2<float> Temperatura2{DB,124,0,54};
-*/
-
-extern struct HMI_tag<int> lampka;
 
 /* INPUTS */
 extern struct HMI_tag<bool> I0_0;
@@ -65,5 +61,20 @@ extern struct HMI_tag<int16_t> QW3;
 extern struct HMI_tag<uint16_t> QW5;
 extern struct HMI_tag<float> QD7;
 extern struct HMI_tag<float> QD11;
+
+/* DB3 */
+extern struct HMI_tag<bool> START;
+extern struct HMI_tag<bool> SENSOR1;
+extern struct HMI_tag<bool> SENSOR2;
+extern struct HMI_tag<bool> SENSOR3;
+extern struct HMI_tag<bool> MIXER;
+extern struct HMI_tag<bool> HEATER;
+extern struct HMI_tag<bool> VALVE1;
+extern struct HMI_tag<bool> VALVE2;
+extern struct HMI_tag<bool> VALVE3;
+extern struct HMI_tag<bool> VALVE4;
+extern struct HMI_tag<float> TEMPERATURE;
+extern struct HMI_tag<float> LEVEL1;
+extern struct HMI_tag<float> LEVEL2;
 
 #endif // HMI_TAG_H

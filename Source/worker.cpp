@@ -34,7 +34,7 @@ void Worker::connectToPlc()
     if (myPlc->isConnect() == false)
     {
         myPlc->setParms(PLC_IP.toStdString().c_str(), PLC_RACK, PLC_SLOT);
-        if(myPlc->connect() == 0)
+        if (myPlc->connect() == 0)
         {
             qDebug("Connected successful");
             myPlc->getPlcInfo();
@@ -70,7 +70,7 @@ void Worker::disconnectFromPlc()
 {
     if (myPlc->isConnect())
     {
-        if(myPlc->disconnect() == 0)
+        if (myPlc->disconnect() == 0)
         {
             strcpy(infoPLC.MODULE_TYPE_NAME, "");
             strcpy(infoPLC.SERIAL_NUMBER, "");
@@ -109,8 +109,21 @@ void Worker::update()
         IW5.VALUE = myPlc->readValue(&IW5);
         ID7.VALUE = myPlc->readValue(&ID7);
         ID11.VALUE = myPlc->readValue(&ID11);
-    }
 
+        START.VALUE = myPlc->readValue(&START);
+        SENSOR1.VALUE = myPlc->readValue(&SENSOR1);
+        SENSOR2.VALUE = myPlc->readValue(&SENSOR2);
+        SENSOR3.VALUE = myPlc->readValue(&SENSOR3);
+        MIXER.VALUE = myPlc->readValue(&MIXER);
+        HEATER.VALUE = myPlc->readValue(&HEATER);
+        VALVE1.VALUE = myPlc->readValue(&VALVE1);
+        VALVE2.VALUE = myPlc->readValue(&VALVE2);
+        VALVE3.VALUE = myPlc->readValue(&VALVE3);
+        VALVE4.VALUE = myPlc->readValue(&VALVE4);
+        TEMPERATURE.VALUE = myPlc->readValue(&TEMPERATURE);
+        LEVEL1.VALUE = myPlc->readValue(&LEVEL1);
+        LEVEL2.VALUE = myPlc->readValue(&LEVEL2);
+    }
 }
 
 void Worker::setOutput0_0()
