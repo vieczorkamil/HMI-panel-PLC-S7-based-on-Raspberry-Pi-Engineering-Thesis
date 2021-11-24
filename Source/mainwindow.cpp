@@ -21,6 +21,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->valveON2_img->setVisible(false);
     ui->valveON3_img->setVisible(false);
     ui->valveON4_img->setVisible(false);
+    ui->sensorON1_img->setVisible(false); //sensor 1
+    ui->sensorON2_img->setVisible(false); //sensor 2
+    ui->sensorON3_img->setVisible(false); //sensor 3
+    ui->levelProggresBar1->setValue(0);
+    ui->levelProggresBar2->setValue(0);
 
     {
         mixer = false;
@@ -62,6 +67,8 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(&outputTestScreen, SIGNAL(changeOutputW5()), &myWorker, SLOT(setOutputW5()));
     connect(&outputTestScreen, SIGNAL(changeOutputD7()), &myWorker, SLOT(setOutputD7()));
     connect(&outputTestScreen, SIGNAL(changeOutputD11()), &myWorker, SLOT(setOutputD11()));
+    /* Visulisation button */
+    connect(this, SIGNAL(changeBitSTART()), &myWorker, SLOT(changeBitStart()));
     /* Update PLC info */
     connect(&myWorker, SIGNAL(updatePLCInfo()), &outputTestScreen, SLOT(updatePLCInfo()));
 }
@@ -144,12 +151,20 @@ void MainWindow::on_heaterONButton_clicked()
     heater ? ui->heaterON_img->setVisible(true) : ui->heaterON_img->setVisible(false);
 }
 
+void MainWindow::on_startButton_clicked()
+{
+    emit changeBitSTART();
+}
+
 void MainWindow::updateAnimation()
 {
     static bool mixerAnimation = false;
     mixerAnimation = !mixerAnimation;
-    if(mixer)
+    qDebug() << mixerAnimation;
+    //if(mixer)
+    if(MIXER.VALUE)
     {
+        ui->mixerOFF_img->setVisible(false);
         if(mixerAnimation)
         {
             ui->mixerON1_img->setVisible(true);
@@ -161,4 +176,55 @@ void MainWindow::updateAnimation()
             ui->mixerON2_img->setVisible(true);
         }
     }
+    else
+    {
+        ui->mixerOFF_img->setVisible(true);
+        ui->mixerON1_img->setVisible(false);
+        ui->mixerON2_img->setVisible(false);
+    }
+
+    ui->sensorON1_img->setVisible(SENSOR1.VALUE); //sensor 1
+    ui->sensorON2_img->setVisible(SENSOR2.VALUE); //sensor 2
+    ui->sensorON3_img->setVisible(SENSOR3.VALUE); //sensor 3
+    ui->heaterON_img->setVisible(HEATER.VALUE); //heater
+    ui->valveON1_img->setVisible(VALVE1.VALUE); //valve 1
+    ui->valveON2_img->setVisible(VALVE2.VALUE); //valve 2
+    ui->valveON3_img->setVisible(VALVE3.VALUE); //valve 3
+    ui->valveON4_img->setVisible(VALVE4.VALUE); //valve 4
+
+    ui->levelProggresBar1->setValue(static_cast<int>(LEVEL1.VALUE));
+    ui->levelProggresBar2->setValue(static_cast<int>(LEVEL2.VALUE));
+
+    ui->temperatureLabel->setText(QString::number(static_cast<double>(TEMPERATURE.VALUE),'f', 2));
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -143,15 +143,15 @@ bool PlcS7::readI(int startAdrressByte, int startAdrressBit)
 
 bool PlcS7::readI(HMI_tag<bool> *tag)
 {
-    int bit = 10 * (tag->ADDRESS - stattic_cast<int>(tag->ADDRESS));
-    if (bit < 0 || bit > 7)
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    if (bits < 0 || bits > 7)
     {
         DEBUG("Bit address error");
         return false;
     }
     else
     {
-        return readI(static_cast<int>(tag->ADDRESS), bit);
+        return readI(static_cast<int>(tag->ADDRESS), bits);
     }
 }
 
@@ -321,15 +321,15 @@ bool PlcS7::readQ(int startAdrressByte, int startAdrressBit)
 
 bool PlcS7::readQ(HMI_tag<bool> *tag)
 {
-    int bit = 10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS);
-    if(bit < 0 || bit > 7)
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    if(bits < 0 || bits > 7)
     {
         DEBUG("Bit address error");
         return false;
     }
     else
     {
-        return readQ(static_cast<int>(tag->ADDRESS), bit);
+        return readQ(static_cast<int>(tag->ADDRESS), bits);
     }
 }
 
@@ -499,15 +499,15 @@ bool PlcS7::readM(int startAdrressByte, int startAdrressBit)
 
 bool PlcS7::readM(HMI_tag<bool> *tag)
 {
-    int bit = 10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS));
-    if (bit < 0 || bit > 7)
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    if (bits < 0 || bits > 7)
     {
         DEBUG("Bit address error");
         return false;
     }
     else
     {
-        return readM(static_cast<int>(tag->ADDRESS), bit);
+        return readM(static_cast<int>(tag->ADDRESS), bits);
     }
 }
 
@@ -669,15 +669,15 @@ bool PlcS7::readDataBlock_Bit(int DBNumber, int offsetByte, int offsetBit)
 
 bool PlcS7::readDataBlock_Bit(HMI_tag<bool> *tag)
 {
-    int bit = 10 * (tag->ADDRESS - <int>(tag->ADDRESS));
-    if (bit < 0 || bit > 7)
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    if (bits < 0 || bits > 7)
     {
         DEBUG("Bit address error");
         return false;
     }
     else
     {
-        return readDataBlock_Bit(tag->DB_NUMBER, static_cast<int>(tag->ADDRESS), bit);
+        return readDataBlock_Bit(tag->DB_NUMBER, static_cast<int>(tag->ADDRESS), bits);
     }
 }
 
@@ -834,9 +834,8 @@ bool PlcS7::readValue(HMI_tag<bool> *tag)
         return readM(tag);
     case DB:
         return readDataBlock_Bit(tag);
-    default:
-        return false;
     }
+    return false;
 }
 
 int8_t PlcS7::readValue(HMI_tag<int8_t> *tag)
@@ -850,8 +849,6 @@ int8_t PlcS7::readValue(HMI_tag<int8_t> *tag)
     case MARKER:
         return readMB_SInt(tag);
     case DB:
-        return readDataBlock_SInt(tag);
-    default:
         return 0;
     }
 }
@@ -868,8 +865,6 @@ uint8_t PlcS7::readValue(HMI_tag<uint8_t> *tag)
         return readMB_USInt(tag);
     case DB:
         return readDataBlock_USInt(tag);
-    default:
-        return 0;
     }
 }
 
@@ -885,8 +880,6 @@ int16_t PlcS7::readValue(HMI_tag<int16_t> *tag)
         return readMW_Int(tag);
     case DB:
         return readDataBlock_Int(tag);
-    default:
-        return 0;
     }
 }
 
@@ -902,8 +895,6 @@ uint16_t PlcS7::readValue(HMI_tag<uint16_t> *tag)
         return readMW_UInt(tag);
     case DB:
         return readDataBlock_UInt(tag);
-    default:
-        return 0;
     }
 }
 
@@ -919,8 +910,6 @@ int32_t PlcS7::readValue(HMI_tag<int32_t> *tag)
         return readMD_DInt(tag);
     case DB:
         return readDataBlock_DInt(tag);
-    default:
-        return 0;
     }
 }
 
@@ -936,8 +925,6 @@ uint32_t PlcS7::readValue(HMI_tag<uint32_t> *tag)
         return readMD_UDInt(tag);
     case DB:
         return readDataBlock_UDInt(tag);
-    default:
-        return 0;
     }
 }
 
@@ -953,8 +940,6 @@ float PlcS7::readValue(HMI_tag<float> *tag)
         return readMD_Real(tag);
     case DB:
         return readDataBlock_Real(tag);
-    default:
-        return 0.0;
     }
 }
 
@@ -974,15 +959,15 @@ int PlcS7::writeI(bool value, int startAdrressByte, int startAdrressBit)
 
 int PlcS7::writeI(HMI_tag<bool> *tag)
 {
-    bit = 10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS));
-    if (bit < 0 || bit > 7)
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    if (bits < 0 || bits > 7)
     {
         DEBUG("Bit address error");
         return false;
     }
     else
     {
-        return writeI(tag->VALUE, static_cast<int>(tag->ADDRESS), bit);
+        return writeI(tag->VALUE, static_cast<int>(tag->ADDRESS), bits);
     }
 }
 
@@ -1128,15 +1113,15 @@ int PlcS7::writeQ(bool value, int startAdrressByte, int startAdrressBit)
 
 int PlcS7::writeQ(HMI_tag<bool> *tag)
 {
-    int bit = 10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS));
-    if (bit < 0 || bit > 7)
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    if (bits < 0 || bits > 7)
     {
         DEBUG("Bit address error");
         return false;
     }
     else
     {
-        return writeQ(tag->VALUE, static_cast<int>(tag->ADDRESS), bit);
+        return writeQ(tag->VALUE, static_cast<int>(tag->ADDRESS), bits);
     }
 }
 
@@ -1282,15 +1267,15 @@ int PlcS7::writeM(bool value, int startAdrressByte, int startAdrressBit)
 
 int PlcS7::writeM(HMI_tag<bool> *tag)
 {
-    int bit = 10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS));
-    if (bit < 0 || bit > 7)
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    if (bits < 0 || bits > 7)
     {
         DEBUG("Bit address error");
         return false;
     }
     else
     {
-        return writeM(tag->VALUE, static_cast<int>(tag->ADDRESS), bit);
+        return writeM(tag->VALUE, static_cast<int>(tag->ADDRESS), bits);
     }
 }
 
@@ -1435,15 +1420,15 @@ int PlcS7::writeDataBlock_Bit(bool value, int DBNumber, int offsetByte, int offs
 
 int PlcS7::writeDataBlock_Bit(HMI_tag<bool> *tag)
 {
-    int bit = 10 * (tag->ADDRESS - <int>(tag->ADDRESS));
-    if (bit < 0 || bit > 7)
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    if (bits < 0 || bits > 7)
     {
         DEBUG("Bit address error");
         return false;
     }
     else
     {
-        return writeDataBlock_Bit(tag->VALUE, tag->DB_NUMBER, static_cast<int>(tag->ADDRESS), bit);
+        return writeDataBlock_Bit(tag->VALUE, tag->DB_NUMBER, static_cast<int>(tag->ADDRESS), bits);
     }
 }
 
@@ -1579,8 +1564,6 @@ int PlcS7::writeValue(HMI_tag<bool> *tag)
         return writeM(tag);
     case DB:
         return writeDataBlock_Bit(tag);
-    default:
-        return false;
     }
 }
 
@@ -1596,8 +1579,6 @@ int PlcS7::writeValue(HMI_tag<int8_t> *tag)
         return writeMB_SInt(tag);
     case DB:
         return writeDataBlock_SInt(tag);
-    default:
-        return 0;
     }
 }
 
@@ -1613,8 +1594,6 @@ int PlcS7::writeValue(HMI_tag<uint8_t> *tag)
         return writeMB_USInt(tag);
     case DB:
         return writeDataBlock_USInt(tag);
-    default:
-        return 0;
     }
 }
 
@@ -1630,8 +1609,6 @@ int PlcS7::writeValue(HMI_tag<int16_t> *tag)
         return writeMW_Int(tag);
     case DB:
         return writeDataBlock_Int(tag);
-    default:
-        return 0;
     }
 }
 
@@ -1647,8 +1624,6 @@ int PlcS7::writeValue(HMI_tag<uint16_t> *tag)
         return writeMW_UInt(tag);
     case DB:
         return writeDataBlock_UInt(tag);
-    default:
-        return 0;
     }
 }
 
@@ -1664,8 +1639,6 @@ int PlcS7::writeValue(HMI_tag<int32_t> *tag)
         return writeMD_DInt(tag);
     case DB:
         return writeDataBlock_DInt(tag);
-    default:
-        return 0;
     }
 }
 
@@ -1681,8 +1654,6 @@ int PlcS7::writeValue(HMI_tag<uint32_t> *tag)
         return writeMD_UDInt(tag);
     case DB:
         return writeDataBlock_UDInt(tag);
-    default:
-        return 0;
     }
 }
 
@@ -1698,8 +1669,6 @@ int PlcS7::writeValue(HMI_tag<float> *tag)
         return writeMD_Real(tag);
     case DB:
         return writeDataBlock_Real(tag);
-    default:
-        return 0.0;
     }
 }
 
@@ -1727,6 +1696,12 @@ int PlcS7::toggleBitI(int startAdrressByte, int startAdrressBit)
     }
 }
 
+int PlcS7::toggleBitI(HMI_tag<bool> *tag)
+{
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    return toggleBitI(static_cast<int>(tag->ADDRESS), bits);
+}
+
 int PlcS7::toggleBitQ(int startAdrressByte, int startAdrressBit)
 {
     bit out;
@@ -1747,6 +1722,12 @@ int PlcS7::toggleBitQ(int startAdrressByte, int startAdrressBit)
         }
         return err;
     }
+}
+
+int PlcS7::toggleBitQ(HMI_tag<bool> *tag)
+{
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    return toggleBitQ(static_cast<int>(tag->ADDRESS), bits);
 }
 
 int PlcS7::toggleBitM(int startAdrressByte, int startAdrressBit)
@@ -1771,6 +1752,12 @@ int PlcS7::toggleBitM(int startAdrressByte, int startAdrressBit)
     }
 }
 
+int PlcS7::toggleBitM(HMI_tag<bool> *tag)
+{
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    return toggleBitM(static_cast<int>(tag->ADDRESS), bits);
+}
+
 int PlcS7::toggleBitDB(int DBNumber, int offsetByte, int offsetBit)
 {
     bit out;
@@ -1793,6 +1780,12 @@ int PlcS7::toggleBitDB(int DBNumber, int offsetByte, int offsetBit)
     }
 }
 
+int PlcS7::toggleBitDB(HMI_tag<bool> *tag)
+{
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    return toggleBitDB(tag->DB_NUMBER, static_cast<int>(tag->ADDRESS), bits);
+}
+
 int PlcS7::toggleBit(HMI_tag<bool> *tag)
 {
     switch (tag->TYPE)
@@ -1805,8 +1798,6 @@ int PlcS7::toggleBit(HMI_tag<bool> *tag)
         return toggleBitM(tag);
     case DB:
         return toggleBitDB(tag);
-    default:
-        return -1;
     }
 }
 
@@ -1823,6 +1814,12 @@ int PlcS7::setBitI(int startAdrressByte, int startAdrressBit)
     return err;
 }
 
+int PlcS7::setBitI(HMI_tag<bool> *tag)
+{
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    return setBitI(static_cast<int>(tag->ADDRESS), bits);
+}
+
 int PlcS7::setBitQ(int startAdrressByte, int startAdrressBit)
 {
     bit out = true;
@@ -1833,6 +1830,12 @@ int PlcS7::setBitQ(int startAdrressByte, int startAdrressBit)
         DEBUG("error : " << err);
     }
     return err;
+}
+
+int PlcS7::setBitQ(HMI_tag<bool> *tag)
+{
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    return setBitQ(static_cast<int>(tag->ADDRESS), bits);
 }
 
 int PlcS7::setBitM(int startAdrressByte, int startAdrressBit)
@@ -1847,7 +1850,13 @@ int PlcS7::setBitM(int startAdrressByte, int startAdrressBit)
     return err;
 }
 
-int PlcS7::setBitM(int DBNumber, int offsetByte, int offsetBit)
+int PlcS7::setBitM(HMI_tag<bool> *tag)
+{
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    return setBitM(static_cast<int>(tag->ADDRESS), bits);
+}
+
+int PlcS7::setBitDB(int DBNumber, int offsetByte, int offsetBit)
 {
     bit out = true;
     int Start = offsetByte * 8 + offsetBit;
@@ -1857,6 +1866,12 @@ int PlcS7::setBitM(int DBNumber, int offsetByte, int offsetBit)
         DEBUG("error : " << err);
     }
     return err;
+}
+
+int PlcS7::setBitDB(HMI_tag<bool> *tag)
+{
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    return setBitDB(tag->DB_NUMBER, static_cast<int>(tag->ADDRESS), bits);
 }
 
 int PlcS7::setBit(HMI_tag<bool> *tag)
@@ -1871,8 +1886,6 @@ int PlcS7::setBit(HMI_tag<bool> *tag)
         return setBitM(tag);
     case DB:
         return setBitDB(tag);
-    default:
-        return -1;
     }
 }
 
@@ -1889,6 +1902,12 @@ int PlcS7::resetBitI(int startAdrressByte, int startAdrressBit)
     return err;
 }
 
+int PlcS7::resetBitI(HMI_tag<bool> *tag)
+{
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    return resetBitI(static_cast<int>(tag->ADDRESS), bits);
+}
+
 int PlcS7::resetBitQ(int startAdrressByte, int startAdrressBit)
 {
     bit out = false;
@@ -1899,6 +1918,12 @@ int PlcS7::resetBitQ(int startAdrressByte, int startAdrressBit)
         DEBUG("error : " << err);
     }
     return err;
+}
+
+int PlcS7::resetBitQ(HMI_tag<bool> *tag)
+{
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    return resetBitQ(static_cast<int>(tag->ADDRESS), bits);
 }
 
 int PlcS7::resetBitM(int startAdrressByte, int startAdrressBit)
@@ -1913,7 +1938,13 @@ int PlcS7::resetBitM(int startAdrressByte, int startAdrressBit)
     return err;
 }
 
-int PlcS7::resetBitM(int DBNumber, int offsetByte, int offsetBit)
+int PlcS7::resetBitM(HMI_tag<bool> *tag)
+{
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    return resetBitM(static_cast<int>(tag->ADDRESS), bits);
+}
+
+int PlcS7::resetBitDB(int DBNumber, int offsetByte, int offsetBit)
 {
     bit out = false;
     int Start = offsetByte * 8 + offsetBit;
@@ -1923,6 +1954,12 @@ int PlcS7::resetBitM(int DBNumber, int offsetByte, int offsetBit)
         DEBUG("error : " << err);
     }
     return err;
+}
+
+int PlcS7::resetBitDB(HMI_tag<bool> *tag)
+{
+    int bits = static_cast<int>(10 * (tag->ADDRESS - static_cast<int>(tag->ADDRESS)));
+    return resetBitDB(tag->DB_NUMBER, static_cast<int>(tag->ADDRESS), bits);
 }
 
 int PlcS7::resetBit(HMI_tag<bool> *tag)
@@ -1937,8 +1974,6 @@ int PlcS7::resetBit(HMI_tag<bool> *tag)
         return resetBitM(tag);
     case DB:
         return resetBitDB(tag);
-    default:
-        return -1;
     }
 }
 

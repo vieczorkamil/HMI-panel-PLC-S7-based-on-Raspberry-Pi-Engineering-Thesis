@@ -33,6 +33,9 @@ private:
 
     int inputTestScreen_INDEX = 1;
     int outputTestScreen_INDEX = 2;
+signals:
+    void changeBitSTART();
+
 
 private slots:
     void closeButton_clicked();
@@ -47,6 +50,7 @@ private slots:
     void on_heaterONButton_clicked();
 
     void updateAnimation();
+    void on_startButton_clicked();
 };
 
 #endif // MAINWINDOW_H

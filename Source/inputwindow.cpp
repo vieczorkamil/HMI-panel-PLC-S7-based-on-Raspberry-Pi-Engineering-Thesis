@@ -33,12 +33,6 @@ Inputwindow::Inputwindow(QWidget *parent) :
     /* update */
     connect(myTimer, SIGNAL(timeout()), this, SLOT(update()));
     myTimer->start(300);
-    qDebug("Wartosci tagu - lampka");
-    qDebug() << lampka.TYPE;
-    qDebug() << lampka.BYTE_DBNUMBER;
-    qDebug() << lampka.BIT_OFFSET;
-    qDebug() << lampka.VALUE;
-    qDebug("----------------------");
 }
 
 Inputwindow::~Inputwindow()

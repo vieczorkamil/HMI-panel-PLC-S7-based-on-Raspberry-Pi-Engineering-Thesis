@@ -46,6 +46,8 @@ public slots:
     void setOutputW5();
     void setOutputD7();
     void setOutputD11();
+
+    void changeBitStart();
 };
 
 #endif // WORKER_H

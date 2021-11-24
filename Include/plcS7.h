@@ -224,11 +224,11 @@ public:
 
     /* RESET BIT */
     int resetBitI(int startAdrressByte, int startAdrressBit);
-    int resetBitI();
+    int resetBitI(HMI_tag<bool> *tag);
     int resetBitQ(int startAdrressByte, int startAdrressBit);
-    int resetBitQ();
+    int resetBitQ(HMI_tag<bool> *tag);
     int resetBitM(int startAdrressByte, int startAdrressBit);
-    int resetBitM();
+    int resetBitM(HMI_tag<bool> *tag);
     int resetBitDB(int DBNumber, int offsetByte, int offsetBit);
     int resetBitDB(HMI_tag<bool> *tag);
 

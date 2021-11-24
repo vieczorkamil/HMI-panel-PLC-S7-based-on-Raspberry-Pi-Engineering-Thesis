@@ -239,3 +239,12 @@ void Worker::setOutputD11()
         myPlc->writeValue(&QD11);
     }
 }
+
+void Worker::changeBitStart()
+{
+    if (myPlc->isConnect())
+    {
+        // mutex?
+        myPlc->toggleBit(&START);
+    }
+}

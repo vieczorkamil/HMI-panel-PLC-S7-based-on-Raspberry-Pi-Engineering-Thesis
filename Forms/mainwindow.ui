@@ -751,6 +751,25 @@ height: 1px;
        <string>Start</string>
       </property>
      </widget>
+     <widget class="QLabel" name="temperatureLabel">
+      <property name="geometry">
+       <rect>
+        <x>600</x>
+        <y>460</y>
+        <width>81</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: bold 22px;
+color: rgb(68, 68, 68);
+border: 2px solid rgb(68, 68, 68);
+padding: 2px;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
      <zorder>sensorOFF1_img</zorder>
      <zorder>sensorOFF2_img</zorder>
      <zorder>sensorOFF3_img</zorder>
@@ -793,6 +812,7 @@ height: 1px;
      <zorder>sensorON1_img</zorder>
      <zorder>levelProggresBar2</zorder>
      <zorder>startButton</zorder>
+     <zorder>temperatureLabel</zorder>
     </widget>
     <widget class="QWidget" name="page_2"/>
    </widget>
