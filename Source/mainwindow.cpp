@@ -15,6 +15,8 @@ MainWindow::MainWindow(QWidget *parent) :
     /* Add new screen */
     ui->mainScreen->insertWidget(inputTestScreen_INDEX, &inputTestScreen);
     ui->mainScreen->insertWidget(outputTestScreen_INDEX, &outputTestScreen);
+    ui->mainScreen->insertWidget(statisticScreen_INDEX, &statisticScreen);
+    ui->mainScreen->insertWidget(setPointScreen_INDEX, &setPointScreen);
 
     /* Init UI value */
     ui->valveON1_img->setVisible(false);
@@ -24,27 +26,38 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->sensorON1_img->setVisible(false); //sensor 1
     ui->sensorON2_img->setVisible(false); //sensor 2
     ui->sensorON3_img->setVisible(false); //sensor 3
-    ui->levelProggresBar1->setValue(0);
-    ui->levelProggresBar2->setValue(0);
 
     {
         mixer = false;
         animationTimer = new QTimer(this);
         connect(animationTimer, SIGNAL(timeout()), this, SLOT(updateAnimation()));
-        animationTimer->start(500);
+        animationTimer->start(300);
         ui->mixerON1_img->setVisible(false);
         ui->mixerON2_img->setVisible(false);
+        ui->mixerON3_img->setVisible(false);
+        ui->mixerON4_img->setVisible(false);
     }
     ui->heaterON_img->setVisible(false);
+    ui->V1label->setVisible(false);
+    ui->V2label->setVisible(false);
+    ui->V3label->setVisible(false);
+    ui->V4label->setVisible(false);
+    ui->S1label->setVisible(false);
+    ui->S2label->setVisible(false);
+    ui->S3label->setVisible(false);
 
     /* Back to homeScreen SIGNAL - SLOT connection */
     connect(&inputTestScreen, SIGNAL(backToHomeScreen()), this, SLOT(backToHomeScreen()));
     connect(&outputTestScreen, SIGNAL(backToHomeScreen()), this, SLOT(backToHomeScreen()));
+    connect(&statisticScreen, SIGNAL(backToHomeScreen()), this, SLOT(backToHomeScreen()));
+    connect(&setPointScreen, SIGNAL(backToHomeScreen()), this, SLOT(backToHomeScreen()));
 
     /* Button's SIGNAL - SLOT connection */
     connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(closeButton_clicked()));
     connect(ui->inputTestButton, SIGNAL(clicked()), this, SLOT(inputTestButton_clicked()));
     connect(ui->outputTestButton, SIGNAL(clicked()), this, SLOT(outputTestButton_clicked()));
+    connect(ui->statsButton, SIGNAL(clicked()), this, SLOT(statsButton_clicked()));
+    connect(ui->setPointsButton, SIGNAL(clicked()), this, SLOT(setPointButton_clicked()));
 
     /* Thread SIGNAL - SLOT connection */
     connect(&myThread, SIGNAL(finished()), myWorker.myTimer, SLOT(stop())); //zatrzymanie timera po zakończeniu wątku
@@ -68,7 +81,16 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(&outputTestScreen, SIGNAL(changeOutputD7()), &myWorker, SLOT(setOutputD7()));
     connect(&outputTestScreen, SIGNAL(changeOutputD11()), &myWorker, SLOT(setOutputD11()));
     /* Visulisation button */
-    connect(this, SIGNAL(changeBitSTART()), &myWorker, SLOT(changeBitStart()));
+    connect(this, SIGNAL(setBitSTART()), &myWorker, SLOT(setBitStart()));
+    connect(this, SIGNAL(resetBitSTART()), &myWorker, SLOT(resetBitStart()));
+    connect(this, SIGNAL(setBitRESET()), &myWorker, SLOT(setBitReset()));
+    connect(this, SIGNAL(resetBitRESET()), &myWorker, SLOT(resetBitReset()));
+    connect(this, SIGNAL(changeBitSTOP()), &myWorker, SLOT(changeBitStop()));
+    /* Set points button */
+    connect(&setPointScreen, SIGNAL(updateLevel1SP()), &myWorker, SLOT(updateLevel1SP()));
+    connect(&setPointScreen, SIGNAL(updateLevel2SP()), &myWorker, SLOT(updateLevel2SP()));
+    connect(&setPointScreen, SIGNAL(updateTimeSP()), &myWorker, SLOT(updateTimeSP()));
+    connect(&setPointScreen, SIGNAL(updateTemperatureSP()), &myWorker, SLOT(updateTemperatureSP()));
     /* Update PLC info */
     connect(&myWorker, SIGNAL(updatePLCInfo()), &outputTestScreen, SLOT(updatePLCInfo()));
 }
@@ -95,85 +117,58 @@ void MainWindow::inputTestButton_clicked()
     ui->mainScreen->setCurrentIndex(inputTestScreen_INDEX);
 }
 
+void MainWindow::statsButton_clicked()
+{
+    ui->mainScreen->setCurrentIndex(statisticScreen_INDEX);
+}
+
+void MainWindow::setPointButton_clicked()
+{
+    ui->mainScreen->setCurrentIndex(setPointScreen_INDEX);
+}
+
 void MainWindow::outputTestButton_clicked()
 {
     ui->mainScreen->setCurrentIndex(outputTestScreen_INDEX);
 }
 
-void MainWindow::on_V1Button_clicked()
-{
-    static bool V1 = false;
-    V1 = !V1;
-    V1 ? ui->valveON1_img->setVisible(true) : ui->valveON1_img->setVisible(false);
-}
-
-void MainWindow::on_V2Button_clicked()
-{
-    static bool V2 = false;
-    V2 = !V2;
-    V2 ? ui->valveON2_img->setVisible(true) : ui->valveON2_img->setVisible(false);
-}
-
-void MainWindow::on_V3Button_clicked()
-{
-    static bool V3 = false;
-    V3 = !V3;
-    V3 ? ui->valveON3_img->setVisible(true) : ui->valveON3_img->setVisible(false);
-}
-
-void MainWindow::on_V4Button_clicked()
-{
-    static bool V4 = false;
-    V4 = !V4;
-    V4 ? ui->valveON4_img->setVisible(true) : ui->valveON4_img->setVisible(false);
-}
-
-void MainWindow::on_mixerONButton_clicked()
-{
-    mixer = !mixer;
-    if(mixer)
-    {
-        ui->mixerOFF_img->setVisible(false);
-        ui->mixerON1_img->setVisible(true);
-    }
-    else
-    {
-        ui->mixerOFF_img->setVisible(true);
-        ui->mixerON1_img->setVisible(false);
-        ui->mixerON2_img->setVisible(false);
-    }
-}
-
-void MainWindow::on_heaterONButton_clicked()
-{
-    static bool heater = false;
-    heater = !heater;
-    heater ? ui->heaterON_img->setVisible(true) : ui->heaterON_img->setVisible(false);
-}
-
-void MainWindow::on_startButton_clicked()
-{
-    emit changeBitSTART();
-}
-
 void MainWindow::updateAnimation()
 {
-    static bool mixerAnimation = false;
-    mixerAnimation = !mixerAnimation;
-    qDebug() << mixerAnimation;
+    static int mixerAnimation = 0;
+    mixerAnimation++;
+    if(mixerAnimation > 3)
+        mixerAnimation = 0;
     //if(mixer)
     if(MIXER.VALUE)
     {
         ui->mixerOFF_img->setVisible(false);
-        if(mixerAnimation)
+        if(mixerAnimation == 0)
         {
             ui->mixerON1_img->setVisible(true);
             ui->mixerON2_img->setVisible(false);
+            ui->mixerON3_img->setVisible(false);
+            ui->mixerON4_img->setVisible(false);
         }
-        else
+        else if(mixerAnimation == 1)
         {
             ui->mixerON1_img->setVisible(false);
             ui->mixerON2_img->setVisible(true);
+            ui->mixerON3_img->setVisible(false);
+            ui->mixerON4_img->setVisible(false);
+        }
+        else if(mixerAnimation == 2)
+        {
+            ui->mixerON1_img->setVisible(false);
+            ui->mixerON2_img->setVisible(false);
+            ui->mixerON3_img->setVisible(true);
+            ui->mixerON4_img->setVisible(false);
+        }
+        else if(mixerAnimation == 3)
+        {
+            ui->mixerON1_img->setVisible(false);
+            ui->mixerON2_img->setVisible(false);
+            ui->mixerON3_img->setVisible(false);
+            ui->mixerON4_img->setVisible(true);
         }
     }
     else
@@ -181,6 +176,8 @@ void MainWindow::updateAnimation()
         ui->mixerOFF_img->setVisible(true);
         ui->mixerON1_img->setVisible(false);
         ui->mixerON2_img->setVisible(false);
+        ui->mixerON3_img->setVisible(false);
+        ui->mixerON4_img->setVisible(false);
     }
 
     ui->sensorON1_img->setVisible(SENSOR1.VALUE); //sensor 1
@@ -191,40 +188,37 @@ void MainWindow::updateAnimation()
     ui->valveON2_img->setVisible(VALVE2.VALUE); //valve 2
     ui->valveON3_img->setVisible(VALVE3.VALUE); //valve 3
     ui->valveON4_img->setVisible(VALVE4.VALUE); //valve 4
-
-    ui->levelProggresBar1->setValue(static_cast<int>(LEVEL1.VALUE));
-    ui->levelProggresBar2->setValue(static_cast<int>(LEVEL2.VALUE));
-
-    ui->temperatureLabel->setText(QString::number(static_cast<double>(TEMPERATURE.VALUE),'f', 2));
 }
 
+void MainWindow::on_startButton_clicked()
+{
+    emit setBitSTART();
+}
 
+void MainWindow::on_startButton_released()
+{
+    emit resetBitSTART();
+}
 
+void MainWindow::on_stopButton_clicked()
+{
+    emit changeBitSTOP();
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+void MainWindow::on_showButton_clicked()
+{
+    static bool state = false;
+    state = !state;
+    ui->V1label->setVisible(state);
+    ui->V2label->setVisible(state);
+    ui->V3label->setVisible(state);
+    ui->V4label->setVisible(state);
+    ui->S1label->setVisible(state);
+    ui->S2label->setVisible(state);
+    ui->S3label->setVisible(state);
+    if(state)
+        ui->showButton->setText("Hide index");
+    else {
+        ui->showButton->setText("Show index");
+    }
+}

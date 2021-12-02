@@ -45,5 +45,10 @@
         <file>valve/valveTopERROR.png</file>
         <file>valve/valveTopOFF.png</file>
         <file>valve/valveTopON.png</file>
+        <file>mixer/mixerON3.png</file>
+        <file>mixer/mixerON4.png</file>
+        <file>other/connectionOFF.png</file>
+        <file>other/connectionON.png</file>
+        <file>other/ring.png</file>
     </qresource>
 </RCC>

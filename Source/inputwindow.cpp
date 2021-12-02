@@ -24,6 +24,9 @@ Inputwindow::Inputwindow(QWidget *parent) :
 
     ui->disconnectButton->setEnabled(false);
 
+    ui->connectionON_img->setVisible(false);
+    ui->connectionOFF_img->setVisible(true);
+
     /* Button's SIGNAL - SLOT connection */
     connect(ui->backButton, SIGNAL(clicked()), this, SLOT(backButton_clicked()));
 
@@ -63,6 +66,8 @@ void Inputwindow::update()
     ui->inputW5->setText(QString::number(IW5.VALUE));
     ui->inputD7->setText(QString::number(static_cast<double>(ID7.VALUE),'f', 2));
     ui->inputD11->setText(QString::number(static_cast<double>(ID11.VALUE),'f', 2));
+
+    infoPLC.IS_CONNECTED ? ui->connectionON_img->setVisible(true) : ui->connectionON_img->setVisible(false);
 }
 
 void Inputwindow::connectButton_clicked()

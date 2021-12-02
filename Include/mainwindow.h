@@ -8,6 +8,8 @@
 #include "worker.h"
 #include "inputwindow.h"
 #include "outputwindow.h"
+#include "statisticwindow.h"
+#include "setpointwindow.h"
 
 namespace Ui {
 class MainWindow;
@@ -25,6 +27,9 @@ private:
     Ui::MainWindow *ui;
     Inputwindow inputTestScreen;
     Outputwindow outputTestScreen;
+    Statisticwindow statisticScreen;
+    SetPointwindow setPointScreen;
+
     QThread myThread;
     Worker myWorker;
 
@@ -33,24 +38,30 @@ private:
 
     int inputTestScreen_INDEX = 1;
     int outputTestScreen_INDEX = 2;
+    int statisticScreen_INDEX = 3;
+    int setPointScreen_INDEX = 4;
 signals:
-    void changeBitSTART();
+    void setBitSTART();
+    void resetBitSTART();
 
+    void setBitRESET();
+    void resetBitRESET();
+
+    void changeBitSTOP();
 
 private slots:
     void closeButton_clicked();
     void backToHomeScreen();
     void inputTestButton_clicked();
     void outputTestButton_clicked();
-    void on_V1Button_clicked();
-    void on_V2Button_clicked();
-    void on_V3Button_clicked();
-    void on_V4Button_clicked();
-    void on_mixerONButton_clicked();
-    void on_heaterONButton_clicked();
+    void statsButton_clicked();
+    void setPointButton_clicked();
 
     void updateAnimation();
     void on_startButton_clicked();
+    void on_startButton_released();
+    void on_stopButton_clicked();
+    void on_showButton_clicked();
 };
 
 #endif // MAINWINDOW_H

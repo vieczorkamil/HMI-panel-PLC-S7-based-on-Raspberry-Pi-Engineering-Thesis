@@ -240,11 +240,83 @@ void Worker::setOutputD11()
     }
 }
 
-void Worker::changeBitStart()
+void Worker::setBitStart()
 {
     if (myPlc->isConnect())
     {
         // mutex?
-        myPlc->toggleBit(&START);
+        myPlc->setBit(&START);
+    }
+}
+
+void Worker::resetBitStart()
+{
+    if (myPlc->isConnect())
+    {
+        // mutex?
+        myPlc->resetBit(&START);
+    }
+}
+
+void Worker::setBitReset()
+{
+    if (myPlc->isConnect())
+    {
+        // mutex?
+        myPlc->setBit(&RESET);
+    }
+}
+
+void Worker::resetBitReset()
+{
+    if (myPlc->isConnect())
+    {
+        // mutex?
+        myPlc->resetBit(&RESET);
+    }
+}
+
+void Worker::changeBitStop()
+{
+    if (myPlc->isConnect())
+    {
+        // mutex?
+        myPlc->toggleBit(&STOP);
+    }
+}
+
+void Worker::updateLevel1SP()
+{
+    if (myPlc->isConnect())
+    {
+        // mutex?
+        myPlc->writeValue(&LEVEL1SETPOINT);
+    }
+}
+
+void Worker::updateLevel2SP()
+{
+    if (myPlc->isConnect())
+    {
+        // mutex?
+        myPlc->writeValue(&LEVEL2SETPOINT);
+    }
+}
+
+void Worker::updateTimeSP()
+{
+    if (myPlc->isConnect())
+    {
+        // mutex?
+        //myPlc->writeValue(&TIMESETPOINT);
+    }
+}
+
+void Worker::updateTemperatureSP()
+{
+    if (myPlc->isConnect())
+    {
+        // mutex?
+        myPlc->writeValue(&TEMPERATURESETPOINT);
     }
 }

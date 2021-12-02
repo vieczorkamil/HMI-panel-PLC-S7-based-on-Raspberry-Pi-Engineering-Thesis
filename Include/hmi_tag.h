@@ -77,4 +77,11 @@ extern struct HMI_tag<float> TEMPERATURE;
 extern struct HMI_tag<float> LEVEL1;
 extern struct HMI_tag<float> LEVEL2;
 
+extern struct HMI_tag<float> LEVEL1SETPOINT;
+extern struct HMI_tag<float> LEVEL2SETPOINT;
+extern struct HMI_tag<float> TEMPERATURESETPOINT;
+//extern struct HMI_tag<int> TIMESETPOINT;
+
+extern struct HMI_tag<bool> STOP;
+extern struct HMI_tag<bool> RESET;
 #endif // HMI_TAG_H

@@ -48,3 +48,11 @@ struct HMI_tag<bool> VALVE4{DB, 1.1, 3};
 struct HMI_tag<float> TEMPERATURE{DB, 2, 3};
 struct HMI_tag<float> LEVEL1{DB, 6, 3};
 struct HMI_tag<float> LEVEL2{DB, 10, 3};
+
+struct HMI_tag<float> LEVEL1SETPOINT{DB, 14, 3};
+struct HMI_tag<float> LEVEL2SETPOINT{DB, 18, 3};
+struct HMI_tag<float> TEMPERATURESETPOINT{DB, 22, 3};
+//struct HMI_tag<float> TIMESETPOINT{DB, 26, 3};
+
+struct HMI_tag<bool> STOP{DB, 30.0, 3};
+struct HMI_tag<bool> RESET{DB, 30.1, 3};

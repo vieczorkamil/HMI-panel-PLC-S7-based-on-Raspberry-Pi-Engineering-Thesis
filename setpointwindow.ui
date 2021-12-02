@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SetPointwindow</class>
+ <widget class="QWidget" name="SetPointwindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1024</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#SetPointwindow{
+	background: rgb(188,188,188);
+}
+QPushButton{
+	outline : 0px;
+	font: bold 14px;
+	color: white;
+	background: rgb(68, 68, 68);
+	border-radius: 7px;
+}
+
+QPushButton:pressed{ 
+	background:rgb(134, 134, 134) ;
+}
+QPushButton:disabled {
+	background:rgb(134, 134, 134) ;	
+	color: rgb(68, 68, 68);
+}</string>
+  </property>
+  <widget class="QPushButton" name="backButton">
+   <property name="geometry">
+    <rect>
+     <x>894</x>
+     <y>510</y>
+     <width>100</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QSlider" name="level1Slider">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>110</y>
+     <width>71</width>
+     <height>311</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QSlider{
+	padding: 2px;
+}
+QSlider::groove:vertical {
+    border: 1px solid #262626;
+    width: 25px;
+    background: rgb(156, 156, 156);
+	margin: 0 12px;
+	border-radius: 5px;
+}
+QSlider::handle:vertical {
+    background: gray;
+    height: 40px;
+	border: 1px solid #262626;
+	margin: 0px -10px 0px;
+	border-radius: 10px;
+}
+QSlider::add-page:vertical{
+	border: 1px solid #262626;
+    width: 15px;
+    background: rgb(51, 196, 38);
+	margin: 0 12px;
+	border-radius: 5px;
+}</string>
+   </property>
+   <property name="maximum">
+    <number>100</number>
+   </property>
+   <property name="value">
+    <number>0</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="timeSetPoint">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>90</y>
+     <width>100</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QSpinBox{
+	background: rgb(188,188,188);
+	font: bold 20px;
+	color: rgb(68, 68, 68);
+	border: 2px solid rgb(68, 68, 68);
+}
+QSpinBox::up-button{
+	font: bold 50px;
+}
+</string>
+   </property>
+   <property name="wrapping">
+    <bool>false</bool>
+   </property>
+   <property name="frame">
+    <bool>true</bool>
+   </property>
+   <property name="buttonSymbols">
+    <enum>QAbstractSpinBox::PlusMinus</enum>
+   </property>
+   <property name="minimum">
+    <number>0</number>
+   </property>
+   <property name="maximum">
+    <number>255</number>
+   </property>
+  </widget>
+  <widget class="QDoubleSpinBox" name="temperatureSetPoint">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>150</y>
+     <width>100</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QDoubleSpinBox{
+	background: rgb(188,188,188);
+	font: bold 20px;
+	color: rgb(68, 68, 68);
+	border: 2px solid rgb(68, 68, 68);
+}
+QDoubleSpinBox::up-button{
+	font: bold 50px;
+}
+</string>
+   </property>
+   <property name="wrapping">
+    <bool>false</bool>
+   </property>
+   <property name="frame">
+    <bool>true</bool>
+   </property>
+   <property name="buttonSymbols">
+    <enum>QAbstractSpinBox::PlusMinus</enum>
+   </property>
+   <property name="minimum">
+    <double>15.000000000000000</double>
+   </property>
+   <property name="value">
+    <double>15.000000000000000</double>
+   </property>
+  </widget>
+  <widget class="QLabel" name="OutputB1Label">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>90</y>
+     <width>231</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	font: bold 22px;
+	color: rgb(68, 68, 68);
+	border: 2px solid rgb(68, 68, 68);
+	padding: 2px;
+	qproperty-alignment: AlignCenter;
+}</string>
+   </property>
+   <property name="text">
+    <string>MIXING TIME [s]</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="OutputB1Label_2">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>150</y>
+     <width>231</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	font: bold 22px;
+	color: rgb(68, 68, 68);
+	border: 2px solid rgb(68, 68, 68);
+	padding: 2px;
+	qproperty-alignment: AlignCenter;
+}</string>
+   </property>
+   <property name="text">
+    <string>TEMPERATURE</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="OutputB1Label_3">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>450</y>
+     <width>101</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	font: bold 22px;
+	color: rgb(68, 68, 68);
+	border: 2px solid rgb(68, 68, 68);
+	padding: 2px;
+	qproperty-alignment: AlignCenter;
+}</string>
+   </property>
+   <property name="text">
+    <string>LEVEL 1</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="level1">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>70</y>
+     <width>51</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	font: bold 22px;
+	color: rgb(68, 68, 68);
+	padding: 2px;
+	qproperty-alignment: AlignCenter;
+}</string>
+   </property>
+   <property name="text">
+    <string>100</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="setLevel1Button">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>500</y>
+     <width>65</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>SET</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="setTimeButton">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>90</y>
+     <width>65</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>SET</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="setTemperatureButton">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>150</y>
+     <width>65</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>SET</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

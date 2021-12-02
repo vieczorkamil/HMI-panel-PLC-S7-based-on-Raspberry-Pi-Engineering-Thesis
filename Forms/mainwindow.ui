@@ -54,7 +54,7 @@ QPushButton:pressed{
      <widget class="QPushButton" name="inputTestButton">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>290</x>
         <y>510</y>
         <width>100</width>
         <height>60</height>
@@ -67,7 +67,7 @@ QPushButton:pressed{
      <widget class="QPushButton" name="outputTestButton">
       <property name="geometry">
        <rect>
-        <x>160</x>
+        <x>420</x>
         <y>510</y>
         <width>100</width>
         <height>60</height>
@@ -162,7 +162,7 @@ QPushButton:pressed{
      <widget class="QLabel" name="pipe7_img">
       <property name="geometry">
        <rect>
-        <x>498</x>
+        <x>500</x>
         <y>215</y>
         <width>141</width>
         <height>21</height>
@@ -482,125 +482,6 @@ QPushButton:pressed{
        <string/>
       </property>
      </widget>
-     <widget class="QPushButton" name="V1Button">
-      <property name="geometry">
-       <rect>
-        <x>770</x>
-        <y>40</y>
-        <width>51</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>V1</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="V2Button">
-      <property name="geometry">
-       <rect>
-        <x>840</x>
-        <y>40</y>
-        <width>51</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>V2</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="V3Button">
-      <property name="geometry">
-       <rect>
-        <x>770</x>
-        <y>100</y>
-        <width>51</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>V3</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="V4Button">
-      <property name="geometry">
-       <rect>
-        <x>840</x>
-        <y>100</y>
-        <width>51</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>V4</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="heaterONButton">
-      <property name="geometry">
-       <rect>
-        <x>770</x>
-        <y>220</y>
-        <width>121</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Heater ON</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="mixerONButton">
-      <property name="geometry">
-       <rect>
-        <x>770</x>
-        <y>170</y>
-        <width>121</width>
-        <height>41</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Mixer ON</string>
-      </property>
-     </widget>
-     <widget class="QProgressBar" name="levelProggresBar1">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>300</y>
-        <width>51</width>
-        <height>121</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QProgressBar
-{
-border: 2px solid black;
-border-bottom-right-radius: 9px;
-border-bottom-left-radius: 9px;
-background-color:rgb(131, 131, 131);
-color: white;
-font: bold 16px;
-padding: 4px
-}
-QProgressBar::chunk 
-{
-background-color: rgb(44, 135, 255);
-height: 1px;
-} 
-
-</string>
-      </property>
-      <property name="value">
-       <number>24</number>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="textVisible">
-       <bool>true</bool>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
      <widget class="QLabel" name="sensorON3_img">
       <property name="geometry">
        <rect>
@@ -697,77 +578,268 @@ height: 1px;
        <string/>
       </property>
      </widget>
-     <widget class="QProgressBar" name="levelProggresBar2">
-      <property name="geometry">
-       <rect>
-        <x>470</x>
-        <y>300</y>
-        <width>51</width>
-        <height>121</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">QProgressBar
-{
-border: 2px solid black;
-border-bottom-right-radius: 9px;
-border-bottom-left-radius: 9px;
-background-color:rgb(131, 131, 131);
-color: white;
-font: bold 16px;
-padding: 4px
-}
-QProgressBar::chunk 
-{
-background-color: rgb(44, 135, 255);
-height: 1px;
-} 
-
-</string>
-      </property>
-      <property name="value">
-       <number>24</number>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-      <property name="textVisible">
-       <bool>true</bool>
-      </property>
-      <property name="orientation">
-       <enum>Qt::Vertical</enum>
-      </property>
-     </widget>
      <widget class="QPushButton" name="startButton">
       <property name="geometry">
        <rect>
-        <x>150</x>
+        <x>820</x>
         <y>70</y>
-        <width>91</width>
-        <height>30</height>
+        <width>131</width>
+        <height>41</height>
        </rect>
       </property>
       <property name="text">
        <string>Start</string>
       </property>
      </widget>
-     <widget class="QLabel" name="temperatureLabel">
+     <widget class="QLabel" name="mixerON3_img">
       <property name="geometry">
        <rect>
-        <x>600</x>
-        <y>460</y>
-        <width>81</width>
+        <x>172</x>
+        <y>255</y>
+        <width>71</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image:url(&quot;:/mixer/mixerON3.png&quot;);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QLabel" name="mixerON4_img">
+      <property name="geometry">
+       <rect>
+        <x>172</x>
+        <y>255</y>
+        <width>71</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">image:url(&quot;:/mixer/mixerON4.png&quot;);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="stopButton">
+      <property name="geometry">
+       <rect>
+        <x>820</x>
+        <y>130</y>
+        <width>131</width>
         <height>41</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">font: bold 22px;
-color: rgb(68, 68, 68);
-border: 2px solid rgb(68, 68, 68);
-padding: 2px;</string>
+       <string notr="true">QPushButton{
+	outline : 0px;
+	font: bold 14px;
+	color: white;
+	background: rgb(194, 0, 0);
+	border-radius: 7px;
+}
+
+QPushButton:pressed{ 
+	background:rgb(170, 0, 0);
+}</string>
       </property>
       <property name="text">
-       <string/>
+       <string>Stop</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="statsButton">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>510</y>
+        <width>100</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Statistic</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="setPointsButton">
+      <property name="geometry">
+       <rect>
+        <x>160</x>
+        <y>510</y>
+        <width>100</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Set points</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="V1label">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>190</y>
+        <width>41</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	font: bold 22px;
+	color: rgb(68, 68, 68);
+	border: 2px solid rgb(68, 68, 68);
+	padding: 2px;
+	qproperty-alignment: AlignCenter;
+}</string>
+      </property>
+      <property name="text">
+       <string>V1</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="V2label">
+      <property name="geometry">
+       <rect>
+        <x>240</x>
+        <y>190</y>
+        <width>41</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	font: bold 22px;
+	color: rgb(68, 68, 68);
+	border: 2px solid rgb(68, 68, 68);
+	padding: 2px;
+	qproperty-alignment: AlignCenter;
+}</string>
+      </property>
+      <property name="text">
+       <string>V2</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="V3label">
+      <property name="geometry">
+       <rect>
+        <x>316</x>
+        <y>400</y>
+        <width>41</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	font: bold 22px;
+	color: rgb(68, 68, 68);
+	border: 2px solid rgb(68, 68, 68);
+	padding: 2px;
+	qproperty-alignment: AlignCenter;
+}</string>
+      </property>
+      <property name="text">
+       <string>V3</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="V4label">
+      <property name="geometry">
+       <rect>
+        <x>742</x>
+        <y>410</y>
+        <width>41</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	font: bold 22px;
+	color: rgb(68, 68, 68);
+	border: 2px solid rgb(68, 68, 68);
+	padding: 2px;
+	qproperty-alignment: AlignCenter;
+}</string>
+      </property>
+      <property name="text">
+       <string>V4</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="S1label">
+      <property name="geometry">
+       <rect>
+        <x>47</x>
+        <y>302</y>
+        <width>41</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	font: bold 22px;
+	color: rgb(68, 68, 68);
+	border: 2px solid rgb(68, 68, 68);
+	padding: 2px;
+	qproperty-alignment: AlignCenter;
+}</string>
+      </property>
+      <property name="text">
+       <string>S1</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="S2label">
+      <property name="geometry">
+       <rect>
+        <x>47</x>
+        <y>383</y>
+        <width>41</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	font: bold 22px;
+	color: rgb(68, 68, 68);
+	border: 2px solid rgb(68, 68, 68);
+	padding: 2px;
+	qproperty-alignment: AlignCenter;
+}</string>
+      </property>
+      <property name="text">
+       <string>S2</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="S3label">
+      <property name="geometry">
+       <rect>
+        <x>488</x>
+        <y>390</y>
+        <width>41</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	font: bold 22px;
+	color: rgb(68, 68, 68);
+	border: 2px solid rgb(68, 68, 68);
+	padding: 2px;
+	qproperty-alignment: AlignCenter;
+}</string>
+      </property>
+      <property name="text">
+       <string>S3</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="showButton">
+      <property name="geometry">
+       <rect>
+        <x>820</x>
+        <y>220</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>Show index</string>
       </property>
      </widget>
      <zorder>sensorOFF1_img</zorder>
@@ -800,19 +872,23 @@ padding: 2px;</string>
      <zorder>valveON3_img</zorder>
      <zorder>valveON2_img</zorder>
      <zorder>valveON1_img</zorder>
-     <zorder>V1Button</zorder>
-     <zorder>V2Button</zorder>
-     <zorder>V3Button</zorder>
-     <zorder>V4Button</zorder>
-     <zorder>heaterONButton</zorder>
-     <zorder>mixerONButton</zorder>
-     <zorder>levelProggresBar1</zorder>
      <zorder>sensorON3_img</zorder>
      <zorder>sensorON2_img</zorder>
      <zorder>sensorON1_img</zorder>
-     <zorder>levelProggresBar2</zorder>
      <zorder>startButton</zorder>
-     <zorder>temperatureLabel</zorder>
+     <zorder>mixerON3_img</zorder>
+     <zorder>mixerON4_img</zorder>
+     <zorder>stopButton</zorder>
+     <zorder>statsButton</zorder>
+     <zorder>setPointsButton</zorder>
+     <zorder>V1label</zorder>
+     <zorder>V2label</zorder>
+     <zorder>V3label</zorder>
+     <zorder>V4label</zorder>
+     <zorder>S1label</zorder>
+     <zorder>S2label</zorder>
+     <zorder>S3label</zorder>
+     <zorder>showButton</zorder>
     </widget>
     <widget class="QWidget" name="page_2"/>
    </widget>

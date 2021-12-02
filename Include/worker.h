@@ -47,7 +47,16 @@ public slots:
     void setOutputD7();
     void setOutputD11();
 
-    void changeBitStart();
+    void updateLevel1SP();
+    void updateLevel2SP();
+    void updateTimeSP();
+    void updateTemperatureSP();
+
+    void setBitStart();
+    void resetBitStart();
+    void setBitReset();
+    void resetBitReset();
+    void changeBitStop();
 };
 
 #endif // WORKER_H
