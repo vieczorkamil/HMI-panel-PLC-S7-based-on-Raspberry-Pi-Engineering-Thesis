@@ -33,8 +33,8 @@ SOURCES += \
         Source/inputwindow.cpp \
         Source/outputwindow.cpp \
         Source/hmi_tag.cpp \
-    statisticwindow.cpp \
-    setpointwindow.cpp
+    	Source/statisticwindow.cpp \
+    	Source/setpointwindow.cpp
 
 HEADERS += \
         Include/mainwindow.h \
@@ -45,8 +45,8 @@ HEADERS += \
         Include/outputwindow.h \
         Include/configPLC.h \
         Include/hmi_tag.h \
-    statisticwindow.h \
-    setpointwindow.h
+    	Include/statisticwindow.h \
+    	Include/setpointwindow.h
 
 INCLUDEPATH += \
         Include \
@@ -58,8 +58,8 @@ FORMS += \
         Forms/mainwindow.ui \
         Forms/inputwindow.ui \
         Forms/outputwindow.ui \
-    statisticwindow.ui \
-    setpointwindow.ui
+    	Forms/statisticwindow.ui \
+    	Forms/setpointwindow.ui
 
 LIBS += -lsnap7
 
