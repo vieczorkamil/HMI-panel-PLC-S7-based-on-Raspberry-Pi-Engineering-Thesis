@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#define ACTIVE_SCREEN(name)     ui->mainScreen->setCurrentIndex(ui->mainScreen->indexOf(ui->name))
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -12,7 +14,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     ui->mainScreen->setCurrentIndex(ui->mainScreen->indexOf(ui->homeScreen)); // set homeScreen as default
 
-    /* Add new screen */
+    /* ---------------------------------------------Add new screen--------------------------------------------- */
     ui->mainScreen->insertWidget(inputTestScreen_INDEX, &inputTestScreen);
     ui->mainScreen->insertWidget(outputTestScreen_INDEX, &outputTestScreen);
     ui->mainScreen->insertWidget(statisticScreen_INDEX, &statisticScreen);
@@ -46,20 +48,35 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->S2label->setVisible(false);
     ui->S3label->setVisible(false);
 
-    /* Back to homeScreen SIGNAL - SLOT connection */
-    connect(&inputTestScreen, SIGNAL(backToHomeScreen()), this, SLOT(backToHomeScreen()));
-    connect(&outputTestScreen, SIGNAL(backToHomeScreen()), this, SLOT(backToHomeScreen()));
-    connect(&statisticScreen, SIGNAL(backToHomeScreen()), this, SLOT(backToHomeScreen()));
+    /* ---------------------------------------------Other Screens SIGNAL - SLOT connection------------------------------------------ */
+    connect(&inputTestScreen, SIGNAL(exit()), this, SLOT(closeApp()));
+    connect(&inputTestScreen, SIGNAL(goToMainScreen()), this, SLOT(activeMainScreen()));
+    connect(&inputTestScreen, SIGNAL(goToInfoScreen()), this, SLOT(activeInfoScreen()));
+    connect(&inputTestScreen, SIGNAL(goToInputScreen()), this, SLOT(activeInputScreen()));
+    connect(&inputTestScreen, SIGNAL(goToOutputScreen()), this, SLOT(activeOutputScreen()));
+
+    connect(&outputTestScreen, SIGNAL(exit()), this, SLOT(closeApp()));
+    connect(&outputTestScreen, SIGNAL(goToMainScreen()), this, SLOT(activeMainScreen()));
+    connect(&outputTestScreen, SIGNAL(goToInfoScreen()), this, SLOT(activeInfoScreen()));
+    connect(&outputTestScreen, SIGNAL(goToInputScreen()), this, SLOT(activeInputScreen()));
+    connect(&outputTestScreen, SIGNAL(goToOutputScreen()), this, SLOT(activeOutputScreen()));
+
+    connect(&statisticScreen, SIGNAL(exit()), this, SLOT(closeApp()));
+    connect(&statisticScreen, SIGNAL(goToMainScreen()), this, SLOT(activeMainScreen()));
+    connect(&statisticScreen, SIGNAL(goToInfoScreen()), this, SLOT(activeInfoScreen()));
+    connect(&statisticScreen, SIGNAL(goToInputScreen()), this, SLOT(activeInputScreen()));
+    connect(&statisticScreen, SIGNAL(goToOutputScreen()), this, SLOT(activeOutputScreen()));
+
     connect(&setPointScreen, SIGNAL(backToHomeScreen()), this, SLOT(backToHomeScreen()));
 
-    /* Button's SIGNAL - SLOT connection */
-    connect(ui->closeButton, SIGNAL(clicked()), this, SLOT(closeButton_clicked()));
-    connect(ui->inputTestButton, SIGNAL(clicked()), this, SLOT(inputTestButton_clicked()));
-    connect(ui->outputTestButton, SIGNAL(clicked()), this, SLOT(outputTestButton_clicked()));
-    connect(ui->statsButton, SIGNAL(clicked()), this, SLOT(statsButton_clicked()));
-    connect(ui->setPointsButton, SIGNAL(clicked()), this, SLOT(setPointButton_clicked()));
+    /* ---------------------------------------------Button's SIGNAL - SLOT connection------------------------------------------------- */
+    connect(ui->backButton, SIGNAL(clicked()), this, SLOT(closeApp()));
+    connect(ui->mainButton, SIGNAL(clicked()), this, SLOT(activeMainScreen()));
+    connect(ui->infoButton, SIGNAL(clicked()), this, SLOT(activeInfoScreen()));
+    connect(ui->inputButton, SIGNAL(clicked()), this, SLOT(activeInputScreen()));
+    connect(ui->outputButton, SIGNAL(clicked()), this, SLOT(activeOutputScreen()));
 
-    /* Thread SIGNAL - SLOT connection */
+    /* ---------------------------------------------Thread SIGNAL - SLOT connection---------------------------------------------------- */
     connect(&myThread, SIGNAL(finished()), myWorker.myTimer, SLOT(stop())); //zatrzymanie timera po zakończeniu wątku
     /* Connect and disconnect PLC */
     connect(&inputTestScreen, SIGNAL(connectToPlc()), &myWorker, SLOT(connectToPlc()));
@@ -102,32 +119,25 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::closeButton_clicked()
+void MainWindow::closeApp()
 {
     this->close();
 }
-
-void MainWindow::backToHomeScreen()
+void MainWindow::activeMainScreen()
 {
-    ui->mainScreen->setCurrentIndex(ui->mainScreen->indexOf(ui->homeScreen)); // set homeScreen as default
+    ui->mainScreen->setCurrentIndex(ui->mainScreen->indexOf(ui->homeScreen));
 }
 
-void MainWindow::inputTestButton_clicked()
-{
-    ui->mainScreen->setCurrentIndex(inputTestScreen_INDEX);
-}
-
-void MainWindow::statsButton_clicked()
+void MainWindow::activeInfoScreen()
 {
     ui->mainScreen->setCurrentIndex(statisticScreen_INDEX);
 }
 
-void MainWindow::setPointButton_clicked()
+void MainWindow::activeInputScreen()
 {
-    ui->mainScreen->setCurrentIndex(setPointScreen_INDEX);
+    ui->mainScreen->setCurrentIndex(inputTestScreen_INDEX);
 }
-
-void MainWindow::outputTestButton_clicked()
+void MainWindow::activeOutputScreen()
 {
     ui->mainScreen->setCurrentIndex(outputTestScreen_INDEX);
 }
@@ -138,7 +148,6 @@ void MainWindow::updateAnimation()
     mixerAnimation++;
     if(mixerAnimation > 3)
         mixerAnimation = 0;
-    //if(mixer)
     if(MIXER.VALUE)
     {
         ui->mixerOFF_img->setVisible(false);

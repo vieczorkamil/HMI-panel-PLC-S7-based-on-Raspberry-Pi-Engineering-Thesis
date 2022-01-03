@@ -36,14 +36,14 @@ QPushButton:disabled {
   <widget class="QPushButton" name="backButton">
    <property name="geometry">
     <rect>
-     <x>894</x>
-     <y>510</y>
+     <x>890</x>
+     <y>530</y>
      <width>100</width>
      <height>60</height>
     </rect>
    </property>
    <property name="text">
-    <string>Back</string>
+    <string>CLOSE</string>
    </property>
   </widget>
   <widget class="QProgressBar" name="levelProggresBar1">
@@ -52,7 +52,7 @@ QPushButton:disabled {
      <x>178</x>
      <y>70</y>
      <width>141</width>
-     <height>291</height>
+     <height>321</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -92,10 +92,10 @@ border-bottom-left-radius: 3px;
   <widget class="QProgressBar" name="levelProggresBar2">
    <property name="geometry">
     <rect>
-     <x>358</x>
+     <x>335</x>
      <y>70</y>
      <width>141</width>
-     <height>291</height>
+     <height>321</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -133,8 +133,8 @@ height: 1px;
   <widget class="QLabel" name="label_10">
    <property name="geometry">
     <rect>
-     <x>823</x>
-     <y>205</y>
+     <x>803</x>
+     <y>215</y>
      <width>21</width>
      <height>22</height>
     </rect>
@@ -150,8 +150,8 @@ color: white;</string>
   <widget class="QLabel" name="label_8">
    <property name="geometry">
     <rect>
-     <x>764</x>
-     <y>92</y>
+     <x>744</x>
+     <y>102</y>
      <width>21</width>
      <height>22</height>
     </rect>
@@ -167,8 +167,8 @@ color: white;</string>
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>626</x>
-     <y>92</y>
+     <x>606</x>
+     <y>102</y>
      <width>21</width>
      <height>22</height>
     </rect>
@@ -184,8 +184,8 @@ color: white;</string>
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>693</x>
-     <y>79</y>
+     <x>673</x>
+     <y>89</y>
      <width>21</width>
      <height>22</height>
     </rect>
@@ -201,8 +201,8 @@ color: white;</string>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>635</x>
-     <y>318</y>
+     <x>615</x>
+     <y>328</y>
      <width>21</width>
      <height>22</height>
     </rect>
@@ -218,8 +218,8 @@ color: white;</string>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>578</x>
-     <y>142</y>
+     <x>558</x>
+     <y>152</y>
      <width>21</width>
      <height>22</height>
     </rect>
@@ -235,8 +235,8 @@ color: white;</string>
   <widget class="QLabel" name="label_12">
    <property name="geometry">
     <rect>
-     <x>752</x>
-     <y>319</y>
+     <x>732</x>
+     <y>329</y>
      <width>31</width>
      <height>22</height>
     </rect>
@@ -252,8 +252,8 @@ color: white;</string>
   <widget class="QLabel" name="temperatureValue">
    <property name="geometry">
     <rect>
-     <x>656</x>
-     <y>192</y>
+     <x>636</x>
+     <y>202</y>
      <width>91</width>
      <height>41</height>
     </rect>
@@ -279,8 +279,8 @@ color: black;</string>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>579</x>
-     <y>269</y>
+     <x>559</x>
+     <y>279</y>
      <width>21</width>
      <height>22</height>
     </rect>
@@ -299,8 +299,8 @@ color: white;</string>
    </property>
    <property name="geometry">
     <rect>
-     <x>586</x>
-     <y>102</y>
+     <x>566</x>
+     <y>112</y>
      <width>231</width>
      <height>231</height>
     </rect>
@@ -362,8 +362,8 @@ background-color:rgb(45, 45, 45);
   <widget class="QLabel" name="label_11">
    <property name="geometry">
     <rect>
-     <x>808</x>
-     <y>269</y>
+     <x>788</x>
+     <y>279</y>
      <width>21</width>
      <height>22</height>
     </rect>
@@ -379,8 +379,8 @@ color: white;</string>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>564</x>
-     <y>205</y>
+     <x>544</x>
+     <y>215</y>
      <width>21</width>
      <height>22</height>
     </rect>
@@ -396,8 +396,8 @@ color: white;</string>
   <widget class="QLabel" name="label_9">
    <property name="geometry">
     <rect>
-     <x>808</x>
-     <y>142</y>
+     <x>788</x>
+     <y>152</y>
      <width>21</width>
      <height>22</height>
     </rect>
@@ -413,8 +413,8 @@ color: white;</string>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>587</x>
-     <y>97</y>
+     <x>567</x>
+     <y>107</y>
      <width>231</width>
      <height>241</height>
     </rect>
@@ -429,8 +429,8 @@ color: white;</string>
   <widget class="QLabel" name="label_13">
    <property name="geometry">
     <rect>
-     <x>550</x>
-     <y>70</y>
+     <x>530</x>
+     <y>80</y>
      <width>304</width>
      <height>295</height>
     </rect>
@@ -447,7 +447,7 @@ color: white;</string>
    <property name="geometry">
     <rect>
      <x>201</x>
-     <y>390</y>
+     <y>410</y>
      <width>91</width>
      <height>31</height>
     </rect>
@@ -466,8 +466,8 @@ qproperty-alignment: AlignCenter;</string>
   <widget class="QLabel" name="label_15">
    <property name="geometry">
     <rect>
-     <x>383</x>
-     <y>390</y>
+     <x>360</x>
+     <y>410</y>
      <width>91</width>
      <height>31</height>
     </rect>
@@ -486,8 +486,8 @@ qproperty-alignment: AlignCenter;</string>
   <widget class="QLabel" name="label_16">
    <property name="geometry">
     <rect>
-     <x>620</x>
-     <y>390</y>
+     <x>600</x>
+     <y>410</y>
      <width>161</width>
      <height>31</height>
     </rect>
@@ -503,6 +503,304 @@ qproperty-alignment: AlignCenter;</string>
     <string>TEMPERATURE</string>
    </property>
   </widget>
+  <widget class="QLabel" name="border1">
+   <property name="geometry">
+    <rect>
+     <x>7</x>
+     <y>30</y>
+     <width>501</width>
+     <height>481</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	font: bold 22px;
+	color: rgb(68, 68, 68);
+	border: 2px solid rgb(68, 68, 68);
+	padding: 2px;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="border1_2">
+   <property name="geometry">
+    <rect>
+     <x>516</x>
+     <y>30</y>
+     <width>501</width>
+     <height>481</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	font: bold 22px;
+	color: rgb(68, 68, 68);
+	border: 2px solid rgb(68, 68, 68);
+	padding: 2px;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QSlider" name="level1Slider">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>80</y>
+     <width>71</width>
+     <height>311</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QSlider{
+	padding: 2px;
+}
+QSlider::groove:vertical {
+    border: 1px solid #262626;
+    width: 25px;
+    background: rgb(156, 156, 156);
+	margin: 0 12px;
+	border-radius: 5px;
+}
+QSlider::handle:vertical {
+    background: gray;
+    height: 40px;
+	border: 1px solid #262626;
+	margin: 0px -10px 0px;
+	border-radius: 10px;
+}
+QSlider::add-page:vertical{
+	border: 1px solid #262626;
+    width: 15px;
+    background: rgb(51, 196, 38);
+	margin: 0 12px;
+	border-radius: 5px;
+}</string>
+   </property>
+   <property name="maximum">
+    <number>100</number>
+   </property>
+   <property name="value">
+    <number>0</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="level1">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>40</y>
+     <width>51</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	font: bold 22px;
+	color: rgb(68, 68, 68);
+	padding: 2px;
+	qproperty-alignment: AlignCenter;
+}</string>
+   </property>
+   <property name="text">
+    <string>100</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="setLevel1Button">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>460</y>
+     <width>65</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>SET</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="OutputB1Label_3">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>410</y>
+     <width>131</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	font: bold 14px;
+	color: rgb(68, 68, 68);
+	border: 2px solid rgb(68, 68, 68);
+	padding: 2px;
+	qproperty-alignment: AlignCenter;
+}</string>
+   </property>
+   <property name="text">
+    <string>LEVEL SET POINT</string>
+   </property>
+  </widget>
+  <widget class="QSlider" name="level1Slider_2">
+   <property name="geometry">
+    <rect>
+     <x>880</x>
+     <y>80</y>
+     <width>71</width>
+     <height>311</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QSlider{
+	padding: 2px;
+}
+QSlider::groove:vertical {
+    border: 1px solid #262626;
+    width: 25px;
+    background: rgb(156, 156, 156);
+	margin: 0 12px;
+	border-radius: 5px;
+}
+QSlider::handle:vertical {
+    background: gray;
+    height: 40px;
+	border: 1px solid #262626;
+	margin: 0px -10px 0px;
+	border-radius: 10px;
+}
+QSlider::add-page:vertical{
+	border: 1px solid #262626;
+    width: 15px;
+    background: rgb(51, 196, 38);
+	margin: 0 12px;
+	border-radius: 5px;
+}</string>
+   </property>
+   <property name="maximum">
+    <number>100</number>
+   </property>
+   <property name="value">
+    <number>0</number>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Vertical</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="level1_2">
+   <property name="geometry">
+    <rect>
+     <x>890</x>
+     <y>40</y>
+     <width>51</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	font: bold 22px;
+	color: rgb(68, 68, 68);
+	padding: 2px;
+	qproperty-alignment: AlignCenter;
+}</string>
+   </property>
+   <property name="text">
+    <string>100</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="setLevel1Button_2">
+   <property name="geometry">
+    <rect>
+     <x>880</x>
+     <y>460</y>
+     <width>65</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>SET</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="OutputB1Label_4">
+   <property name="geometry">
+    <rect>
+     <x>824</x>
+     <y>410</y>
+     <width>181</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QLabel{
+	font: bold 14px;
+	color: rgb(68, 68, 68);
+	border: 2px solid rgb(68, 68, 68);
+	padding: 2px;
+	qproperty-alignment: AlignCenter;
+}</string>
+   </property>
+   <property name="text">
+    <string>TEMPERATURE SET POINT</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mainButton">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>530</y>
+     <width>100</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>MAIN</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="infoButton">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>530</y>
+     <width>100</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>INFO</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="inputButton">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>530</y>
+     <width>100</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>INPUT</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="outputButton">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>530</y>
+     <width>100</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>OUTPUT</string>
+   </property>
+  </widget>
+  <zorder>border1</zorder>
+  <zorder>border1_2</zorder>
   <zorder>label</zorder>
   <zorder>backButton</zorder>
   <zorder>levelProggresBar1</zorder>
@@ -524,6 +822,18 @@ qproperty-alignment: AlignCenter;</string>
   <zorder>label_14</zorder>
   <zorder>label_15</zorder>
   <zorder>label_16</zorder>
+  <zorder>level1Slider</zorder>
+  <zorder>level1</zorder>
+  <zorder>setLevel1Button</zorder>
+  <zorder>OutputB1Label_3</zorder>
+  <zorder>level1Slider_2</zorder>
+  <zorder>level1_2</zorder>
+  <zorder>setLevel1Button_2</zorder>
+  <zorder>OutputB1Label_4</zorder>
+  <zorder>mainButton</zorder>
+  <zorder>infoButton</zorder>
+  <zorder>inputButton</zorder>
+  <zorder>outputButton</zorder>
  </widget>
  <resources/>
  <connections/>

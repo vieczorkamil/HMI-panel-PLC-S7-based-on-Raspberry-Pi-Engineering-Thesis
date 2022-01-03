@@ -10,6 +10,11 @@ Statisticwindow::Statisticwindow(QWidget *parent) :
 
     /* Button's SIGNAL - SLOT connection */
     connect(ui->backButton, SIGNAL(clicked()), this, SLOT(backButton_clicked()));
+    connect(ui->mainButton, SIGNAL(clicked()), this, SLOT(mainScreenButton_clicked()));
+    connect(ui->infoButton, SIGNAL(clicked()), this, SLOT(infoScreenButton_clicked()));
+    connect(ui->inputButton, SIGNAL(clicked()), this, SLOT(inputScreenButton_clicked()));
+    connect(ui->outputButton, SIGNAL(clicked()), this, SLOT(outputScreenButton_clicked()));
+
     /* update */
     connect(myTimer, SIGNAL(timeout()), this, SLOT(update()));
     myTimer->start(300);
@@ -22,7 +27,25 @@ Statisticwindow::~Statisticwindow()
 
 void Statisticwindow::backButton_clicked()
 {
-    emit backToHomeScreen();
+    emit exit();
+}
+
+void Statisticwindow::mainScreenButton_clicked()
+{
+    emit goToMainScreen();
+}
+
+void Statisticwindow::infoScreenButton_clicked()
+{
+    emit goToInfoScreen();
+}
+void Statisticwindow::inputScreenButton_clicked()
+{
+    emit goToInputScreen();
+}
+void Statisticwindow::outputScreenButton_clicked()
+{
+    emit goToOutputScreen();
 }
 
 void Statisticwindow::update()

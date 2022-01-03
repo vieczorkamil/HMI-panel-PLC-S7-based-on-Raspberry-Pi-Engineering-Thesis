@@ -13,14 +13,13 @@ Outputwindow::Outputwindow(QWidget *parent) :
     ui->setupUi(this);
 
     /* Set default value */
-    ui->ModuleTypeName->setText(QString::fromUtf8(infoPLC.MODULE_TYPE_NAME));
-    ui->SerialNumber->setText(QString::fromUtf8(infoPLC.SERIAL_NUMBER));
-    ui->ASName->setText(QString::fromUtf8(infoPLC.AS_NAME));
-    ui->Copyright->setText(QString::fromUtf8(infoPLC.COPYRIGHT));
-    ui->ModuleName->setText(QString::fromUtf8(infoPLC.MODULE_NAME));
 
     /* Button's SIGNAL - SLOT connection */
     connect(ui->backButton, SIGNAL(clicked()), this, SLOT(backButton_clicked()));
+    connect(ui->mainButton, SIGNAL(clicked()), this, SLOT(mainScreenButton_clicked()));
+    connect(ui->infoButton, SIGNAL(clicked()), this, SLOT(infoScreenButton_clicked()));
+    connect(ui->inputButton, SIGNAL(clicked()), this, SLOT(inputScreenButton_clicked()));
+    connect(ui->outputButton, SIGNAL(clicked()), this, SLOT(outputScreenButton_clicked()));
 
     connect(ui->switchOutput0_0, SIGNAL(stateChanged(int)), this, SLOT(switchOutput0_0_changed(int)));
     connect(ui->switchOutput0_1, SIGNAL(stateChanged(int)), this, SLOT(switchOutput0_1_changed(int)));
@@ -46,16 +45,29 @@ Outputwindow::~Outputwindow()
 
 void Outputwindow::backButton_clicked()
 {
-    emit backToHomeScreen();
+    emit exit();
+}
+
+void Outputwindow::mainScreenButton_clicked()
+{
+    emit goToMainScreen();
+}
+
+void Outputwindow::infoScreenButton_clicked()
+{
+    emit goToInfoScreen();
+}
+void Outputwindow::inputScreenButton_clicked()
+{
+    emit goToInputScreen();
+}
+void Outputwindow::outputScreenButton_clicked()
+{
+    emit goToOutputScreen();
 }
 
 void Outputwindow::updatePLCInfo()
 {
-    ui->ModuleTypeName->setText(QString::fromUtf8(infoPLC.MODULE_TYPE_NAME));
-    ui->SerialNumber->setText(QString::fromUtf8(infoPLC.SERIAL_NUMBER));
-    ui->ASName->setText(QString::fromUtf8(infoPLC.AS_NAME));
-    ui->Copyright->setText(QString::fromUtf8(infoPLC.COPYRIGHT));
-    ui->ModuleName->setText(QString::fromUtf8(infoPLC.MODULE_NAME));
 }
 
 void Outputwindow::switchOutput0_0_changed(int arg)

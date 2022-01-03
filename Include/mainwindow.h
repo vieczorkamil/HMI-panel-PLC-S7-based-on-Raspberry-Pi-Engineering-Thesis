@@ -50,12 +50,12 @@ signals:
     void changeBitSTOP();
 
 private slots:
-    void closeButton_clicked();
-    void backToHomeScreen();
-    void inputTestButton_clicked();
-    void outputTestButton_clicked();
-    void statsButton_clicked();
-    void setPointButton_clicked();
+
+    void closeApp();
+    void activeMainScreen();
+    void activeInfoScreen();
+    void activeInputScreen();
+    void activeOutputScreen();
 
     void updateAnimation();
     void on_startButton_clicked();

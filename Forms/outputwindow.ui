@@ -105,21 +105,21 @@ QTextEdit{
   <widget class="QPushButton" name="backButton">
    <property name="geometry">
     <rect>
-     <x>894</x>
-     <y>510</y>
+     <x>890</x>
+     <y>530</y>
      <width>100</width>
      <height>60</height>
     </rect>
    </property>
    <property name="text">
-    <string>Back</string>
+    <string>CLOSE</string>
    </property>
   </widget>
   <widget class="QLabel" name="infoLabel">
    <property name="geometry">
     <rect>
      <x>388</x>
-     <y>30</y>
+     <y>4</y>
      <width>248</width>
      <height>30</height>
     </rect>
@@ -142,8 +142,8 @@ QTextEdit{
    </property>
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>113</y>
+     <x>200</x>
+     <y>83</y>
      <width>51</width>
      <height>31</height>
     </rect>
@@ -158,8 +158,8 @@ QTextEdit{
    </property>
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>163</y>
+     <x>200</x>
+     <y>133</y>
      <width>61</width>
      <height>31</height>
     </rect>
@@ -174,8 +174,8 @@ QTextEdit{
    </property>
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>213</y>
+     <x>200</x>
+     <y>183</y>
      <width>61</width>
      <height>31</height>
     </rect>
@@ -190,8 +190,8 @@ QTextEdit{
    </property>
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>263</y>
+     <x>200</x>
+     <y>233</y>
      <width>51</width>
      <height>31</height>
     </rect>
@@ -206,8 +206,8 @@ QTextEdit{
    </property>
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>313</y>
+     <x>200</x>
+     <y>283</y>
      <width>61</width>
      <height>31</height>
     </rect>
@@ -222,8 +222,8 @@ QTextEdit{
    </property>
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>363</y>
+     <x>200</x>
+     <y>333</y>
      <width>51</width>
      <height>31</height>
     </rect>
@@ -238,8 +238,8 @@ QTextEdit{
    </property>
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>413</y>
+     <x>200</x>
+     <y>383</y>
      <width>61</width>
      <height>31</height>
     </rect>
@@ -254,8 +254,8 @@ QTextEdit{
    </property>
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>463</y>
+     <x>200</x>
+     <y>433</y>
      <width>51</width>
      <height>31</height>
     </rect>
@@ -267,8 +267,8 @@ QTextEdit{
   <widget class="QLabel" name="Output0_0Label">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>110</y>
+     <x>280</x>
+     <y>80</y>
      <width>71</width>
      <height>34</height>
     </rect>
@@ -280,8 +280,8 @@ QTextEdit{
   <widget class="QLabel" name="Output0_1Label">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>160</y>
+     <x>280</x>
+     <y>130</y>
      <width>71</width>
      <height>34</height>
     </rect>
@@ -293,8 +293,8 @@ QTextEdit{
   <widget class="QLabel" name="Output0_2Label">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>210</y>
+     <x>280</x>
+     <y>180</y>
      <width>71</width>
      <height>34</height>
     </rect>
@@ -306,8 +306,8 @@ QTextEdit{
   <widget class="QLabel" name="Output0_3Label">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>260</y>
+     <x>280</x>
+     <y>230</y>
      <width>71</width>
      <height>34</height>
     </rect>
@@ -319,8 +319,8 @@ QTextEdit{
   <widget class="QLabel" name="Output0_4Label">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>310</y>
+     <x>280</x>
+     <y>280</y>
      <width>71</width>
      <height>34</height>
     </rect>
@@ -332,8 +332,8 @@ QTextEdit{
   <widget class="QLabel" name="Output0_5Label">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>360</y>
+     <x>280</x>
+     <y>330</y>
      <width>71</width>
      <height>34</height>
     </rect>
@@ -345,8 +345,8 @@ QTextEdit{
   <widget class="QLabel" name="Output0_6Label">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>410</y>
+     <x>280</x>
+     <y>380</y>
      <width>71</width>
      <height>34</height>
     </rect>
@@ -358,8 +358,8 @@ QTextEdit{
   <widget class="QLabel" name="Output0_7Label">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>460</y>
+     <x>280</x>
+     <y>430</y>
      <width>71</width>
      <height>34</height>
     </rect>
@@ -371,296 +371,86 @@ QTextEdit{
   <widget class="QLabel" name="OutputD7Label">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>410</y>
+     <x>570</x>
+     <y>380</y>
      <width>155</width>
      <height>34</height>
     </rect>
    </property>
    <property name="text">
-    <string>QD 7 (REAL)</string>
+    <string>MD 7 (REAL)</string>
    </property>
   </widget>
   <widget class="QLabel" name="OutputW3Label">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>260</y>
+     <x>570</x>
+     <y>230</y>
      <width>155</width>
      <height>34</height>
     </rect>
    </property>
    <property name="text">
-    <string>QW 3 (INT)</string>
+    <string>MW 3 (INT)</string>
    </property>
   </widget>
   <widget class="QLabel" name="OutputB2Label">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>160</y>
+     <x>570</x>
+     <y>130</y>
      <width>155</width>
      <height>34</height>
     </rect>
    </property>
    <property name="text">
-    <string>QB 2 (USINT)</string>
+    <string>MB 2 (USINT)</string>
    </property>
   </widget>
   <widget class="QLabel" name="OutputW5Label">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>310</y>
+     <x>570</x>
+     <y>280</y>
      <width>155</width>
      <height>34</height>
     </rect>
    </property>
    <property name="text">
-    <string>QW 5 (UINT)</string>
+    <string>MW 5 (UINT)</string>
    </property>
   </widget>
   <widget class="QLabel" name="OutputB1Label">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>110</y>
+     <x>570</x>
+     <y>80</y>
      <width>155</width>
      <height>34</height>
     </rect>
    </property>
    <property name="text">
-    <string>QB 1 (SINT)</string>
+    <string>MB 1 (SINT)</string>
    </property>
   </widget>
   <widget class="QLabel" name="OutputD11Label">
    <property name="geometry">
     <rect>
-     <x>420</x>
-     <y>460</y>
+     <x>570</x>
+     <y>430</y>
      <width>155</width>
      <height>34</height>
     </rect>
    </property>
    <property name="text">
-    <string>QD 11 (REAL)</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="ModuleTypeName">
-   <property name="geometry">
-    <rect>
-     <x>750</x>
-     <y>110</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>-1</pointsize>
-     <weight>75</weight>
-     <italic>false</italic>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>fdghd</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="SerialNumber">
-   <property name="geometry">
-    <rect>
-     <x>750</x>
-     <y>180</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>-1</pointsize>
-     <weight>75</weight>
-     <italic>false</italic>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>fdghd</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="ASName">
-   <property name="geometry">
-    <rect>
-     <x>750</x>
-     <y>250</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>-1</pointsize>
-     <weight>75</weight>
-     <italic>false</italic>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>fdghd</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="Copyright">
-   <property name="geometry">
-    <rect>
-     <x>750</x>
-     <y>320</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>-1</pointsize>
-     <weight>75</weight>
-     <italic>false</italic>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>fdghd</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="ModuleName">
-   <property name="geometry">
-    <rect>
-     <x>750</x>
-     <y>390</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>-1</pointsize>
-     <weight>75</weight>
-     <italic>false</italic>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>fdghd</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="ModuleTypeNameLabel">
-   <property name="geometry">
-    <rect>
-     <x>750</x>
-     <y>80</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>-1</pointsize>
-     <weight>75</weight>
-     <italic>false</italic>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Module Type Name</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="SerialNumberLabel">
-   <property name="geometry">
-    <rect>
-     <x>750</x>
-     <y>150</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>-1</pointsize>
-     <weight>75</weight>
-     <italic>false</italic>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Serial Number</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="ASNameLabel">
-   <property name="geometry">
-    <rect>
-     <x>750</x>
-     <y>220</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>-1</pointsize>
-     <weight>75</weight>
-     <italic>false</italic>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>AS Name</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="CopyrightLabel">
-   <property name="geometry">
-    <rect>
-     <x>750</x>
-     <y>290</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>-1</pointsize>
-     <weight>75</weight>
-     <italic>false</italic>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Copyright</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="ModuleNameLabel">
-   <property name="geometry">
-    <rect>
-     <x>750</x>
-     <y>360</y>
-     <width>201</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="font">
-    <font>
-     <pointsize>-1</pointsize>
-     <weight>75</weight>
-     <italic>false</italic>
-     <bold>true</bold>
-    </font>
-   </property>
-   <property name="text">
-    <string>Module Name</string>
+    <string>MD 11 (REAL)</string>
    </property>
   </widget>
   <widget class="QLabel" name="Border1">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>80</y>
+     <x>180</x>
+     <y>50</y>
      <width>201</width>
      <height>441</height>
     </rect>
@@ -672,23 +462,10 @@ QTextEdit{
   <widget class="QLabel" name="Border2">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>80</y>
+     <x>400</x>
+     <y>50</y>
      <width>441</width>
      <height>441</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QLabel" name="Border3">
-   <property name="geometry">
-    <rect>
-     <x>710</x>
-     <y>80</y>
-     <width>281</width>
-     <height>361</height>
     </rect>
    </property>
    <property name="text">
@@ -698,8 +475,8 @@ QTextEdit{
   <widget class="QSpinBox" name="outputW3">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>260</y>
+     <x>440</x>
+     <y>230</y>
      <width>100</width>
      <height>34</height>
     </rect>
@@ -723,8 +500,8 @@ QTextEdit{
   <widget class="QDoubleSpinBox" name="outputD11">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>460</y>
+     <x>440</x>
+     <y>430</y>
      <width>100</width>
      <height>34</height>
     </rect>
@@ -745,8 +522,8 @@ QTextEdit{
   <widget class="QSpinBox" name="outputW5">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>310</y>
+     <x>440</x>
+     <y>280</y>
      <width>100</width>
      <height>34</height>
     </rect>
@@ -770,8 +547,8 @@ QTextEdit{
   <widget class="QSpinBox" name="outputB1">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>110</y>
+     <x>440</x>
+     <y>80</y>
      <width>100</width>
      <height>34</height>
     </rect>
@@ -795,8 +572,8 @@ QTextEdit{
   <widget class="QSpinBox" name="outputB2">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>160</y>
+     <x>440</x>
+     <y>130</y>
      <width>100</width>
      <height>34</height>
     </rect>
@@ -820,8 +597,8 @@ QTextEdit{
   <widget class="QDoubleSpinBox" name="outputD7">
    <property name="geometry">
     <rect>
-     <x>290</x>
-     <y>410</y>
+     <x>440</x>
+     <y>380</y>
      <width>100</width>
      <height>34</height>
     </rect>
@@ -842,8 +619,8 @@ QTextEdit{
   <widget class="QPushButton" name="outputD11Button">
    <property name="geometry">
     <rect>
-     <x>600</x>
-     <y>460</y>
+     <x>750</x>
+     <y>430</y>
      <width>65</width>
      <height>34</height>
     </rect>
@@ -855,8 +632,8 @@ QTextEdit{
   <widget class="QPushButton" name="outputB2Button">
    <property name="geometry">
     <rect>
-     <x>600</x>
-     <y>160</y>
+     <x>750</x>
+     <y>130</y>
      <width>65</width>
      <height>34</height>
     </rect>
@@ -868,8 +645,8 @@ QTextEdit{
   <widget class="QPushButton" name="outputW3Button">
    <property name="geometry">
     <rect>
-     <x>600</x>
-     <y>260</y>
+     <x>750</x>
+     <y>230</y>
      <width>65</width>
      <height>34</height>
     </rect>
@@ -881,8 +658,8 @@ QTextEdit{
   <widget class="QPushButton" name="outputB1Button">
    <property name="geometry">
     <rect>
-     <x>600</x>
-     <y>110</y>
+     <x>750</x>
+     <y>80</y>
      <width>65</width>
      <height>34</height>
     </rect>
@@ -894,8 +671,8 @@ QTextEdit{
   <widget class="QPushButton" name="outputD7Button">
    <property name="geometry">
     <rect>
-     <x>600</x>
-     <y>410</y>
+     <x>750</x>
+     <y>380</y>
      <width>65</width>
      <height>34</height>
     </rect>
@@ -907,8 +684,8 @@ QTextEdit{
   <widget class="QPushButton" name="outputW5Button">
    <property name="geometry">
     <rect>
-     <x>600</x>
-     <y>310</y>
+     <x>750</x>
+     <y>280</y>
      <width>65</width>
      <height>34</height>
     </rect>
@@ -917,7 +694,58 @@ QTextEdit{
     <string>SET</string>
    </property>
   </widget>
-  <zorder>Border3</zorder>
+  <widget class="QPushButton" name="outputButton">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>530</y>
+     <width>100</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>OUTPUT</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="mainButton">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>530</y>
+     <width>100</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>MAIN</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="infoButton">
+   <property name="geometry">
+    <rect>
+     <x>150</x>
+     <y>530</y>
+     <width>100</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>INFO</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="inputButton">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>530</y>
+     <width>100</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>INPUT</string>
+   </property>
+  </widget>
   <zorder>Border1</zorder>
   <zorder>Border2</zorder>
   <zorder>backButton</zorder>
@@ -944,16 +772,6 @@ QTextEdit{
   <zorder>OutputW5Label</zorder>
   <zorder>OutputB1Label</zorder>
   <zorder>OutputD11Label</zorder>
-  <zorder>ModuleTypeName</zorder>
-  <zorder>SerialNumber</zorder>
-  <zorder>ASName</zorder>
-  <zorder>Copyright</zorder>
-  <zorder>ModuleName</zorder>
-  <zorder>ModuleTypeNameLabel</zorder>
-  <zorder>SerialNumberLabel</zorder>
-  <zorder>ASNameLabel</zorder>
-  <zorder>CopyrightLabel</zorder>
-  <zorder>ModuleNameLabel</zorder>
   <zorder>outputW3</zorder>
   <zorder>outputD11</zorder>
   <zorder>outputW5</zorder>
@@ -966,6 +784,10 @@ QTextEdit{
   <zorder>outputB1Button</zorder>
   <zorder>outputD7Button</zorder>
   <zorder>outputW5Button</zorder>
+  <zorder>outputButton</zorder>
+  <zorder>mainButton</zorder>
+  <zorder>infoButton</zorder>
+  <zorder>inputButton</zorder>
  </widget>
  <resources/>
  <connections/>

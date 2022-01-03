@@ -51,51 +51,12 @@ QPushButton:pressed{
 }</string>
     </property>
     <widget class="QWidget" name="homeScreen">
-     <widget class="QPushButton" name="inputTestButton">
-      <property name="geometry">
-       <rect>
-        <x>290</x>
-        <y>510</y>
-        <width>100</width>
-        <height>60</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Input test</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="outputTestButton">
-      <property name="geometry">
-       <rect>
-        <x>420</x>
-        <y>510</y>
-        <width>100</width>
-        <height>60</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Output test</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="closeButton">
-      <property name="geometry">
-       <rect>
-        <x>894</x>
-        <y>510</y>
-        <width>100</width>
-        <height>60</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Close</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="infoLabel">
       <property name="geometry">
        <rect>
-        <x>397</x>
+        <x>330</x>
         <y>30</y>
-        <width>230</width>
+        <width>381</width>
         <height>41</height>
        </rect>
       </property>
@@ -108,7 +69,7 @@ QPushButton:pressed{
        </font>
       </property>
       <property name="text">
-       <string>HMI home screen</string>
+       <string>PROCESS VISUALISATION</string>
       </property>
      </widget>
      <widget class="QLabel" name="tank1_img">
@@ -649,32 +610,6 @@ QPushButton:pressed{
        <string>Stop</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="statsButton">
-      <property name="geometry">
-       <rect>
-        <x>30</x>
-        <y>510</y>
-        <width>100</width>
-        <height>60</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Statistic</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="setPointsButton">
-      <property name="geometry">
-       <rect>
-        <x>160</x>
-        <y>510</y>
-        <width>100</width>
-        <height>60</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Set points</string>
-      </property>
-     </widget>
      <widget class="QLabel" name="V1label">
       <property name="geometry">
        <rect>
@@ -842,13 +777,97 @@ QPushButton:pressed{
        <string>Show index</string>
       </property>
      </widget>
+     <widget class="QLabel" name="border">
+      <property name="geometry">
+       <rect>
+        <x>786</x>
+        <y>40</y>
+        <width>201</width>
+        <height>251</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel{
+	font: bold 22px;
+	color: rgb(68, 68, 68);
+	border: 2px solid rgb(68, 68, 68);
+	padding: 2px;
+}</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="infoButton">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>530</y>
+        <width>100</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>INFO</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="inputButton">
+      <property name="geometry">
+       <rect>
+        <x>320</x>
+        <y>530</y>
+        <width>100</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>INPUT</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="backButton">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>530</y>
+        <width>100</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>CLOSE</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="mainButton">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>530</y>
+        <width>100</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>MAIN</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="outputButton">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>530</y>
+        <width>100</width>
+        <height>60</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>OUTPUT</string>
+      </property>
+     </widget>
+     <zorder>border</zorder>
      <zorder>sensorOFF1_img</zorder>
      <zorder>sensorOFF2_img</zorder>
      <zorder>sensorOFF3_img</zorder>
      <zorder>pipe4_img</zorder>
-     <zorder>inputTestButton</zorder>
-     <zorder>outputTestButton</zorder>
-     <zorder>closeButton</zorder>
      <zorder>infoLabel</zorder>
      <zorder>tank1_img</zorder>
      <zorder>tank2_img</zorder>
@@ -879,8 +898,6 @@ QPushButton:pressed{
      <zorder>mixerON3_img</zorder>
      <zorder>mixerON4_img</zorder>
      <zorder>stopButton</zorder>
-     <zorder>statsButton</zorder>
-     <zorder>setPointsButton</zorder>
      <zorder>V1label</zorder>
      <zorder>V2label</zorder>
      <zorder>V3label</zorder>
@@ -889,6 +906,11 @@ QPushButton:pressed{
      <zorder>S2label</zorder>
      <zorder>S3label</zorder>
      <zorder>showButton</zorder>
+     <zorder>infoButton</zorder>
+     <zorder>inputButton</zorder>
+     <zorder>backButton</zorder>
+     <zorder>mainButton</zorder>
+     <zorder>outputButton</zorder>
     </widget>
     <widget class="QWidget" name="page_2"/>
    </widget>

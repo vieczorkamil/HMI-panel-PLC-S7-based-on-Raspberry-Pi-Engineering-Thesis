@@ -29,6 +29,10 @@ Inputwindow::Inputwindow(QWidget *parent) :
 
     /* Button's SIGNAL - SLOT connection */
     connect(ui->backButton, SIGNAL(clicked()), this, SLOT(backButton_clicked()));
+    connect(ui->mainButton, SIGNAL(clicked()), this, SLOT(mainScreenButton_clicked()));
+    connect(ui->infoButton, SIGNAL(clicked()), this, SLOT(infoScreenButton_clicked()));
+    connect(ui->inputButton, SIGNAL(clicked()), this, SLOT(inputScreenButton_clicked()));
+    connect(ui->outputButton, SIGNAL(clicked()), this, SLOT(outputScreenButton_clicked()));
 
     connect(ui->connectButton, SIGNAL(clicked()), this, SLOT(connectButton_clicked()));
     connect(ui->disconnectButton, SIGNAL(clicked()), this, SLOT(disconnectButton_clicked()));
@@ -45,7 +49,25 @@ Inputwindow::~Inputwindow()
 
 void Inputwindow::backButton_clicked()
 {
-    emit backToHomeScreen();
+    emit exit();
+}
+
+void Inputwindow::mainScreenButton_clicked()
+{
+    emit goToMainScreen();
+}
+
+void Inputwindow::infoScreenButton_clicked()
+{
+    emit goToInfoScreen();
+}
+void Inputwindow::inputScreenButton_clicked()
+{
+    emit goToInputScreen();
+}
+void Inputwindow::outputScreenButton_clicked()
+{
+    emit goToOutputScreen();
 }
 
 void Inputwindow::update()
